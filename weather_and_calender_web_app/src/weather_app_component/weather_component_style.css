@@ -1,3 +1,16 @@
 .container{
-    background-color: rgba(20, 20, 20,0.05);
+    background-image:url('../assets/all_weather.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    height:360px;
+}
+
+
+
+
+
+.cards{
+    background-color: rgba(20, 20, 20,0.4);
+    border:1px solid #121212;
+    color:black;
 }
