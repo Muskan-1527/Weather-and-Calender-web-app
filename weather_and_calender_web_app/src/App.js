@@ -13,9 +13,21 @@ class App extends React.Component {
     super();
     this.state = {
       city: undefined,
-      country:undefined
+      country:undefined,
+      main:undefined,
+      celsius:undefined,
+      temp_max:undefined,
+      temp_min:undefined,
+      description:"",
+      error:false
     };
     this.getWeather();
+  }
+
+
+  calCelsius(temp){
+    let cell=Math.floor(temp-273.15);
+    return cell;
   }
 
   getWeather = async() => {
@@ -27,7 +39,11 @@ class App extends React.Component {
 
     this.setState({
       city:response.name,
-      country:response.sys.country
+      country:response.sys.country,
+      celsius:this.calCelsius(response.main.temp),
+      temp_max:this.calCelsius(response.main.temp_max),
+      temp_min:this.calCelsius(response.main.temp_min),
+      description:response.weather[0].description
     });
   
   };
@@ -35,7 +51,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-      <Weather city={this.state.city} country={this.state.country} />
+      <Weather 
+      city={this.state.city} 
+      country={this.state.country} 
+      temp_celsius={this.state.celsius}
+      temp_max={this.state.temp_max}
+      temp_min={this.state.temp_min}
+      description={this.state.description}
+      />
       </div>
     );
   }

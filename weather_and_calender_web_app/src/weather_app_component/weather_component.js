@@ -7,9 +7,9 @@ const Weather = (props) => {
                <h1>
                    {props.city},{props.country}
                </h1>
-               <h1 className = "py-2">25&deg;</h1>
-               {minmaxTemperature(19,24)}
-               <h4 className = "py-3">Slow Rain</h4>
+               <h1 className = "py-2">{props.temp_celsius}&deg;</h1>
+               {minmaxTemperature(props.temp_min,props.temp_max)}
+               <h4 className = "py-3">{props.description}</h4>
            </div>
         </div>
     );
