@@ -17,6 +17,8 @@ class App extends React.Component {
       temp_max:undefined,
       temp_min:undefined,
       description:"",
+      humidity:undefined,
+      pressure:undefined,
       error:false
     };
   }
@@ -31,7 +33,7 @@ class App extends React.Component {
 
     e.preventDefault();
 
-    const api_call = await fetch('http://api.openweathermap.org/data/2.5/weather?q=Delhi,india&appid=8f6e7eafbcaceee6b0fd1759888a64c7');
+    const api_call = await fetch('http://api.openweathermap.org/data/2.5/weather?q=Manchester,uk&appid=8f6e7eafbcaceee6b0fd1759888a64c7');
   
 
     const response = await api_call.json();
@@ -44,7 +46,9 @@ class App extends React.Component {
       celsius:this.calCelsius(response.main.temp),
       temp_max:this.calCelsius(response.main.temp_max),
       temp_min:this.calCelsius(response.main.temp_min),
-      description:response.weather[0].description
+      description:response.weather[0].description,
+      humidity:response.main.humidity,
+      pressure:response.main.pressure
     });
   
   };
@@ -60,6 +64,8 @@ class App extends React.Component {
       temp_max={this.state.temp_max}
       temp_min={this.state.temp_min}
       description={this.state.description}
+      humidity={this.state.humidity}
+      pressure={this.state.pressure}
       />
       </div>
     );
