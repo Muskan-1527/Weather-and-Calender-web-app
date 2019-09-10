@@ -5,9 +5,6 @@ import Weather from './weather_app_component/weather_component';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from './weather_app_component/weather_form_component';
 
-
-const API_key = "8f6e7eafbcaceee6b0fd1759888a64c7";
-
 class App extends React.Component {
 
   constructor() {
@@ -34,7 +31,7 @@ class App extends React.Component {
 
     e.preventDefault();
 
-    const api_call = await fetch('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=8f6e7eafbcaceee6b0fd1759888a64c7');
+    const api_call = await fetch('http://api.openweathermap.org/data/2.5/weather?q=Delhi,india&appid=8f6e7eafbcaceee6b0fd1759888a64c7');
   
 
     const response = await api_call.json();
