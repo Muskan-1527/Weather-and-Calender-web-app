@@ -1,8 +1,8 @@
 .container{
-    background-image:url('../assets/all_weather.jpg');
+    background-image:url('../assets/clear_sky.jpg');
     background-repeat:no-repeat;
     background-size:cover;
-    height:360px;
+    height:375px;
 }
 
 
