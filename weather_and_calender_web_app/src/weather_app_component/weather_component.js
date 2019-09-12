@@ -2,7 +2,9 @@ import React from 'react';
 
 import './weather_component_style.css';
 
+
 const Weather = (props) => {
+
     return (
         <div className = "container">
            <div className = "cards pt-4">
