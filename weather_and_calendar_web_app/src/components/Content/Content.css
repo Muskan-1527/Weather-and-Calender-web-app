@@ -1,0 +1,11 @@
+.Content{
+     z-index: 1; 
+    position:absolute;
+    text-align: center;
+    color:white;
+    font-size:2em;
+    left:40%;
+    position:absolute;
+
+}
+
