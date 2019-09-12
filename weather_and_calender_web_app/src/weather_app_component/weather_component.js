@@ -18,7 +18,9 @@ const Weather = (props) => {
                    <h1 className = "py-2">{props.temp_celsius}&deg;</h1>
                ):null}
                {minmaxTemperature(props.temp_min,props.temp_max)}
-               <h4 className = "py-3">{props.description}</h4>
+               <h4 className = "py-3">{props.description}
+               {props.city? <img className="img-fluid" src={`http://openweathermap.org/img/w/${props.icon}.png`}/>:null}
+               </h4>
                <h4 className = "py-1"> 
                <span className="px-3">
                {props.humidity?("Humidity:"):null}
@@ -44,5 +46,7 @@ function minmaxTemperature(min,max) {
     );
     }
 }
+
+
 
 export default Weather;

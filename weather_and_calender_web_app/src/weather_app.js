@@ -17,7 +17,7 @@ class WeatherApp extends React.Component {
       description:"",
       humidity:undefined,
       pressure:undefined,
-      id:undefined,
+      icon:undefined,
       error:false
     };
   }
@@ -27,7 +27,6 @@ class WeatherApp extends React.Component {
     let cell=Math.floor(temp-273.15);
     return cell;
   }
-
   
 
   getWeather = async e => {
@@ -53,7 +52,7 @@ class WeatherApp extends React.Component {
       description:response.weather[0].description,
       humidity:response.main.humidity,
       pressure:response.main.pressure,
-      id:response.weather[0].id,
+      icon:response.weather[0].icon,
       error: false
     });
     console.log(response);
@@ -79,7 +78,7 @@ class WeatherApp extends React.Component {
       description={this.state.description}
       humidity={this.state.humidity}
       pressure={this.state.pressure}
-      id={this.state.id}
+      icon={this.state.icon}
       />
         
       </div>
