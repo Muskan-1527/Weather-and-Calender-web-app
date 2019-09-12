@@ -6,9 +6,15 @@ form input[name="country"] {
     border: 0;
     border-bottom:2px solid black;
     border-radius: 0;
+    font-weight:bold;
 }
 
 form input:focus{
     background-color: transparent !important;
     box-shadow:none !important;
+}
+
+input.form-control::placeholder {
+    color:white;
+    font-weight:bold;
 }
