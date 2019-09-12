@@ -9,16 +9,23 @@ class Buildcontrols extends Component{
     render(){
         return(
             <div className={classes.begin}>
-
-
-   <div>
-       <Content/>
-       <span>
-       <img src={img1} alt="weather_image" className={classes.image1}/>
-       </span>
+  <section>
+   <Content/>
+   </section>
+       <div className="container">
+           <div className="row">
+               <div className="col-xs-12">
+               <img src={img1} alt="weather_image" className={classes.image1}/>
+               
+                </div>
+           </div>
+           <div className="row">
+               <div className="col-xs-12">
+               <img src={img2} alt="calendar_image" className={classes.image2}/></div>
+                </div>
+           </div>
    
-   </div>
-   <div > <img src={img2} alt="calendar_image" className={classes.image2}/></div>
+   
 </div>
         );
     }
