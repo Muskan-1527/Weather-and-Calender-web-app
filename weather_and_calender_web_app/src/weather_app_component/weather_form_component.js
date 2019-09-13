@@ -2,6 +2,8 @@ import React from 'react';
 
 import './weather_form_style.css';
 
+import PresentDate from'./weather_present_time';
+
 const Form = props => {
 
     return(
@@ -30,6 +32,9 @@ const Form = props => {
                 </div>
             </div>
           </form>
+          <div className="pt-md-5">
+              <PresentDate/>
+          </div>
         </div>
     );
 };
