@@ -1,0 +1,17 @@
+.NavBar {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    background-color: lightsalmon;
+}
+
+@media (min-width: 500px) {
+    .NavBar {
+        flex-flow: row;
+    }
+}

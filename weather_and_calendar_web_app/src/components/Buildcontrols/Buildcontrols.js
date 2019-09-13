@@ -3,12 +3,14 @@ import img1 from '../images/climate.gif';
 import img2 from '../images/calendar.jpg';
 import classes from './Buildcontrols.css';
 import Content from '../Content/Content';
-
+import NavBar from '../NavBar/NavBar';
 
 class Buildcontrols extends Component{
     render(){
         return(
+            
             <div className={classes.begin}>
+<NavBar/>
   <section>
    <Content/>
    </section>
