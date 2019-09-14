@@ -5,10 +5,10 @@
     font-size:4em;
     position:absolute;
     background-color:rgba(255,255,255,0.5);
-    border:5px solid orangered;
-    box-shadow: 2px 2px 4px goldenrod;
+    /* border:5px solid orangered; */
+    box-shadow: 2px 2px 4px black;
     left:75vh;
-    top:20vh; 
+    top:10vh; 
     text-shadow: 2px 2px tomato;
     /* display:block; */
 }
@@ -20,32 +20,74 @@ position:relative;
 top:40%; */
 }
 
+.button{
+    position:absolute;
+    left:75vh;
+    top:60vh; 
+}
+
 @media screen and (max-width: 600px) {
-    .Content{
+    .Content,.button{
       font-size:1em;
       left:30vw;
       top:5vh;
       position:absolute;
     }
+    .Tagline{
+        font-size:.1em;
+        left:35vw;
+        top:8vh;
+        position:absolute;
+      }
+    
   }
 
   @media (min-width:600px) and (max-width: 1000px) {
-    .Content{
+    .Content,.button{
       font-size:2em;
       left:35vw;
       top:6vh;
       position:absolute;
     }
+    .Tagline{
+        font-size:.1em;
+        left:40vw;
+        top:9vh;
+        position:absolute;
+      }
   }
 
   @media (min-width: 1000px) and  (max-width: 1200px) {
-    .Content{
+    .Content,.button{
       font-size:2em;
       left:37vw;
       top:8vh;
       position:absolute;
     }
+    .Tagline{
+        font-size:.1em;
+        left:0vw;
+        top:0vh;
+        position:absolute;
+      }
   }
+
+.Tagline{
+    z-index: 1; 
+    position:absolute;
+    color:white;
+    font-size:2em;
+    position:absolute;
+    background-color:black;
+    /* border:5px solid orangered; */
+    box-shadow: 2px 2px 4px ghostwhite;
+    left:55vh;
+    top:30vh; 
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:bold;
+    border-bottom:5px solid grey;
+}
+
 
 /*   
 @media (min-width:1000px) and (min-height:700px){

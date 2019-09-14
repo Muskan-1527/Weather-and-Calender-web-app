@@ -6,12 +6,14 @@
     flex-flow: column;
     align-items: center;
     height: 100%;
-    justify-content: flex-end;
-    background-color: lightsalmon;
+    justify-content:flex-end;
+    background-color:darkblue;
+    
 }
 
 @media (min-width: 500px) {
     .NavBar {
         flex-flow: row;
+        
     }
 }

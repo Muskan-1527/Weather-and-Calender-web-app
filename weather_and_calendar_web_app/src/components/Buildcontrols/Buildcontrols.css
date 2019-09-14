@@ -19,13 +19,13 @@ top:0px;
     }
      */
 .begin{
-    background-color:maroon; 
+    background-color:white; 
 }
 
 .image1{
     margin-right:20px;
     width:100%;
-    height:auto;
+    height:10%;
     position:relative;
     margin-bottom:5%;  
     }   

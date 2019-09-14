@@ -4,6 +4,7 @@ import img2 from '../images/calendar.jpg';
 import classes from './Buildcontrols.css';
 import Content from '../Content/Content';
 import NavBar from '../NavBar/NavBar';
+import Button from '../Button/Button';
 
 class Buildcontrols extends Component{
     render(){
@@ -18,7 +19,7 @@ class Buildcontrols extends Component{
            <div className="row">
                <div className="col-xs-12">
                <img src={img1} alt="weather_image" className={classes.image1}/>
-               
+               <Button className={classes.button}>Click to continue</Button>
                 </div>
            </div>
            <div className="row">
@@ -26,7 +27,7 @@ class Buildcontrols extends Component{
                <img src={img2} alt="calendar_image" className={classes.image2}/></div>
                 </div>
            </div>
-   
+
    
 </div>
         );
