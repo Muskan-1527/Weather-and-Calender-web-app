@@ -1,11 +1,10 @@
 form input[name="city"],
 form input[name="country"] {
     background-color: transparent;
-    color: black !important;
+    color: blue !important;
     border: 0;
     border-bottom:2px solid black;
     border-radius: 0;
-    font-weight:bold;
 }
 
 form input:focus{

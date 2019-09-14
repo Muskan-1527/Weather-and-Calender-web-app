@@ -18,9 +18,49 @@ class WeatherApp extends React.Component {
       humidity:undefined,
       pressure:undefined,
       icon:undefined,
+      src:'/all_weather.jpg',
       error:false
     };
   }
+
+  getWeatherImage(ID) {
+    switch(true) {
+        case ID>=200 && ID<=232:
+            this.setState({
+                src : '/thunderstorm.jpg'
+            });
+            break;
+        case ID>=300 && ID<=321:
+                this.setState({
+                    src : '/drizzle.jpg'
+                });
+            break;
+        case ID>=500 && ID<=531:
+                this.setState({
+                    src : '/rain.jpg'
+                });
+            break;
+        case ID>=600 && ID<=622:
+                this.setState({
+                    src : '/snow.jpg'
+                });
+        case ID>=701 && ID<=781:
+                this.setState({
+                    src : '/atmosphere.jpg'
+                });
+            break;
+        case ID===800:
+                this.setState({
+                    src : '/clear_sky.jpg'
+                });
+            break;
+        case ID>=801 && ID<=804:
+                this.setState({
+                    src : '/clouds.jpg'
+                });
+            break;
+    }
+}
 
 
   calCelsius(temp){
@@ -55,6 +95,7 @@ class WeatherApp extends React.Component {
       icon:response.weather[0].icon,
       error: false
     });
+    this.getWeatherImage(response.weather[0].id);
     console.log(response);
   }else {
     this.setState({
@@ -67,7 +108,7 @@ class WeatherApp extends React.Component {
   render() {
     return (
       <div className="App">
-        <Form loadweather={this.getWeather} error={this.state.error}/>
+        <Form loadweather={this.getWeather} error={this.state.error} src={this.state.src}/>
         
       <Weather 
       city={this.state.city} 
@@ -79,6 +120,7 @@ class WeatherApp extends React.Component {
       humidity={this.state.humidity}
       pressure={this.state.pressure}
       icon={this.state.icon}
+      src={this.state.src}
       />
         
       </div>

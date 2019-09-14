@@ -2,13 +2,12 @@ import React from 'react';
 
 import './weather_component_style.css';
 
-
-
 const Weather = (props) => {
 
+
     return (
-        <div className = "container">
-           <div className = "cards pt-4">
+        <div className = "container" style={{ backgroundImage: `url(${props.src})` }}>
+           <div className = "cards pt-4" >
                <h1>
                    {props.city}
                    {props.country?(","):null}
@@ -47,7 +46,6 @@ function minmaxTemperature(min,max) {
     );
     }
 }
-
 
 
 export default Weather;

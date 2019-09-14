@@ -22,7 +22,7 @@ class PresentDate extends React.Component {
             <div className="font-weight-bold font-italic">
                IST: {this.state.curTime}
                <h4 className="font-weight-bold font-italic">
-                   {dayOfWeekAsString(this.state.day)}
+                   {WeekDay(this.state.day)}
                </h4>
             </div>
         )
@@ -30,7 +30,7 @@ class PresentDate extends React.Component {
 
 }
 
-function dayOfWeekAsString(dayIndex) {
+function WeekDay(dayIndex) {
     return ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][dayIndex];
   }
 

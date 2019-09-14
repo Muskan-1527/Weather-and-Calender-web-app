@@ -1,5 +1,4 @@
 .container{
-    background-image:url('../assets/clear_sky.jpg');
     background-repeat:no-repeat;
     background-size:cover;
     height:375px;
@@ -9,5 +8,6 @@
 .cards{
     background-color: rgba(20, 20, 20,0.4);
     border:1px solid #121212;
-    color:black;
+    color:blue;
+    font-weight:bold;
 }
