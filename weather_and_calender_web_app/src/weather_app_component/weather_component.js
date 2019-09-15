@@ -9,22 +9,22 @@ const Weather = (props) => {
 
     return (
         <div className = "container" style={{ backgroundImage: `url(${props.src})` }}>
-            <Form loadweather={props.loadweather}/>
+            <Form loadweather={props.loadweather} error={props.error}/>
            <div className = "cards pt-4" >
                <h1>
                    {props.city}
                    {props.country?(","):null}
                    {props.country}
                </h1>
-               <div className="row py-3">
+               <div className="row py-2">
                    <div className="col-md-3 offset-md-2">
                       {props.city ? (
-                          <h5 className="pr-0">Sunrise at : {sunrise(props.sunriseTime)}</h5>
+                          <h5>Sunrise at : {sunrise(props.sunriseTime)}</h5>
                       ):null}
                    </div>
-                   <div className="col-md-3">
+                   <div className="col-md-2">
                    {props.temp_celsius?(
-                   <h1 className = "py-2">{props.temp_celsius}&deg;</h1>
+                   <h1>{props.temp_celsius}&deg;</h1>
                ):null}
                    </div>
                    <div className="col-md-3">
@@ -34,10 +34,10 @@ const Weather = (props) => {
                    </div>
                </div>
                {minmaxTemperature(props.temp_min,props.temp_max)}
-               <h4 className = "py-3">{props.description}
+               <h4 className = "py-2">{props.description}
                {props.city? <img className="img-fluid" src={`http://openweathermap.org/img/w/${props.icon}.png` } alt="WeatherIcon"/>:null}
                </h4>
-               <h4 className = "py-1"> 
+               <h4> 
                <span className="px-4">
                {props.humidity?("Humidity:"):null}
               {props.humidity}
@@ -46,6 +46,10 @@ const Weather = (props) => {
               {props.pressure?("Pressure:"):null}
                {props.pressure}
                </span>
+               </h4>
+               <h4 className="pt-2">
+                   {props.country?("WindSpeed:"):null}
+                   {props.windspeed}
                </h4>
            </div>
            <div className="row py-3">

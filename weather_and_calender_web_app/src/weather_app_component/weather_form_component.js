@@ -9,8 +9,8 @@ const Form = props => {
     return(
 
         <div className="container" style={{background: 'rgba(0, 0, 0, 0.5)', backgroundImage: `url(${props.src})` }}>
-          <form onSubmit={props.loadweather} className="pt-md-5">
-            <div>{props.error ? error() : ""}</div>
+          <form onSubmit={props.loadweather} className="pt-md-4">
+            <div>{props.error ? errorShow() : ""}</div>
             <div className="row">
                 <div className="col-md-3 offset-md-2">
                     <input
@@ -39,7 +39,7 @@ const Form = props => {
     );
 };
 
-const error = props => {
+function errorShow() {
     return (
         <div className="alert alert-danger mx-5" role="alert">
             Please Enter City and Country...!

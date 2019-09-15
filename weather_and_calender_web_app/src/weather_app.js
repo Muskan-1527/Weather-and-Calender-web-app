@@ -31,6 +31,7 @@ class WeatherApp extends React.Component {
       temp_min3:undefined,
       sunrise:undefined,
       sunset:undefined,
+      windspeed:undefined,
       src:'/all_weather.jpg',
       error:false
     };
@@ -125,6 +126,7 @@ class WeatherApp extends React.Component {
       temp_min3:this.calCelsius(response.list[0].temp.min),
       sunrise:response.list[0].sunrise,
       sunset:response.list[0].sunset,
+      windspeed:response.list[0].speed,
       error: false
     });
     this.getWeatherImage(response.list[0].weather[0].id);
@@ -142,7 +144,7 @@ class WeatherApp extends React.Component {
       <div className="App">
         
       <Weather 
-      loadweather={this.getWeather} error={this.state.error} src={this.state.src}
+      loadweather={this.getWeather} error={this.state.error} 
       city={this.state.city} 
       country={this.state.country} 
       temp_celsius={this.state.celsius}
@@ -166,6 +168,7 @@ class WeatherApp extends React.Component {
       temp_min3={this.state.temp_min3}
       sunriseTime={this.state.sunrise}
       sunsetTime={this.state.sunset}
+      windspeed={this.state.windspeed}
       src={this.state.src}
       />
         
