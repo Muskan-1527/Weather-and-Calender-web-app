@@ -16,10 +16,23 @@ const Weather = (props) => {
                    {props.country?(","):null}
                    {props.country}
                </h1>
-
-               {props.temp_celsius?(
+               <div className="row py-3">
+                   <div className="col-md-3 offset-md-2">
+                      {props.city ? (
+                          <h5 className="pr-0">Sunrise at : {sunrise(props.sunriseTime)}</h5>
+                      ):null}
+                   </div>
+                   <div className="col-md-3">
+                   {props.temp_celsius?(
                    <h1 className = "py-2">{props.temp_celsius}&deg;</h1>
                ):null}
+                   </div>
+                   <div className="col-md-3">
+                      {props.city ? (
+                          <h5>Sunset at : {sunset(props.sunsetTime)}</h5>
+                      ):null}
+                   </div>
+               </div>
                {minmaxTemperature(props.temp_min,props.temp_max)}
                <h4 className = "py-3">{props.description}
                {props.city? <img className="img-fluid" src={`http://openweathermap.org/img/w/${props.icon}.png` } alt="WeatherIcon"/>:null}
@@ -77,6 +90,24 @@ function minmaxfuturetemperature(min,max) {
                 {min}/{max}&deg;
             </h4>
         )
+    }
+}
+
+function sunrise(sunriseTime) {
+    if(sunriseTime){
+    const date = new Date(sunriseTime);
+    return (
+        date.toLocaleTimeString()
+    );
+    }
+}
+
+function sunset(sunsetTime) {
+    if(sunsetTime){
+    const date = new Date(sunsetTime);
+    return (
+        date.toLocaleTimeString()
+    );
     }
 }
 

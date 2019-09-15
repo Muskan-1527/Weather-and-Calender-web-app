@@ -29,6 +29,8 @@ class WeatherApp extends React.Component {
       temp_min2:undefined,
       temp_max3:undefined,
       temp_min3:undefined,
+      sunrise:undefined,
+      sunset:undefined,
       src:'/all_weather.jpg',
       error:false
     };
@@ -121,6 +123,8 @@ class WeatherApp extends React.Component {
       temp_min2:this.calCelsius(response.list[0].temp.min),
       temp_max3:this.calCelsius(response.list[0].temp.max),
       temp_min3:this.calCelsius(response.list[0].temp.min),
+      sunrise:response.list[0].sunrise,
+      sunset:response.list[0].sunset,
       error: false
     });
     this.getWeatherImage(response.list[0].weather[0].id);
@@ -160,6 +164,8 @@ class WeatherApp extends React.Component {
       temp_min2={this.state.temp_min2}
       temp_max3={this.state.temp_max3}
       temp_min3={this.state.temp_min3}
+      sunriseTime={this.state.sunrise}
+      sunsetTime={this.state.sunset}
       src={this.state.src}
       />
         
