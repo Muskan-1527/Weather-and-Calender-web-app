@@ -1,7 +1,6 @@
 import React from 'react';
 import Weather from './weather_app_component/weather_component';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Form from './weather_app_component/weather_form_component';
 
 class WeatherApp extends React.Component {
 
@@ -18,6 +17,18 @@ class WeatherApp extends React.Component {
       humidity:undefined,
       pressure:undefined,
       icon:undefined,
+      description1:undefined,
+      description2:undefined,
+      description3:undefined,
+      icon1:undefined,
+      icon2:undefined,
+      icon3:undefined,
+      temp_max1:undefined,
+      temp_min1:undefined,
+      temp_max2:undefined,
+      temp_min2:undefined,
+      temp_max3:undefined,
+      temp_min3:undefined,
       src:'/all_weather.jpg',
       error:false
     };
@@ -83,24 +94,36 @@ class WeatherApp extends React.Component {
 
     if(country && city){
     const api_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=8f6e7eafbcaceee6b0fd1759888a64c7`
+      `http://api.openweathermap.org/data/2.5/forecast/daily?q=${city},${country}&APPID=c10e7100063f10864ba3ffb839aed7f3`
       );
   
     const response = await api_call.json();
 
     this.setState({
-      city:response.name,
-      country:response.sys.country,
-      celsius:this.calCelsius(response.main.temp),
-      temp_max:this.calCelsius(response.main.temp_max),
-      temp_min:this.calCelsius(response.main.temp_min),
-      description:response.weather[0].description,
-      humidity:response.main.humidity,
-      pressure:response.main.pressure,
-      icon:response.weather[0].icon,
+      city:response.city.name,
+      country:response.city.country,
+      celsius:this.calCelsius(response.list[0].temp.day),
+      temp_max:this.calCelsius(response.list[0].temp.max),
+      temp_min:this.calCelsius(response.list[0].temp.min),
+      description:response.list[0].weather[0].description,
+      humidity:response.list[0].humidity,
+      pressure:response.list[0].pressure,
+      icon:response.list[0].weather[0].icon,
+      description1:response.list[1].weather[0].description,
+      description2:response.list[2].weather[0].description,
+      description3:response.list[3].weather[0].description,
+      icon1:response.list[1].weather[0].icon,
+      icon2:response.list[2].weather[0].icon,
+      icon3:response.list[3].weather[0].icon,
+      temp_max1:this.calCelsius(response.list[0].temp.max),
+      temp_min1:this.calCelsius(response.list[0].temp.min),
+      temp_max2:this.calCelsius(response.list[0].temp.max),
+      temp_min2:this.calCelsius(response.list[0].temp.min),
+      temp_max3:this.calCelsius(response.list[0].temp.max),
+      temp_min3:this.calCelsius(response.list[0].temp.min),
       error: false
     });
-    this.getWeatherImage(response.weather[0].id);
+    this.getWeatherImage(response.list[0].weather[0].id);
     console.log(response);
   }else {
     this.setState({
@@ -113,9 +136,9 @@ class WeatherApp extends React.Component {
   render() {
     return (
       <div className="App">
-        <Form loadweather={this.getWeather} error={this.state.error} src={this.state.src}/>
         
       <Weather 
+      loadweather={this.getWeather} error={this.state.error} src={this.state.src}
       city={this.state.city} 
       country={this.state.country} 
       temp_celsius={this.state.celsius}
@@ -125,6 +148,18 @@ class WeatherApp extends React.Component {
       humidity={this.state.humidity}
       pressure={this.state.pressure}
       icon={this.state.icon}
+      description1={this.state.description1}
+      description2={this.state.description2}
+      description3={this.state.description3}
+      icon1={this.state.icon1}
+      icon2={this.state.icon2}
+      icon3={this.state.icon3}
+      temp_max1={this.state.temp_max1}
+      temp_min1={this.state.temp_min1}
+      temp_max2={this.state.temp_max2}
+      temp_min2={this.state.temp_min2}
+      temp_max3={this.state.temp_max3}
+      temp_min3={this.state.temp_min3}
       src={this.state.src}
       />
         

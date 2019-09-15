@@ -1,13 +1,18 @@
 .container{
     background-repeat:no-repeat;
     background-size:cover;
-    height:375px;
-    width:50% !important;
 }
 
 .cards{
     background-color: rgba(20, 20, 20,0.4);
     border:1px solid #121212;
     color:blue;
+    font-weight:bold;
+}
+
+.futureData{
+    background-color: rgba(20, 20, 20,0.4);
+    border:1px solid #121212;
+    color:black;
     font-weight:bold;
 }

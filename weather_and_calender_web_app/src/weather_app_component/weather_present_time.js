@@ -21,7 +21,7 @@ class PresentDate extends React.Component {
         return (
             <div className="font-weight-bold font-italic">
                IST: {this.state.curTime}
-               <h4 className="font-weight-bold font-italic">
+               <h4 className="font-weight-bold font-italic py-1">
                    {WeekDay(this.state.day)}
                </h4>
             </div>
