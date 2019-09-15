@@ -1,38 +1,17 @@
 import React, { Component } from 'react';
+import {BrowserRouter} from 'react-router-dom';
 import './App.css';
-import fire from './config/config';
-import Buildcontrols from './components/Buildcontrols/Buildcontrols';
-import Calendar from './components/Calendar/Calendar';
-import Login from './components/Login/Login';
-
+import BuildControls from '../src/components/Buildcontrols/Buildcontrols';
 class App extends Component {
-constructor(props){
-  super(props);
-    this.state = {
-      user:{},
-    }
-  }
-  
-componentDidMount = () =>{
-  this.authEventHandler();
-}
+  render(){
+    return(
+      <BrowserRouter>
+      <div>
+<BuildControls/>
+</div>
+      </BrowserRouter>
 
-authEventHandler = () => {
-  fire.auth().onAuthStateChanged((user) => {
-    if(user){
-      this.setState({user});
-    }
-    else{
-      this.setState({user:null});
-    }
-  });
-}
-  render = () => {
-    return (
-     <div>
-       <Buildcontrols/>
-       {this.state.user ? (<Calendar/>) :(<Login/>) }
-     </div>
+
     );
   }
 }

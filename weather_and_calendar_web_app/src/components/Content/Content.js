@@ -27,18 +27,6 @@ const content = (props) =>(
            </div>
        </div>
 
-
-       {/* <div className="row">
-           <div className="col-xs-12">
-           
-           </div>
-       </div> */}
-   
-   {/* <div className="row">
-           <div className="col-xs-12">
-           
-           </div>
-       </div> */}
        </div>
    </section>
   

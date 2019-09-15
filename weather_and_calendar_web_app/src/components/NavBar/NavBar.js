@@ -1,13 +1,51 @@
 import React from 'react';
 import Logo from '../Logo/Logo'
-import classes from './NavBar.css';
-import NavItems from './NavItems/NavItems';
+import './NavBar.css';
+// import NavItems from './NavItems/NavItems';
+import {NavLink} from 'react-router-dom';
+
 
 const navBar = () => (
-    <ul className={classes.NavBar}>
+<div className="NavBar">
+    <nav>
+    <ul>
     <div><Logo/></div>
-   <NavItems link="/" active>FAQ</NavItems>
-   <NavItems link="/">About</NavItems>
+                         <li><NavLink
+                                to="/background/"
+                                exact
+                                activeClassName="my-active"
+                                activeStyle={{
+                                    color:'peru',
+                                    textDecoration: 'underline'
+                                }}>Home</NavLink></li>
+
+                            <li><NavLink to={{
+                                pathname: '/weather',
+                                activeClassName:"link",
+                                hash: '#submit',
+                                search: '?quick-submit=true'
+                            }}>Weather</NavLink></li>
+
+                            <li><NavLink to={{
+                                pathname: '/front_page',
+                                activeClassName:"link",
+                                hash: '#submit',
+                                search: '?quick-submit=true'
+                            }}>Authenticate</NavLink></li>
+
+                            <li><NavLink to={{
+                                pathname: '/calendar',
+                                activeClassName:"link",
+                                hash: '#submit',
+                                search: '?quick-submit=true'
+                            }}>Calendar</NavLink></li>
+                        
+                    
+
+   {/* <NavItems link="/" active>Home</NavItems>
+   <NavItems link="/">Weather</NavItems> */}
     </ul>
+    </nav>
+    </div>
     );
 export default navBar;

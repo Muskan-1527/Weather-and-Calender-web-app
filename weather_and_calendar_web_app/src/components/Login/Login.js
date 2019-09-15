@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
 import fire from '../../config/config';
+import classes from './Login.css';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 class Login extends Component{
 constructor(props){
     super(props);
@@ -35,11 +37,14 @@ signup(e){
  }
     render(){
         return(
+
+            <div style={{backgroundColor:"red"}}>
+                <main className={classes.Form}>
             <div className="col-md-6">
                 <form>
                     <div className="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                        <input value={this.state.email} onChange={this.handleChange} type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autoComplete="on" placeholder="Enter email"/>
                         <small id="emailHelp" className="form-text text-muted">We will never share your email with anyone else</small>
                     </div>
                     <div className="form-group">
@@ -49,7 +54,8 @@ signup(e){
                         <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
                         <button onClick={this.signup} style={{marginLeft:'25px'}} className="btn btn-success">Signup</button>
                 </form>
-                
+                </div>
+                </main>
             </div>
         )
     }

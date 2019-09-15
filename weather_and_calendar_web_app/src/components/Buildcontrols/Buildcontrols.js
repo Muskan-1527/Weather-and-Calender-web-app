@@ -1,34 +1,24 @@
 import React,{Component} from 'react';
-import img1 from '../images/climate.gif';
-import img2 from '../images/calendar.jpg';
-import classes from './Buildcontrols.css';
-import Content from '../Content/Content';
 import NavBar from '../NavBar/NavBar';
-import Button from '../Button/Button';
+import Background from '../Background/Background';
+import { Route,Switch } from 'react-router-dom';
+import Weather from '../Weather/Weather';
+import Front_page from '../../front_page';
+import Calendar from '../Calendar/Calendar';
+
 
 class Buildcontrols extends Component{
     render(){
         return(
-            
-            <div className={classes.begin}>
+            <div>
 <NavBar/>
-  <section>
-   <Content/>
-   </section>
-       <div className="container">
-           <div className="row">
-               <div className="col-xs-12">
-               <img src={img1} alt="weather_image" className={classes.image1}/>
-               <Button className={classes.button}>Click to continue</Button>
-                </div>
-           </div>
-           <div className="row">
-               <div className="col-xs-12">
-               <img src={img2} alt="calendar_image" className={classes.image2}/></div>
-                </div>
-           </div>
-
-   
+{/* <Background/> */}
+<Switch>
+                    <Route path="/background" component={Background} />
+                    <Route path="/weather" component={Weather} />
+                    <Route path="/front_page" component={Front_page} />
+                    <Route path="/calendar" component={Calendar} />
+                </Switch>
 </div>
         );
     }
