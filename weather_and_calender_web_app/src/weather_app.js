@@ -44,6 +44,7 @@ class WeatherApp extends React.Component {
                 this.setState({
                     src : '/snow.jpg'
                 });
+                break;
         case ID>=701 && ID<=781:
                 this.setState({
                     src : '/atmosphere.jpg'
@@ -59,6 +60,10 @@ class WeatherApp extends React.Component {
                     src : '/clouds.jpg'
                 });
             break;
+      default:
+        this.setState({
+          src : '/all_weather.jpg'
+        });
     }
 }
 
