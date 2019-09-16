@@ -120,21 +120,27 @@ class WeatherApp extends React.Component {
         `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&APPID=c10e7100063f10864ba3ffb839aed7f3`
       );
 
+      const api_call3 = await fetch(
+        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=8f6e7eafbcaceee6b0fd1759888a64c7`
+      );
+
   
     const response = await api_call.json();
 
     const response2 = await api_call2.json();
 
+    const response3 = await api_call3.json();
+
     this.setState({
-      city:response.city.name,
-      country:response.city.country,
-      celsius:this.calCelsius(response.list[0].temp.day),
+      city:response3.name,
+      country:response3.sys.country,
+      celsius:this.calCelsius(response3.main.temp),
       temp_max:this.calCelsius(response.list[0].temp.max),
       temp_min:this.calCelsius(response.list[0].temp.min),
-      description:response.list[0].weather[0].description,
-      humidity:response.list[0].humidity,
-      pressure:response.list[0].pressure,
-      icon:response.list[0].weather[0].icon,
+      description:response3.weather[0].description,
+      humidity:response3.main.humidity,
+      pressure:response3.main.pressure,
+      icon:response3.weather[0].icon,
       description1:response.list[1].weather[0].description,
       description2:response.list[2].weather[0].description,
       description3:response.list[3].weather[0].description,
@@ -147,9 +153,9 @@ class WeatherApp extends React.Component {
       temp_min2:this.calCelsius(response.list[0].temp.min),
       temp_max3:this.calCelsius(response.list[0].temp.max),
       temp_min3:this.calCelsius(response.list[0].temp.min),
-      sunrise:response.list[0].sunrise,
-      sunset:response.list[0].sunset,
-      windspeed:response.list[0].speed,
+      sunrise:response3.sys.sunrise,
+      sunset:response3.sys.sunset,
+      windspeed:response3.wind.speed,
       temp1:this.calCelsius(response2.list[0].main.temp),
       temp2:this.calCelsius(response2.list[1].main.temp),
       temp3:this.calCelsius(response2.list[2].main.temp),
