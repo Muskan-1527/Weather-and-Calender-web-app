@@ -72,6 +72,60 @@ const Weather = (props) => {
                   {minmaxfuturetemperature(props.temp_min3,props.temp_max3)}
               </div>
            </div>
+
+           <div className="row py-3">
+
+            <div className="futureData col-md-3">
+                {props.time1}
+                {props.temp1 ? <h1>{props.temp1}&deg;</h1>:null}
+                
+            </div>
+            <div className="futureData col-md-3">
+            {props.time2}
+            {props.temp2 ? <h1>{props.temp2}&deg;</h1>:null}
+            
+            </div>
+            <div className="futureData col-md-3">
+            {props.time3}
+            {props.temp3 ? <h1>{props.temp3}&deg;</h1>:null}
+            
+            </div>
+            <div className="futureData col-md-3">
+            {props.time4}
+            {props.temp4 ? <h1>{props.temp4}&deg;</h1>:null}
+            
+            </div>
+
+           </div>
+
+           <div className="row py-3">
+
+            <div className="futureData col-md-3">
+            {props.time5}
+            {props.temp5 ? <h1>{props.temp5}&deg;</h1>:null}
+            
+            </div>
+            <div className="futureData col-md-3">
+            {props.time6}
+            {props.temp6 ? <h1>{props.temp6}&deg;</h1>:null}
+            
+            </div>
+            <div className="futureData col-md-3">
+            {props.time7}
+            {props.temp7 ? <h1>{props.temp7}&deg;</h1>:null}
+            
+            </div>
+            <div className="futureData col-md-3">
+            {props.time8}
+            {props.temp8 ? <h1>{props.temp8}&deg;</h1>:null}
+            
+            </div>
+            
+           </div>
+
+
+
+
         </div>
     );
 };

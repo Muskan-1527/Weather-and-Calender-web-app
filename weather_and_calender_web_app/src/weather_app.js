@@ -32,6 +32,22 @@ class WeatherApp extends React.Component {
       sunrise:undefined,
       sunset:undefined,
       windspeed:undefined,
+      temp1:undefined,
+      temp2:undefined,
+      temp3:undefined,
+      temp4:undefined,
+      temp5:undefined,
+      temp6:undefined,
+      temp7:undefined,
+      temp8:undefined,
+      time1:undefined,
+      time2:undefined,
+      time3:undefined,
+      time4:undefined,
+      time5:undefined,
+      time6:undefined,
+      time7:undefined,
+      time8:undefined,
       src:'/all_weather.jpg',
       error:false
     };
@@ -99,8 +115,15 @@ class WeatherApp extends React.Component {
     const api_call = await fetch(
       `http://api.openweathermap.org/data/2.5/forecast/daily?q=${city},${country}&APPID=c10e7100063f10864ba3ffb839aed7f3`
       );
+
+      const api_call2 = await fetch(
+        `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&APPID=c10e7100063f10864ba3ffb839aed7f3`
+      );
+
   
     const response = await api_call.json();
+
+    const response2 = await api_call2.json();
 
     this.setState({
       city:response.city.name,
@@ -127,10 +150,27 @@ class WeatherApp extends React.Component {
       sunrise:response.list[0].sunrise,
       sunset:response.list[0].sunset,
       windspeed:response.list[0].speed,
+      temp1:this.calCelsius(response2.list[0].main.temp),
+      temp2:this.calCelsius(response2.list[1].main.temp),
+      temp3:this.calCelsius(response2.list[2].main.temp),
+      temp4:this.calCelsius(response2.list[3].main.temp),
+      temp5:this.calCelsius(response2.list[4].main.temp),
+      temp6:this.calCelsius(response2.list[5].main.temp),
+      temp7:this.calCelsius(response2.list[6].main.temp),
+      temp8:this.calCelsius(response2.list[7].main.temp),
+      time1:response2.list[0].dt_txt,
+      time2:response2.list[1].dt_txt,
+      time3:response2.list[2].dt_txt,
+      time4:response2.list[3].dt_txt,
+      time5:response2.list[4].dt_txt,
+      time6:response2.list[5].dt_txt,
+      time7:response2.list[6].dt_txt,
+      time8:response2.list[7].dt_txt,
       error: false
     });
     this.getWeatherImage(response.list[0].weather[0].id);
     console.log(response);
+    console.log(response2);
   }else {
     this.setState({
       error:true
@@ -170,6 +210,22 @@ class WeatherApp extends React.Component {
       sunsetTime={this.state.sunset}
       windspeed={this.state.windspeed}
       src={this.state.src}
+      temp1={this.state.temp1}
+      temp2={this.state.temp2}
+      temp3={this.state.temp3}
+      temp4={this.state.temp4}
+      temp5={this.state.temp5}
+      temp6={this.state.temp6}
+      temp7={this.state.temp7}
+      temp8={this.state.temp8}
+      time1={this.state.time1}
+      time2={this.state.time2}
+      time3={this.state.time3}
+      time4={this.state.time4}
+      time5={this.state.time5}
+      time6={this.state.time6}
+      time7={this.state.time7}
+      time8={this.state.time8}
       />
         
       </div>
