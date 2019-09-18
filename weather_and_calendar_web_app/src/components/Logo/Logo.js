@@ -1,8 +1,8 @@
 import React from 'react';
 import weatherLogo from '../images/logo1.jpg';
-import classes from './Logo.css';
+import './Logo.css';
 const logo = (props) => (
-   <div className={classes.Logo}>
+   <div className="Logo">
 <img src={weatherLogo} alt="MyWeatherLogo"/>
    </div>
     );
