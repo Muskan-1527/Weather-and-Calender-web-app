@@ -14,12 +14,12 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
-
 const path = require('path');
 const chalk = require('react-dev-utils/chalk');
 const fs = require('fs-extra');
 const webpack = require('webpack');
 const configFactory = require('../config/webpack.config');
+
 const paths = require('../config/paths');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
@@ -36,12 +36,15 @@ const useYarn = fs.existsSync(paths.yarnLockFile);
 const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;
 const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 
+
 const isInteractive = process.stdout.isTTY;
 
+ 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
 }
+
 
 // Generate configuration
 const config = configFactory('production');
@@ -55,6 +58,7 @@ checkBrowsers(paths.appPath, isInteractive)
     // This lets us display how much they changed later.
     return measureFileSizesBeforeBuild(paths.appBuild);
   })
+
   .then(previousFileSizes => {
     // Remove all content but keep the directory so that
     // if you're in it, you don't end up in Trash
@@ -110,6 +114,7 @@ checkBrowsers(paths.appPath, isInteractive)
       printBuildError(err);
       process.exit(1);
     }
+
   )
   .catch(err => {
     if (err && err.message) {
@@ -151,6 +156,7 @@ function build(previousFileSizes) {
           stats.toJson({ all: false, warnings: true, errors: true })
         );
       }
+
       if (messages.errors.length) {
         // Only keep the first error. Others are often indicative
         // of the same problem, but confuse the reader with noise.

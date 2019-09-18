@@ -3,11 +3,13 @@
 const path = require('path');
 const camelcase = require('camelcase');
 
+
 // This is a custom Jest transformer turning file imports into filenames.
 // http://facebook.github.io/jest/docs/en/webpack.html
 
 module.exports = {
   process(src, filename) {
+
     const assetFilename = JSON.stringify(path.basename(filename));
 
     if (filename.match(/\.svg$/)) {
@@ -36,5 +38,6 @@ module.exports = {
     }
 
     return `module.exports = ${assetFilename};`;
+
   },
 };

@@ -7,6 +7,7 @@ const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const paths = require('./paths');
 const fs = require('fs');
 
+
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
 
@@ -20,6 +21,7 @@ module.exports = function(proxy, allowedHost) {
     // environment or subdomains in development significantly more complicated:
     // https://github.com/facebook/create-react-app/issues/2271
     // https://github.com/facebook/create-react-app/issues/2233
+
     // While we're investigating better solutions, for now we will take a
     // compromise. Since our WDS configuration only serves files in the `public`
     // folder we won't consider accessing them a vulnerability. However, if you
@@ -68,20 +70,24 @@ module.exports = function(proxy, allowedHost) {
     // https://github.com/facebook/create-react-app/issues/293
     // src/node_modules is not ignored to support absolute imports
     // https://github.com/facebook/create-react-app/issues/1065
+
     watchOptions: {
       ignored: ignoredFiles(paths.appSrc),
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
     https: protocol === 'https',
+
     host,
     overlay: false,
     historyApiFallback: {
       // Paths with dots should still use the history fallback.
       // See https://github.com/facebook/create-react-app/issues/387.
+
       disableDotRule: true,
     },
     public: allowedHost,
     proxy,
+
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
@@ -93,11 +99,14 @@ module.exports = function(proxy, allowedHost) {
       // This lets us open files from the runtime error overlay.
       app.use(errorOverlayMiddleware());
 
+
       // This service worker file is effectively a 'no-op' that will reset any
       // previous service worker registered for the same host:port combination.
       // We do this in development to avoid hitting the production cache if
       // it used the same host and port.
+
       // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
+
       app.use(noopServiceWorkerMiddleware());
     },
   };

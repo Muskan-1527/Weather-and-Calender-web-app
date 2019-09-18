@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import img1 from '../images/climate.gif';
 import img2 from '../images/calendar.jpg';
-import classes from '../Background/Background.css';
+import classes from '.Background.css';
 import Content from '../Content/Content';
 
 class Background extends Component{
@@ -15,7 +15,7 @@ class Background extends Component{
        <div className="container">
            <div className="row">
                <div className="col-xs-12">
-               <img src={img1} alt="weather_image" className={classes.img1}/>
+               <img src={img1} alt="weather_image" className={classes.image1}/>
                
                 </div>
            </div>

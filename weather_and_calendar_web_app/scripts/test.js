@@ -16,6 +16,7 @@ process.on('unhandledRejection', err => {
 require('../config/env');
 
 
+
 const jest = require('jest');
 const execSync = require('child_process').execSync;
 let argv = process.argv.slice(2);
@@ -47,6 +48,7 @@ if (
   // https://github.com/facebook/create-react-app/issues/5210
   const hasSourceControl = isInGitRepository() || isInMercurialRepository();
   argv.push(hasSourceControl ? '--watch' : '--watchAll');
+
 }
 
 

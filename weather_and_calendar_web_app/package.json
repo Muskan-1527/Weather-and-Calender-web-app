@@ -64,6 +64,7 @@
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.3.1"
+
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -115,6 +116,7 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+
     },
     "moduleFileExtensions": [
       "web.js",
@@ -131,11 +133,13 @@
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
+
     ]
   },
   "babel": {
     "presets": [
       "react-app"
     ]
+
   }
 }
