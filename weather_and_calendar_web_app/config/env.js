@@ -42,7 +42,6 @@ dotenvFiles.forEach(dotenvFile => {
 
 // We support resolving modules according to `NODE_PATH`.
 // This lets you use absolute paths in imports inside large monorepos:
-
 // https://github.com/facebook/create-react-app/issues/253.
 
 // It works similar to `NODE_PATH` in Node itself:
