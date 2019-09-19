@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import fire from '../../config/config';
-import classes from './Login.css';
+import './Login.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class Login extends Component{
@@ -38,8 +38,8 @@ signup(e){
     render(){
         return(
 
-            <div style={{backgroundColor:"red"}}>
-                <main className={classes.Form}>
+            <div>
+                <main className="Form">
             <div className="col-md-6">
                 <form>
                     <div className="form-group">

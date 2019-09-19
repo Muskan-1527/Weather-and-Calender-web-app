@@ -1,5 +1,12 @@
 import React,{Component} from 'react';
 import fire from '../../config/config';
+import Calendar_app from '../../calendar_app_component/calendar_app';
+
+const style = {
+    position: "relative",
+    margin: "50px auto",
+}
+
 class Calendar extends Component{
 constructor(props){
     super(props);
@@ -11,8 +18,8 @@ constructor(props){
     render(){
         return(
             <div>
-                <h1>Here calendar would be displayed</h1>
-                <button onClick={this.logout}>Logout</button>
+                <Calendar_app style={style} width="302px"/>
+                <button className="mt-4" onClick={this.logout}>Logout</button>
             </div>
 
         )

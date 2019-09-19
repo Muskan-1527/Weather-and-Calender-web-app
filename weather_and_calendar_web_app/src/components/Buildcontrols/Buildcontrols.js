@@ -12,7 +12,7 @@ class Buildcontrols extends Component{
         return(
             <div>
 <NavBar/>
-{/* <Background/> */}
+ {/* <Background/>  */}
 <Switch>
                     <Route path="/background" component={Background} />
                     <Route path="/weather" component={Weather} />
