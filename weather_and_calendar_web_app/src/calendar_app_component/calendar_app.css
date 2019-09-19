@@ -5,10 +5,12 @@ td,
 tr {
     padding: 0;
     margin: 0;
+    
 }
 
 .calendar-container {
-    border: 2px solid skyblue;
+    outline:2px solid black;
+    outline-offset: 15px;
 }
 
 .calendar {
@@ -32,17 +34,17 @@ tr {
 .empty-slot,
 .week-day {
     text-align: center;
+    border:1px solid gray;
 }
 
 .week-day {
-    font-size: 0.8em;
+    font-size: 1em;
+    text-decoration-line: underline;
+    font-weight:bold;
 }
 
 .day {
     font-size: 0.8em;
-}
-
-.day {
     cursor: pointer;
     width: 24px;
     height: 24px;
