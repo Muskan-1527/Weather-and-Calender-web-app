@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import img1 from '../images/climate.gif';
 import img2 from '../images/calendar.jpg';
-import classes from '.Background.css';
+import classes from './Background.css';
 import Content from '../Content/Content';
 
 class Background extends Component{

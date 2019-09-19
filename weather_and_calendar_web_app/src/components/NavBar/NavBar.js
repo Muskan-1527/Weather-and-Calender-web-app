@@ -10,7 +10,7 @@ const navBar = () => (
     <nav>
     <ul>
 
-    <div><Logo/></div>
+    {/* <div><Logo/></div> */}
 
                          <li><NavLink
                                 to="/background/"
