@@ -6,9 +6,8 @@ import Content from '../Content/Content';
 
 class Background extends Component{
     render(){
-        return(
-            
-            <div className="begin">
+        return(   
+            <div>       
   <section>
    <Content/>
    </section>
@@ -19,13 +18,12 @@ class Background extends Component{
                
                 </div>
            </div>
-           <div className="row">
+           {/* <div className="row">
                <div className="col-xs-12">
                <img src={img2} alt="calendar_image" className="image2"/></div>
                 </div>
-           </div>
-
-   
+           </div> */}
+</div>
 </div>
         );
     }

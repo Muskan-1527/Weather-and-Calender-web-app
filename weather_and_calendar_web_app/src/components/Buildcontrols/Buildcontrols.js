@@ -8,6 +8,19 @@ import Calendar from '../Calendar/Calendar';
 
 
 class Buildcontrols extends Component{
+    constructor(props){
+        super(props);
+        // this.state = {
+        //     display:true
+        // }
+    }
+// backgroundShow = () =>{
+//     if(display){
+
+//     }
+// }
+    
+
     render(){
         return(
             <div>
