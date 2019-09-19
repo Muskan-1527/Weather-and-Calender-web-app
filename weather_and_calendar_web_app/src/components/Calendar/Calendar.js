@@ -4,7 +4,7 @@ import Calendar_app from '../../calendar_app_component/calendar_app';
 
 const style = {
     position: "relative",
-    margin: "50px auto"
+    margin: "50px auto",
 }
 
 class Calendar extends Component{
@@ -19,7 +19,7 @@ constructor(props){
         return(
             <div>
                 <Calendar_app style={style} width="302px"/>
-                <button onClick={this.logout}>Logout</button>
+                <button className="mt-4" onClick={this.logout}>Logout</button>
             </div>
 
         )

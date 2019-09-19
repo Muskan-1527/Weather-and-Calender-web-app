@@ -10,7 +10,7 @@ class Calendar_app extends React.Component {
     }
 
     state = {
-        momentCntext: moment(),
+        dateContext: moment(),
         today: moment(),
         showMonthPopup: false,
         showYearPopup: false
@@ -19,11 +19,52 @@ class Calendar_app extends React.Component {
     weekdays = moment.weekdays();
     weekdaysShort = moment.weekdaysShort();
     months = moment.months();
+
+    year = () => {
+        return this.state.dateContext.format("Y");
+    }
+
+    month = () => {
+        return this.state.dateContext.format("MMMM");
+    }
+
+    daysInMonth = () => {
+        return this.state.dateContext.dateInMonth();
+    }
+
+    currentDate = () => {
+        return this.state.dateContext.get("date");
+    }
+
+    currentDay = () => {
+        return this.state.dateContext.format("D");
+    }
+
+    firstDayOfMonth = () => {
+        let dateContext = this.state.dateContext;
+        let firstDay = moment(dateContext).startOf('month').format('d');
+    }
     
     render() {
+
+        let weekdays = this.weekdaysShort.map((day) => {
+            return (
+                <td key={day} className="week-day">{day}</td>
+            )
+        });
         return (
             <div className = "calendar-container">
-                <h2>Calendar</h2>
+                <table className="calendar">
+                    <thead>
+                        <tr className="calendar-header">
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {weekdays}
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         );
     }
