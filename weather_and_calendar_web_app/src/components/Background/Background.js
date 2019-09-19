@@ -2,7 +2,10 @@ import React,{Component} from 'react';
 import img1 from '../images/climate.gif';
 import img2 from '../images/calendar.jpg';
 
+
 import './Background.css';
+
+
 
 import Content from '../Content/Content';
 
