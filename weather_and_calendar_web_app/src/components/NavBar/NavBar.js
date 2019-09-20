@@ -17,7 +17,7 @@ const navBar = () => (
                                 exact
                                 activeClassName="my-active"
                                 activeStyle={{
-                                    color:'peru',
+                                    color:'white',
                                     textDecoration: 'underline'
                                 }}>Home</NavLink></li>
 

@@ -7,11 +7,14 @@
     align-items: center;
 
     height: 100%;
-
+color:white;
     justify-content:flex-end;
     background-color:darkblue;
-   
-    
+ 
+}
+
+.link{
+    color:white;
 }
 NavLink{
 color:yellow;
@@ -34,7 +37,7 @@ color:yellow;
 }
 
  a {
-    
+    color:white;
     text-decoration: none;
     width: 100%;
     box-sizing: border-box;
@@ -60,7 +63,7 @@ color:yellow;
     }
     
      a {
-        
+        color:white;
         height: 100%;
         padding: 16px 4px;
         border-bottom: 4px solid transparent;

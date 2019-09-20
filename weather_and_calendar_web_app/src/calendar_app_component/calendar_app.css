@@ -99,3 +99,23 @@ tr {
 .label-month {
     cursor: pointer;
 }
+ 
+.monthName{
+    background-color: lightgreen;
+    font-weight:bold;
+    color:black;
+    padding:10%;
+    display:inline-block;
+    margin:0px;
+    position:relative;
+    left:0px;
+}
+
+.monthName:hover,
+     .monthName:active,
+     .monthName.active {
+        background-color:white;
+        border-bottom:0px;
+        color:blue;
+        width:100%;
+    }
