@@ -1,3 +1,4 @@
+	
 import React,{Component} from 'react';
 import fire from '../../config/config';
 import Calendar_app from '../../calendar_app_component/calendar_app';
@@ -6,7 +7,6 @@ const style = {
     position: "relative",
     margin: "50px auto",
 }
-
 class Calendar extends Component{
 constructor(props){
     super(props);
@@ -15,11 +15,16 @@ constructor(props){
  logout(){
      fire.auth().signOut();
  }
+
+ onDayClick = (e, day) => {
+     alert(day);
+ }
     render(){
         return(
             <div>
-                <Calendar_app style={style} width="302px"/>
-                <button className="mt-4" onClick={this.logout}>Logout</button>
+                <Calendar_app style={style} 
+                onDayClick={(e,day) => this.onDayClick(e, day)}/>
+                <button onClick={this.logout}>Logout</button>
             </div>
 
         )

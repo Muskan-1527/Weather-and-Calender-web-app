@@ -28,6 +28,7 @@
     "eslint-plugin-react-hooks": "^1.6.1",
     "file-loader": "3.0.1",
     "firebase": "^6.6.1",
+    "font-awesome": "^4.7.0",
     "fs-extra": "7.0.1",
     "html-webpack-plugin": "4.0.0-beta.5",
     "identity-obj-proxy": "3.0.0",
@@ -64,7 +65,6 @@
     "webpack-dev-server": "3.2.1",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.3.1"
-
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -116,7 +116,6 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-
     },
     "moduleFileExtensions": [
       "web.js",
@@ -133,13 +132,11 @@
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
-
     ]
   },
   "babel": {
     "presets": [
       "react-app"
     ]
-
   }
 }
