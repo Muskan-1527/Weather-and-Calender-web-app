@@ -55,14 +55,23 @@ setMonth = (month) => {
     });
 }
  
-// nextMonth = () => {
-//     let dateContext = Object.assign({},this.state.dateContext);
-//     dateContext = moment(dateContext).add(1,"month");
-//     this.setState({
-//         dateContext: dateContext
-//     });
-//     this.props.onNextMonth && this.props.onNextMonth();
-// }
+nextMonth = () => {
+    let dateContext = Object.assign({},this.state.dateContext);
+    dateContext = moment(dateContext).add(1,"month");
+    this.setState({
+        dateContext: dateContext
+    });
+    this.props.onNextMonth && this.props.onNextMonth();
+}
+
+prevMonth = () => {
+    let dateContext = Object.assign({},this.state.dateContext);
+    dateContext = moment(dateContext).subtract(1,"month");
+    this.setState({
+        dateContext: dateContext
+    });
+    this.props.onPrevMonth && this.props.onPrevMonth();
+}
 
 
 onSelectChange = (e,data) => {
@@ -155,6 +164,10 @@ this.setState({
         );
     }
 
+    onDayClick =(e, day) => {
+        this.props.onDayClick && this.props.onDayClick(e, day);
+    }
+
 
     render() {
         // Map the weekdays i.e Sun, Mon, Tue etc as <td>
@@ -180,7 +193,7 @@ this.setState({
             let selectedClass = (d === this.state.selectedDay ? " selected-day " : "")
             daysInMonth.push(
                 <td key={d} className={className + selectedClass} >
-                    <span>{d}</span>
+                    <span onClick={(e) => {this.onDayClick(e,d)}}>{d}</span>
                 </td>
             );
         }
@@ -229,7 +242,7 @@ this.setState({
                             <i className="prev fa fa-fw fa-chevron-left"
                             onClick={(e) => {this.prevMonth()}}>
                             </i>
-                            {"  "}
+                        
                             <i className="prev fa fa-fw fa-chevron-right"
                             onClick={(e) => {this.nextMonth()}}>
                             </i>

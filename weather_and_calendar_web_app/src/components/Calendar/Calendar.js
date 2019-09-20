@@ -14,10 +14,15 @@ constructor(props){
  logout(){
      fire.auth().signOut();
  }
+
+ onDayClick = (e, day) => {
+     alert(day);
+ }
     render(){
         return(
             <div>
-                <Calendar_app style={style} width="302px"/>
+                <Calendar_app style={style} width="302px"
+                onDayClick={(e,day) => this.onDayClick(e, day)}/>
                 <button onClick={this.logout}>Logout</button>
             </div>
 
