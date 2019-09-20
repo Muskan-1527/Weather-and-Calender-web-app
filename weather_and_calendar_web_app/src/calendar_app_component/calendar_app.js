@@ -1,8 +1,8 @@
 import React from 'react';
-import moment from 'moment';
+import moment, { calendarFormat } from 'moment';
 import './calendar_app.css';
 
-export default class Calendar extends React.Component {
+class Calendar_app extends React.Component {
     state = {
         dateContext: moment(),
         today: moment(),
@@ -119,6 +119,7 @@ export default class Calendar extends React.Component {
                         {trElems}
                     </tbody>
                 </table>
+                
 
             </div>
 
@@ -126,3 +127,4 @@ export default class Calendar extends React.Component {
     }
 }
 
+export default Calendar_app;

@@ -19,6 +19,7 @@ login(e){
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u) =>{ 
     }).catch((error) =>{
+        alert(error);
         console.log(error);
     })
 }
@@ -28,6 +29,7 @@ signup(e){
     e.preventDefault();
     fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
     .catch((error) =>{
+        alert(error);
         console.log(error);
     })
 }
