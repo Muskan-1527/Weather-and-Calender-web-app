@@ -54,6 +54,10 @@ tr {
     padding:2%;
 }
 
+.sunday {
+    background-color: #e3dbda;
+}
+
 .current-day {
     background-color: #4285f4;
     /* width: 28px;

@@ -212,8 +212,17 @@ export default class Calendar_app extends React.Component {
         for (let d = 1; d <= this.daysInMonth(); d++) {
             let className = (d === this.currentDate() ? this.month() === this.currentMonth() ? this.year() === this.currentYear() ? "day current-day" : "day" : "day": "day");
             let selectedClass = (d === this.state.selectedDay ? this.month() === this.state.selectedMonth ? this.year() === this.state.selectedYear ? " selected-day " : "" : "" : "");
+            let SundayClass = (this.firstDayOfMonth() == 0 ? (d == 1 || d == 8 || d == 15 || d == 22 || d == 29) ? " sunday " : "" 
+            : this.firstDayOfMonth() == 1 ? (d == 7 || d == 14 || d == 21 || d == 28) ? " sunday " : ""
+            : this.firstDayOfMonth() == 2 ? (d == 6 || d == 13 || d == 20 || d == 27) ? " sunday " : ""
+            : this.firstDayOfMonth() == 3 ? (d == 5 || d == 12 || d == 19 || d == 26) ? " sunday " : ""
+            : this.firstDayOfMonth() == 4 ? (d == 4 || d == 11 || d == 18 || d == 25) ? " sunday " : ""
+            : this.firstDayOfMonth() == 5 ? (d == 3 || d == 10 || d == 17 || d == 24 || d == 31) ? " sunday " : "" 
+            : this.firstDayOfMonth() == 6 ? (d == 2 || d == 9 || d == 16 || d == 23 || d == 30) ? " sunday " : ""
+            : "" 
+            );
             daysInMonth.push(
-                <td key={d} className={className + selectedClass} >
+                <td key={d} className={className + selectedClass + SundayClass} >
                     <span onClick={(e)=>{this.onDayClick(e, d)}}>{d}</span>
                 </td>
             );
