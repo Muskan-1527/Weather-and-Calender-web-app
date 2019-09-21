@@ -18,6 +18,7 @@ class Buildcontrols extends Component{
                     <Route path="/weather" component={Weather} />
                     <Route path="/front_page" component={Front_page} />
                     <Route path="/calendar" component={Calendar} />
+                    <Route path="" component={Background} />
                 </Switch>
 </div>
         );

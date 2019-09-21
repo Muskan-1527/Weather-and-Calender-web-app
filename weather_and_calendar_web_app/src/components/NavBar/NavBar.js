@@ -13,12 +13,15 @@ const navBar = () => (
     {/* <div><Logo/></div> */}
 
                          <li><NavLink
-                                to="/background/"
-                                exact
-                                activeClassName="my-active"
+                                to="/"
+                                exact={true}
+                                activeClassName="is-active link"
                                 activeStyle={{
                                     color:'peru',
-                                    textDecoration: 'underline'
+                                    textDecoration: 'underline',
+                                    backgroundColor:'lightpink',
+                                    borderBottom: '4px solid rgb(246, 10, 10)',
+                                    color:'orangered'
                                 }}>Home</NavLink></li>
 
                             <li><NavLink to={{

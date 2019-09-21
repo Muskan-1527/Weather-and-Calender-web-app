@@ -48,7 +48,7 @@ class WeatherApp extends React.Component {
       time6:undefined,
       time7:undefined,
       time8:undefined,
-      src:'/all_weather.jpg',
+      src:'/all_weatherg.jpg',
       error:false
     };
   }
@@ -57,7 +57,7 @@ class WeatherApp extends React.Component {
     switch(true) {
         case ID>=200 && ID<=232:
             this.setState({
-                src : '/thunderstorm.jpg'
+                src : '/thunderstormg.jpg'
             });
             break;
         case ID>=300 && ID<=321:
@@ -67,12 +67,12 @@ class WeatherApp extends React.Component {
             break;
         case ID>=500 && ID<=531:
                 this.setState({
-                    src : '/rain.jpg'
+                    src : '/raing.jpg'
                 });
             break;
         case ID>=600 && ID<=622:
                 this.setState({
-                    src : '/snow.jpg'
+                    src : '/snowg.jpg'
                 });
                 break;
         case ID>=701 && ID<=781:
@@ -87,12 +87,12 @@ class WeatherApp extends React.Component {
             break;
         case ID>=801 && ID<=804:
                 this.setState({
-                    src : '/clouds.jpg'
+                    src : '/cloudsg.jpg'
                 });
             break;
       default:
         this.setState({
-          src : '/all_weather.jpg'
+          src : '/all_weatherg.jpg'
         });
     }
 }
