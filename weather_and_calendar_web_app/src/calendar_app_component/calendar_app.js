@@ -80,11 +80,21 @@ export default class Calendar_app extends React.Component {
         this.props.onPrevMonth && this.props.onPrevMonth();
     }
 
+    presentMonth = () => {
+        let dateContext = Object.assign({}, this.state.today);
+        dateContext = moment(dateContext).set({'year':2019,'month':8});
+        this.setState({
+            dateContext: dateContext
+        });
+        this.props.onpresentMonth && this.props.onpresesentMonth();
+    }
+
     onSelectChange = (e, data) => {
         this.setMonth(data);
         this.props.onMonthChange && this.props.onMonthChange();
 
     }
+
     SelectList = (props) => {
         let popup = props.data.map((data) => {
             return (
@@ -241,6 +251,7 @@ export default class Calendar_app extends React.Component {
 
         return (
             <div className="calendar-container" style={this.style}>
+                
                 <table className="calendar">
                     <thead>
                         <tr className="calendar-header">
@@ -249,12 +260,16 @@ export default class Calendar_app extends React.Component {
                                 {" "}
                                 <this.YearNav />
                             </td>
+                            
                             <td colSpan="2" className="nav-month">
-                                <i className="prev fa fa-fw fa-chevron-left"
+                                <i className="prev fa fa-fw fa-chevron-left px-1"
                                     onClick={(e)=> {this.prevMonth()}}>
                                 </i>
-                                <i className="prev fa fa-fw fa-chevron-right"
+                                <i className="prev fa fa-fw fa-chevron-right px-2"
                                     onClick={(e)=> {this.nextMonth()}}>
+                                </i>
+                                <i className="fa fa-calendar-check-o fa-lg px-4" 
+                                   onClick={(e)=> {this.presentMonth()}}>today
                                 </i>
                             </td>
                         </tr>
@@ -266,7 +281,6 @@ export default class Calendar_app extends React.Component {
                         {trElems}
                     </tbody>
                 </table>
-
             </div>
 
         );
