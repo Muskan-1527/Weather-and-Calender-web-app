@@ -220,7 +220,7 @@ export default class Calendar_app extends React.Component {
             : this.firstDayOfMonth() == 5 ? (d == 3 || d == 10 || d == 17 || d == 24 || d == 31) ? " sunday " : "" 
             : this.firstDayOfMonth() == 6 ? (d == 2 || d == 9 || d == 16 || d == 23 || d == 30) ? " sunday " : ""
             : "" 
-            );
+            ); 
             daysInMonth.push(
                 <td key={d} className={className + selectedClass + SundayClass} >
                     <span onClick={(e)=>{this.onDayClick(e, d)}}>{d}</span>

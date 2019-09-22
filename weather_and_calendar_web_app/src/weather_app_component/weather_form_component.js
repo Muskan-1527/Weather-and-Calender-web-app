@@ -10,7 +10,7 @@ const Form = props => {
 
         <div className="container" style={{background: 'rgba(0, 0, 0, 0.5)', backgroundImage: `url(${props.src})` }}>
           <form onSubmit={props.loadweather} className="pt-md-4">
-            <div>{props.error ? errorShow() : ""}</div>
+            <div>{props.error ? errorShow() : (props.errorWrongEntry ? errorWrongShow() : "")}</div>
             <div className="row">
                 <div className="col-md-3 offset-md-2">
                     <input
@@ -43,6 +43,14 @@ function errorShow() {
     return (
         <div className="alert alert-danger mx-5" role="alert">
             Please Enter City and Country...!
+        </div>
+    );
+};
+
+function errorWrongShow() {
+    return (
+        <div className="alert alert-danger mx-5" role="alert">
+            This city and country is not available in API..<h3>ENTER ANOTHER CITY AND COUNTRY...!</h3>
         </div>
     );
 };

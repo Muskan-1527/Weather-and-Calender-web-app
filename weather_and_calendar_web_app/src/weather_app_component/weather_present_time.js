@@ -19,9 +19,9 @@ class PresentDate extends React.Component {
 
     render() {
         return (
-            <div className="font-weight-bold font-italic">
+            <div className="font-weight-bold font-italic " style={{color:"white"}}>
                IST: {this.state.curTime}
-               <h4 className="font-weight-bold font-italic py-1">
+               <h4 className="font-weight-bold font-italic py-1" style={{color:"white"}}>
                    {WeekDay(this.state.day)}
                </h4>
             </div>

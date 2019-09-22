@@ -49,7 +49,8 @@ class WeatherApp extends React.Component {
       time7:undefined,
       time8:undefined,
       src:'/all_weatherg.jpg',
-      error:false
+      errorShown:false,
+      errorWrongEntry:false
     };
   }
 
@@ -57,22 +58,22 @@ class WeatherApp extends React.Component {
     switch(true) {
         case ID>=200 && ID<=232:
             this.setState({
-                src : '/thunderstormg.jpg'
+                src : '/thunderstorm.jpg'
             });
             break;
         case ID>=300 && ID<=321:
                 this.setState({
-                    src : '/drizzle.jpg'
+                    src : '/drizzle.gif'
                 });
             break;
         case ID>=500 && ID<=531:
                 this.setState({
-                    src : '/raing.jpg'
+                    src : '/rain.gif'
                 });
             break;
         case ID>=600 && ID<=622:
                 this.setState({
-                    src : '/snowg.jpg'
+                    src : '/snow.jpg'
                 });
                 break;
         case ID>=701 && ID<=781:
@@ -87,7 +88,7 @@ class WeatherApp extends React.Component {
             break;
         case ID>=801 && ID<=804:
                 this.setState({
-                    src : '/cloudsg.jpg'
+                    src : '/clouds.jpg'
                 });
             break;
       default:
@@ -114,15 +115,24 @@ class WeatherApp extends React.Component {
     if(country && city){
     const api_call = await fetch(
       `http://api.openweathermap.org/data/2.5/forecast/daily?q=${city},${country}&APPID=c10e7100063f10864ba3ffb839aed7f3`
-      );
+      ).catch((error) =>{
+        alert(error);
+        console.log(error);
+    });
 
       const api_call2 = await fetch(
         `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&APPID=c10e7100063f10864ba3ffb839aed7f3`
-      );
+      ).catch((error) =>{
+        alert(error);
+        console.log(error);
+    });
 
       const api_call3 = await fetch(
         `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=8f6e7eafbcaceee6b0fd1759888a64c7`
-      );
+      ).catch((error) =>{
+        alert(error);
+        console.log(error);
+    });
 
   
     const response = await api_call.json();
@@ -131,6 +141,11 @@ class WeatherApp extends React.Component {
 
     const response3 = await api_call3.json();
 
+    console.log(response);
+    console.log(response2);
+    console.log(response3);
+
+    if(response.cod !== "404"){
     this.setState({
       city:response3.name,
       country:response3.sys.country,
@@ -172,14 +187,18 @@ class WeatherApp extends React.Component {
       time6:response2.list[5].dt_txt,
       time7:response2.list[6].dt_txt,
       time8:response2.list[7].dt_txt,
-      error: false
+      errorShown: false,
+      errorWrongEntry: false
     });
-    this.getWeatherImage(response.list[0].weather[0].id);
-    console.log(response);
-    console.log(response2);
+    this.getWeatherImage(response3.weather[0].id);
   }else {
     this.setState({
-      error:true
+      errorWrongEntry:true
+        });
+  }
+  }else {
+    this.setState({
+      errorShown:true
     });
   }
   
@@ -188,9 +207,9 @@ class WeatherApp extends React.Component {
   render() {
     return (
       <div className="App">
-        
+       
       <Weather 
-      loadweather={this.getWeather} error={this.state.error} 
+      loadweather={this.getWeather} error={this.state.errorShown} errorWrongEntry={this.state.errorWrongEntry}
       city={this.state.city} 
       country={this.state.country} 
       temp_celsius={this.state.celsius}
