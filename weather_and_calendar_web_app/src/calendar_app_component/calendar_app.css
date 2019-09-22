@@ -34,6 +34,7 @@ tr {
 .day,
 .empty-slot,
 .week-day {
+    width:2%;
     text-align: center;
     border:1px solid gray;
 }
@@ -56,6 +57,11 @@ tr {
 
 .sunday {
     background-color: #e3dbda;
+}
+
+.festival {
+    background-color: #94ed5f;
+    color:white;
 }
 
 .current-day {

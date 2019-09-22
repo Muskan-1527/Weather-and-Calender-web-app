@@ -10,7 +10,8 @@ export default class Calendar_app extends React.Component {
         showYearPopup: false,
         selectedDay: null,
         selectedMonth: null,
-        selectedYear: null
+        selectedYear: null,
+        festivalData: []
     }
 
     constructor(props) {
@@ -19,10 +20,20 @@ export default class Calendar_app extends React.Component {
         this.style = props.style || {};
     }
 
+    componentWillMount() {
+        this.getFestival();
+    }
+
+    componentDidUpdate() {
+        this.getFestival();
+    }
+
 
     weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
     weekdaysShort = moment.weekdaysShort(); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     months = moment.months();
+    festivalClass = "";
+    festivalName = ""; 
 
     year = () => {
         return this.state.dateContext.format("Y");
@@ -30,11 +41,14 @@ export default class Calendar_app extends React.Component {
     month = () => {
         return this.state.dateContext.format("MMMM");
     }
+    monthIndex = () => {
+        return this.state.dateContext.format("M");
+    }
     daysInMonth = () => {
         return this.state.dateContext.daysInMonth();
     }
     currentDate = () => {
-        console.log("currentDate: ", this.state.dateContext.get("date"));
+        
         return this.state.dateContext.get("date");
     }
     currentDay = () => {
@@ -142,7 +156,7 @@ export default class Calendar_app extends React.Component {
         dateContext = moment(dateContext).set("year", year);
         this.setState({
             dateContext: dateContext
-        })
+        });
     }
     onYearChange = (e) => {
         this.setYear(e.target.value);
@@ -190,6 +204,25 @@ export default class Calendar_app extends React.Component {
         this.props.onDayClick && this.props.onDayClick(e, day);
     }
 
+
+
+    getFestival = async e => {
+
+        const getyear = this.year();
+
+        const api_call_calendar = await fetch(
+            `https://calendarific.com/api/v2/holidays?&api_key=48461cede50c3028db08c1ca462bb3ef2c3a136a&country=IN&year=${getyear}`
+            );
+    
+        const response_calendar = await api_call_calendar.json();
+          
+        console.log(response_calendar);
+
+        this.setState({
+            festivalData: response_calendar.response.holidays
+        })
+    }
+
     render() {
         // Map the weekdays i.e Sun, Mon, Tue etc as <td>
         let weekdays = this.weekdaysShort.map((day) => {
@@ -212,18 +245,35 @@ export default class Calendar_app extends React.Component {
         for (let d = 1; d <= this.daysInMonth(); d++) {
             let className = (d === this.currentDate() ? this.month() === this.currentMonth() ? this.year() === this.currentYear() ? "day current-day" : "day" : "day": "day");
             let selectedClass = (d === this.state.selectedDay ? this.month() === this.state.selectedMonth ? this.year() === this.state.selectedYear ? " selected-day " : "" : "" : "");
-            let SundayClass = (this.firstDayOfMonth() == 0 ? (d == 1 || d == 8 || d == 15 || d == 22 || d == 29) ? " sunday " : "" 
-            : this.firstDayOfMonth() == 1 ? (d == 7 || d == 14 || d == 21 || d == 28) ? " sunday " : ""
-            : this.firstDayOfMonth() == 2 ? (d == 6 || d == 13 || d == 20 || d == 27) ? " sunday " : ""
-            : this.firstDayOfMonth() == 3 ? (d == 5 || d == 12 || d == 19 || d == 26) ? " sunday " : ""
-            : this.firstDayOfMonth() == 4 ? (d == 4 || d == 11 || d == 18 || d == 25) ? " sunday " : ""
-            : this.firstDayOfMonth() == 5 ? (d == 3 || d == 10 || d == 17 || d == 24 || d == 31) ? " sunday " : "" 
-            : this.firstDayOfMonth() == 6 ? (d == 2 || d == 9 || d == 16 || d == 23 || d == 30) ? " sunday " : ""
+            let SundayClass = (this.firstDayOfMonth() == 0 ? (d == 1 || d == 8 || d == 15 || d == 22 || d == 29) ? " sunday" : "" 
+            : this.firstDayOfMonth() == 1 ? (d == 7 || d == 14 || d == 21 || d == 28) ? " sunday" : ""
+            : this.firstDayOfMonth() == 2 ? (d == 6 || d == 13 || d == 20 || d == 27) ? " sunday" : ""
+            : this.firstDayOfMonth() == 3 ? (d == 5 || d == 12 || d == 19 || d == 26) ? " sunday" : ""
+            : this.firstDayOfMonth() == 4 ? (d == 4 || d == 11 || d == 18 || d == 25) ? " sunday" : ""
+            : this.firstDayOfMonth() == 5 ? (d == 3 || d == 10 || d == 17 || d == 24 || d == 31) ? " sunday" : "" 
+            : this.firstDayOfMonth() == 6 ? (d == 2 || d == 9 || d == 16 || d == 23 || d == 30) ? " sunday" : ""
             : "" 
             ); 
+            // console.log(this.state.festivalData.length);
+            for(let a = 0 ; a < this.state.festivalData.length ; a++) {
+                if(this.state.festivalData[a].date.datetime.month == this.monthIndex()) {
+                        if(d == this.state.festivalData[a].date.datetime.day) {
+                            this.festivalName = this.state.festivalData[a].name;
+                            this.festivalClass = " festival";
+                            break;
+                        }
+                        else{
+                            this.festivalName = "";
+                            this.festivalClass = "";
+                        }
+                    }
+                    this.festivalClass = "";
+                }
+            
+          
             daysInMonth.push(
-                <td key={d} className={className + selectedClass + SundayClass} >
-                    <span onClick={(e)=>{this.onDayClick(e, d)}}>{d}</span>
+                <td key={d} className={className + selectedClass + SundayClass + this.festivalClass} >
+                    <span onClick={(e)=>{this.onDayClick(e, d)}}><div>{this.festivalName}</div>{d}</span>
                 </td>
             );
         }
