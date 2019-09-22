@@ -1,11 +1,14 @@
 import React,{Component} from 'react';
 import fire from '../../config/config';
 import Calendar_app from '../../calendar_app_component/calendar_app';
+import {Route}from 'react-router-dom';
+import Event from '../../calendar_app_component/event/event';
 
 const style = {
     position: "relative",
     margin: "50px auto",
 }
+
 class Calendar extends Component{
 constructor(props){
     super(props);
@@ -15,14 +18,19 @@ constructor(props){
      fire.auth().signOut();
  }
 
- onDayClick = (e, day) => {
-     alert(day);
+ onDayClick = () => {
+     return(
+        <div>
+        <Route path="/event" exact component={Event}/>
+        </div>
+     );
+     
  }
     render(){
         return(
             <div>
                 <Calendar_app style={style} width="302px"
-                onDayClick={(e,day) => this.onDayClick(e, day)}/>
+                onDayClick={() => this.onDayClick()}/>
                 <button onClick={this.logout}>Logout</button>
             </div>
 

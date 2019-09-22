@@ -164,8 +164,8 @@ this.setState({
         );
     }
 
-    onDayClick =(e, day) => {
-        this.props.onDayClick && this.props.onDayClick(e, day);
+    onDayClick =() => {
+        this.props.onDayClick && this.props.onDayClick();
     }
 
 
@@ -193,7 +193,7 @@ this.setState({
             let selectedClass = (d === this.state.selectedDay ? " selected-day " : "")
             daysInMonth.push(
                 <td key={d} className={className + selectedClass} >
-                    <span onClick={(e) => {this.onDayClick(e,d)}}>{d}</span>
+                    <span onClick={(e) => {this.onDayClick()}}>{d}</span>
                 </td>
             );
         }
