@@ -3,6 +3,8 @@ import img1 from '../images/climate.gif';
 import img2 from '../images/calendar.jpg';
 import './Background.css';
 import Content from '../Content/Content';
+import Event from '../../calendar_app_component/event/event';
+
 
 class Background extends Component{
     render(){
@@ -23,6 +25,7 @@ class Background extends Component{
                <img src={img2} alt="calendar_image" className="image2"/></div>
                 </div>
            </div> */}
+           <Event/>
 </div>
 </div>
         );

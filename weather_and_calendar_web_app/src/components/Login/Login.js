@@ -12,6 +12,7 @@ constructor(props){
     this.state = {
         email:'',
         password:'',
+        clicked:null
     }
 }
 
@@ -32,6 +33,13 @@ signup(e){
     })
 }
 
+authChange = () => {
+this.setState(prevState =>{
+    return {clicked: !prevState.clicked};
+});
+}
+
+
  handleChange(e) {
      this.setState({[e.target.name] : e.target.value});
  }
@@ -51,8 +59,14 @@ signup(e){
                         <label for="exampleInputPassword1">Password</label>
                         <input value={this.state.password} onChange={this.handleChange} type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Enter your password"/>
                         </div>
-                        <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
+                        <button type="submit" onClick={this.login} className="btn btn-primary" disabled={this.state.clicked}>Login</button>
+                        <p style={{marginTop:"5%"}}><strong>{this.state.clicked ? "Account already exists??":"Don't have an account??Then create one..." }</strong></p>
+                        <button onClick={this.authChange}>{this.state.clicked ? "Go back to login" :"Click Here!!!"}</button>
+                        {this.state.clicked ?
                         <button onClick={this.signup} style={{marginLeft:'25px'}} className="btn btn-success">Signup</button>
+                        :null}
+                        
+
                 </form>
                 </div>
                 </main>
