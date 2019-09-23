@@ -11,13 +11,13 @@ const Weather = (props) => {
         <div className = "container" style={{ backgroundImage: `url(${props.src})` }}>
             <Form loadweather={props.loadweather} error={props.error} errorWrongEntry={props.errorWrongEntry}/>
            <div className = "cards pt-4" >
-               {!props.error ? 
+               {!props.error && !props.errorWrongEntry ? 
                <h1>
                    {props.city}
                    {props.country?(","):null}
                    {props.country}
                </h1> : ""}
-               {!props.error ?
+               {!props.error && !props.errorWrongEntry ?
                <div className="row py-2">
                    <div className="col-md-3 offset-md-2">
                        
@@ -36,14 +36,14 @@ const Weather = (props) => {
                       ):null}
                    </div>
                </div> : null}
-               {!props.error ?
+               {!props.error && !props.errorWrongEntry  ?
                (minmaxTemperature(props.temp_min,props.temp_max)) : ""}
-               {!props.error ?
+               {!props.error && !props.errorWrongEntry ? 
                <h4 className = "py-2">{props.description}
                {props.city? <img className="img-fluid" src={`http://openweathermap.org/img/w/${props.icon}.png` } alt="WeatherIcon"/>:null}
                </h4>
                : ""}
-               {!props.error ?
+               {!props.error && !props.errorWrongEntry  ?
                <h4> 
                <span className="px-4">
                {props.humidity?("Humidity:"):null}
@@ -55,16 +55,16 @@ const Weather = (props) => {
                </span>
                </h4>
                : ""}
-               {!props.error ?
+               {!props.error && !props.errorWrongEntry  ?
                <h4 className="pt-2">
                    {props.country?("WindSpeed:"):null}
                    {props.windspeed}
                </h4> : ""}
            </div>
-           {!props.error ?
+           {!props.error && !props.errorWrongEntry  ?
           (props.city? <h1 className = "pt-2" style={{color:"white"}}>Next Three Days Weather</h1> : "")
           : ""}
-          {!props.error ?
+          {!props.error && !props.errorWrongEntry  ?
            <div className="row py-3">
               <div className="futureData col-md-3 offset-md-2">
                {monthday1(props.city)}
@@ -86,10 +86,10 @@ const Weather = (props) => {
               </div>
            </div> : ""}
            
-           {!props.error ?
+           {!props.error && !props.errorWrongEntry  ?
            (props.city? <h1 className = "pt-2" style={{color:"white"}}>Three Hour Format Report</h1> : "") : ""}
 
-           {!props.error ?
+           {!props.error && !props.errorWrongEntry  ?
 
            <div className="row py-3">
 
@@ -115,7 +115,7 @@ const Weather = (props) => {
             </div>
 
            </div> : ""}
-           {!props.error ?
+           {!props.error && !props.errorWrongEntry  ?
 
            <div className="row py-3">
 
