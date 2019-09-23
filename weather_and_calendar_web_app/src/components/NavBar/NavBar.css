@@ -71,9 +71,9 @@ color:yellow;
      a:hover,
      a:active,
      a.active {
-        background-color:lightpink;
+        background-color:#cacfea;
         border-bottom: 4px solid rgb(246, 10, 10);
-        color:orangered;
+        color:white;
         width:100%;
         animation: enable 0.3s linear;
     }

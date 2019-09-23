@@ -10,18 +10,16 @@ const navBar = () => (
     <nav>
     <ul>
 
-    {/* <div><Logo/></div> */}
+    <div><Logo/></div>
 
                          <li><NavLink
                                 to="/"
                                 exact={true}
                                 activeClassName="is-active link"
                                 activeStyle={{
-                                    color:'peru',
                                     textDecoration: 'underline',
-                                    backgroundColor:'lightpink',
+                                    backgroundColor:'#cacfea',
                                     borderBottom: '4px solid rgb(246, 10, 10)',
-                                    color:'orangered'
                                 }}>Home</NavLink></li>
 
                             <li><NavLink to={{
@@ -36,15 +34,8 @@ const navBar = () => (
                                 activeClassName:"link",
                                 hash: '#submit',
                                 search: '?quick-submit=true'
-                            }}>Authenticate</NavLink></li>
-
-                            <li><NavLink to={{
-                                pathname: '/calendar',
-                                activeClassName:"link",
-                                hash: '#submit',
-                                search: '?quick-submit=true'
                             }}>Calendar</NavLink></li>
-                        
+
                     
 
    {/* <NavItems link="/" active>Home</NavItems>

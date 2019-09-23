@@ -20,13 +20,13 @@ export default class Calendar_app extends React.Component {
         this.style = props.style || {};
     }
 
-    componentWillMount() {
-        this.getFestival();
-    }
+    // componentWillMount() {
+    //     this.getFestival();
+    // }
 
-    componentDidUpdate() {
-        this.getFestival();
-    }
+    // componentDidUpdate() {
+    //     this.getFestival();
+    // }
 
 
     weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
@@ -211,7 +211,7 @@ export default class Calendar_app extends React.Component {
         const getyear = this.year();
 
         const api_call_calendar = await fetch(
-            `https://calendarific.com/api/v2/holidays?&api_key=48461cede50c3028db08c1ca462bb3ef2c3a136a&country=IN&year=${getyear}`
+            `https://calendarific.com/api/v2/holidays?&api_key=aaaab6ea9c4aa0249d5e46845e39104345999e34&country=IN&year=${getyear}`
             );
     
         const response_calendar = await api_call_calendar.json();

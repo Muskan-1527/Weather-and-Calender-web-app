@@ -193,6 +193,7 @@ class WeatherApp extends React.Component {
     this.getWeatherImage(response3.weather[0].id);
   }else {
     this.setState({
+      errorShown: false,
       errorWrongEntry:true
         });
   }
