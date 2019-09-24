@@ -36,29 +36,29 @@ export default class Calendar_app extends React.Component {
     festivalName = ""; 
 
     year = () => {
-        return this.state.dateContext.format("Y");
+        return this.state.dateContext.format("Y"); //year like 2019 ,2020 .....
     }
     month = () => {
-        return this.state.dateContext.format("MMMM");
+        return this.state.dateContext.format("MMMM"); //month like septenber , october , ....
     }
     monthIndex = () => {
-        return this.state.dateContext.format("M");
+        return this.state.dateContext.format("M"); // month index like 9 , 10 , ....
     }
     daysInMonth = () => {
-        return this.state.dateContext.daysInMonth();
+        return this.state.dateContext.daysInMonth(); // 30 , 31 , ....
     }
     currentDate = () => {
         
-        return this.state.dateContext.get("date");
+        return this.state.dateContext.get("date"); //  date
     }
     currentDay = () => {
-        return this.state.dateContext.format("D");
+        return this.state.dateContext.format("D"); //  day
     }
     currentMonth = () => {
-        return this.state.today.format("MMMM");
+        return this.state.today.format("MMMM"); // present month
     }
     currentYear = () => {
-        return this.state.today.format("Y");
+        return this.state.today.format("Y"); // present year
     }
 
     firstDayOfMonth = () => {
@@ -309,11 +309,11 @@ export default class Calendar_app extends React.Component {
         })
 
         return (
-            <div className="calendar-container" style={this.style}>
+            <div className="calendar-container-Month" style={this.style}>
                 
-                <table className="calendar">
+                <table className="calendar-Month">
                     <thead>
-                        <tr className="calendar-header">
+                        <tr className="calendar-header-Month">
                             <td colSpan="5">
                                 <this.MonthNav />
                                 {" "}

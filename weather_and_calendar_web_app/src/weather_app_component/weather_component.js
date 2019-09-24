@@ -6,7 +6,6 @@ import Form from './weather_form_component';
 
 const Weather = (props) => {
 
-
     return (
         <div className = "container" style={{ backgroundImage: `url(${props.src})` }}>
             <Form loadweather={props.loadweather} error={props.error} errorWrongEntry={props.errorWrongEntry}/>
