@@ -11,7 +11,7 @@ constructor(props){
     this.signup = this.signup.bind(this);
     this.state = {
         email:'',
-        password:'',
+        password:''
     }
 }
 
@@ -55,6 +55,7 @@ signup(e){
                         </div>
                         <button type="submit" onClick={this.login} className="btn btn-primary">Login</button>
                         <button onClick={this.signup} style={{marginLeft:'25px'}} className="btn btn-success">Signup</button>
+                       
                 </form>
                 </div>
                 </main>
