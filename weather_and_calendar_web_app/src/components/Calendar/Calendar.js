@@ -18,11 +18,12 @@ constructor(props){
      fire.auth().signOut();
  }
 
- onDayClick = () => {
+ onDayClick(e){
      return(
-        <div>
-        <Route path="/event" exact component={Event}/>
-        </div>
+        // <div>
+        // <Route path="/event" exact component={Event}/>
+        // </div>
+        alert("day is clicked")
      );
      
  }
@@ -30,7 +31,7 @@ constructor(props){
         return(
             <div>
                 <Calendar_app style={style} width="302px"
-                onDayClick={() => this.onDayClick()}/>
+                onDayClick={(e) => this.onDayClick(e)}/>
                 <button onClick={this.logout}>Logout</button>
             </div>
 

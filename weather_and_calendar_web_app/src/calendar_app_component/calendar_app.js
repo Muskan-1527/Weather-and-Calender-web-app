@@ -233,7 +233,7 @@ this.setState({
                 <table className="calendar">
                     <thead>
                         <tr className="calendar-header">
-                        <td colspan="5">
+                        <td colSpan="5">
                         <this.MonthNav/>
                         {""}
                         <this.YearNav/>

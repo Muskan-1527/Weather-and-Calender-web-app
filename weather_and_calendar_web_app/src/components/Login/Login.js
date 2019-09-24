@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import fire from '../../config/config';
 import './Login.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Event from '../../calendar_app_component/event/event';
+
 
 class Login extends Component{
 constructor(props){
@@ -12,7 +14,7 @@ constructor(props){
     this.state = {
         email:'',
         password:'',
-        clicked:null
+        clicked:false
     }
 }
 
@@ -70,6 +72,7 @@ this.setState(prevState =>{
                 </form>
                 </div>
                 </main>
+<Event />
             </div>
         )
     }
