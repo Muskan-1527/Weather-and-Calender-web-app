@@ -5,17 +5,11 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-
     height: 100%;
-
     justify-content:flex-end;
     background-color:darkblue;
-   
-    
 }
-NavLink{
-color:yellow;
-}
+
 
 @media (min-width: 500px) {
      ul{

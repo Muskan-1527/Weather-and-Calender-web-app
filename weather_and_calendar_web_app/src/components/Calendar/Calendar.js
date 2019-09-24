@@ -23,10 +23,16 @@ constructor(props){
     render(){
         return(
             <div>
+                 <div className = "text-center pb-1 pt-2 " style = {{
+                    fontSize: "3em"
+                }}>CALENDAR</div>
                 <Calendar_app style={style} 
                 onDayClick={(e,day) => this.onDayClick(e, day)}/>
+                <div className = "text-center pb-3" style = {{
+                    fontSize: "3em"
+                }}>YEARLY VIEW</div>
                 <Yearly />
-               <div className = "text-center"> <button onClick={this.logout} className = " my-4 p-2 text-center">Logout</button></div>
+               <div className = "text-center"> <button onClick={this.logout} className = " my-4 p-2 px-4 text-center btn btn-primary">Logout</button></div>
             </div>
 
         )

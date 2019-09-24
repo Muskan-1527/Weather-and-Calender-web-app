@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Calendar , CalendarControls} from 'react-yearly-calendar';
 import moment from 'moment';
-import ReactDOM from 'react-dom';
 import './calendar_yearly_style.css';
  
 class Yearly extends Component {
@@ -9,14 +8,13 @@ class Yearly extends Component {
   constructor(props) {
     super(props);
 
-    const today = moment();
+    const today = moment(); // present date , day , year , ..
 
     this.state = {
 
         present: moment(),
         year: today.year(),
-        selectedDay:today,
-        showTodayBtn: true
+        selectedDay:today // present date
     }
   }
 
@@ -48,14 +46,13 @@ class Yearly extends Component {
   render() {
     const {
       year,
-      showTodayBtn,
       selectedDay,
     } = this.state;
     return (
       <div id="calendar">
       <CalendarControls
         year={year}
-        showTodayButton={showTodayBtn}
+        showTodayButton="true"
         onPrevYear={() => this.onPrevYear()}
         onNextYear={() => this.onNextYear()}
         goToToday={() => this.goToToday()}

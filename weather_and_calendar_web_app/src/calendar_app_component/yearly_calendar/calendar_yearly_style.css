@@ -54,7 +54,8 @@ body {
   table.calendar td.week-separator {
     padding: 0;
     width: 2em;
-    min-width: 0;;
+    min-width: 0;
+    cursor:default;
   }
   
   table.calendar td.bolder {
