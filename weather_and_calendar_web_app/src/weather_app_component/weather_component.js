@@ -6,18 +6,20 @@ import Form from './weather_form_component';
 
 const Weather = (props) => {
 
-
     return (
         <div className = "container" style={{ backgroundImage: `url(${props.src})` }}>
-            <Form loadweather={props.loadweather} error={props.error}/>
+            <Form loadweather={props.loadweather} error={props.error} errorWrongEntry={props.errorWrongEntry}/>
            <div className = "cards pt-4" >
+               {!props.error && !props.errorWrongEntry ? 
                <h1>
                    {props.city}
                    {props.country?(","):null}
                    {props.country}
-               </h1>
+               </h1> : ""}
+               {!props.error && !props.errorWrongEntry ?
                <div className="row py-2">
                    <div className="col-md-3 offset-md-2">
+                       
                       {props.city ? (
                           <h5>Sunrise at : {sunrise(props.sunriseTime)}</h5>
                       ):null}
@@ -32,11 +34,15 @@ const Weather = (props) => {
                           <h5>Sunset at : {sunset(props.sunsetTime)}</h5>
                       ):null}
                    </div>
-               </div>
-               {minmaxTemperature(props.temp_min,props.temp_max)}
+               </div> : null}
+               {!props.error && !props.errorWrongEntry  ?
+               (minmaxTemperature(props.temp_min,props.temp_max)) : ""}
+               {!props.error && !props.errorWrongEntry ? 
                <h4 className = "py-2">{props.description}
                {props.city? <img className="img-fluid" src={`http://openweathermap.org/img/w/${props.icon}.png` } alt="WeatherIcon"/>:null}
                </h4>
+               : ""}
+               {!props.error && !props.errorWrongEntry  ?
                <h4> 
                <span className="px-4">
                {props.humidity?("Humidity:"):null}
@@ -47,11 +53,17 @@ const Weather = (props) => {
                {props.pressure}
                </span>
                </h4>
+               : ""}
+               {!props.error && !props.errorWrongEntry  ?
                <h4 className="pt-2">
                    {props.country?("WindSpeed:"):null}
                    {props.windspeed}
-               </h4>
+               </h4> : ""}
            </div>
+           {!props.error && !props.errorWrongEntry  ?
+          (props.city? <h1 className = "pt-2" style={{color:"white"}}>Next Three Days Weather</h1> : "")
+          : ""}
+          {!props.error && !props.errorWrongEntry  ?
            <div className="row py-3">
               <div className="futureData col-md-3 offset-md-2">
                {monthday1(props.city)}
@@ -71,7 +83,12 @@ const Weather = (props) => {
                   <h1>{props.city? <img className="img-fluid" src={`http://openweathermap.org/img/w/${props.icon3}.png` } alt="WeatherIcon"/>:null}</h1>
                   {minmaxfuturetemperature(props.temp_min3,props.temp_max3)}
               </div>
-           </div>
+           </div> : ""}
+           
+           {!props.error && !props.errorWrongEntry  ?
+           (props.city? <h1 className = "pt-2" style={{color:"white"}}>Three Hour Format Report</h1> : "") : ""}
+
+           {!props.error && !props.errorWrongEntry  ?
 
            <div className="row py-3">
 
@@ -96,7 +113,8 @@ const Weather = (props) => {
             
             </div>
 
-           </div>
+           </div> : ""}
+           {!props.error && !props.errorWrongEntry  ?
 
            <div className="row py-3">
 
@@ -122,6 +140,7 @@ const Weather = (props) => {
             </div>
             
            </div>
+           : ""}
 
 
 
@@ -195,6 +214,5 @@ function monthday3(Name) {
     );
   }
 }
-
 
 export default Weather;

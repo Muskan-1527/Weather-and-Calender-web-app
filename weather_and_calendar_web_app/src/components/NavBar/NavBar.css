@@ -1,24 +1,15 @@
- ul {
+ul {
     margin: 0;
     padding: 0;
     list-style: none;
     display: flex;
     flex-flow: column;
     align-items: center;
-
     height: 100%;
-color:white;
     justify-content:flex-end;
     background-color:darkblue;
- 
 }
 
-.link{
-    color:white;
-}
-NavLink{
-color:yellow;
-}
 
 @media (min-width: 500px) {
      ul{
@@ -37,7 +28,7 @@ color:yellow;
 }
 
  a {
-    color:white;
+    
     text-decoration: none;
     width: 100%;
     box-sizing: border-box;
@@ -63,7 +54,7 @@ color:yellow;
     }
     
      a {
-        color:white;
+        
         height: 100%;
         padding: 16px 4px;
         border-bottom: 4px solid transparent;
@@ -74,9 +65,8 @@ color:yellow;
      a:hover,
      a:active,
      a.active {
-        background-color:lightpink;
+        background-color:#cacfea;
         border-bottom: 4px solid rgb(246, 10, 10);
-        color:orangered;
         width:100%;
         animation: enable 0.3s linear;
     }

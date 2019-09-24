@@ -1,0 +1,111 @@
+body {
+    background-color: white;
+    font-family: sans-serif;
+  }
+  
+  table.calendar {
+    border-collapse: collapse;
+    width:100%;
+  }
+  
+  table.calendar thead {
+    background-color: #5A5A5A;
+    color: white;
+    margin-bottom: 3px;
+    border-bottom: 2px solid white;
+  }
+  
+  
+  table.calendar thead th {
+    font-weight: normal;
+    padding: 10px 3px;
+    font-weight: bold;
+  }
+  
+  table.calendar tbody {
+    font-size: 0.8em;
+  }
+  
+  table.calendar td {
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+    border: 1px solid gray;
+    background-color: white;
+    min-width: 15px;
+  }
+  
+  table.calendar tr:last-child td {
+    border-bottom: none;
+  }
+  
+  table.calendar td.month-name {
+    font-weight: bold;
+    text-align: left;
+    cursor: default;
+    border-left: none;
+  }
+  
+  table.calendar td.prev-month,
+  table.calendar td.next-month {
+    cursor: default;  
+  }
+  
+  table.calendar td.week-separator {
+    padding: 0;
+    width: 2em;
+    min-width: 0;
+    cursor:default;
+  }
+  
+  table.calendar td.bolder {
+    font-weight: bold;
+  }
+  
+  /* Single selected day */
+  table.calendar td.selected {
+    background-color: orangered;
+    color: white;
+    font-weight: bold;
+  }
+
+
+  div.calendar-controls {
+    margin: 5px auto;
+    display: table;
+    font-size: 25px;
+    line-height: 35px;
+  }
+  
+  div.calendar-controls div {
+    display: inline;
+  }
+  
+  div.calendar-controls .current-year {
+    margin: 0 8em;
+  }
+  
+  div.calendar-controls .control {
+    font-weight: bolder;
+    color: #323232;
+    font-size: 0.8em;
+    cursor: pointer;
+  }
+  
+  div.calendar-controls .today {
+    position: absolute;
+    right: 2em;
+    line-height: 35px;
+    font-size: 0.6em;
+    text-transform: uppercase;
+  }
+  
+  /* Demo */
+  
+  div#calendar {
+    position: relative;
+    border-radius: 5px;
+    border: 1px solid #5A5A5A;
+    background-color: white;
+    overflow: hidden;
+  }

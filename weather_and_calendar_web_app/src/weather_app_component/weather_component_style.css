@@ -1,18 +1,22 @@
 .container{
     background-repeat:no-repeat;
     background-size:cover;
+    position: relative;
 }
 
 .cards{
     background-color: rgba(20, 20, 20,0.4);
     border:1px solid #121212;
-    color:blue;
+    color:white;
     font-weight:bold;
+    position:relative;
+    height:450px;
 }
 
 .futureData{
     background-color: rgba(20, 20, 20,0.4);
     border:1px solid #121212;
-    color:black;
+    color:white;
     font-weight:bold;
+    position:relative;
 }

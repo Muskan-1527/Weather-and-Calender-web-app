@@ -35,7 +35,8 @@ signup(e){
     })
 }
 
-authChange = () => {
+authChange = (e) => {
+    e.preventDefault();
 this.setState(prevState =>{
     return {clicked: !prevState.clicked};
 });

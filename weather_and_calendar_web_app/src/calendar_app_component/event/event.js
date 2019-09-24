@@ -95,7 +95,7 @@ class Event extends React.Component {
       return (
       <div>
         <Button color="danger" onClick={this.toggle}>Click me</Button>
-        <Modal isOpen={this.state.modal}>
+        <Modal isOpen={this.state.modal} close={closeBtn}>
           <ModalHeader >ADD EVENT DATA</ModalHeader>
           <ModalBody>
           <div className="modal-body">

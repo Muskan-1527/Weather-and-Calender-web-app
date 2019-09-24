@@ -13,12 +13,13 @@ const navBar = () => (
     <div><Logo/></div>
 
                          <li><NavLink
-                                to="/background/"
-                                exact
-                                activeClassName="my-active"
+                                to="/"
+                                exact={true}
+                                activeClassName="is-active link"
                                 activeStyle={{
-                                    color:'white',
-                                    textDecoration: 'underline'
+                                    textDecoration: 'underline',
+                                    backgroundColor:'#cacfea',
+                                    borderBottom: '4px solid rgb(246, 10, 10)',
                                 }}>Home</NavLink></li>
 
                             <li><NavLink to={{
@@ -33,15 +34,8 @@ const navBar = () => (
                                 activeClassName:"link",
                                 hash: '#submit',
                                 search: '?quick-submit=true'
-                            }}>Authenticate</NavLink></li>
-
-                            <li><NavLink to={{
-                                pathname: '/calendar',
-                                activeClassName:"link",
-                                hash: '#submit',
-                                search: '?quick-submit=true'
                             }}>Calendar</NavLink></li>
-                        
+
                     
 
    {/* <NavItems link="/" active>Home</NavItems>
