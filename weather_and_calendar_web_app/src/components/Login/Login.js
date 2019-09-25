@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import fire from '../../config/config';
 import './Login.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Event from '../../calendar_app_component/event/event';
+
 
 
 class Login extends Component{
@@ -73,7 +73,6 @@ this.setState(prevState =>{
                 </form>
                 </div>
                 </main>
-<Event />
             </div>
         )
     }
