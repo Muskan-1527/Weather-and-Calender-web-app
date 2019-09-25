@@ -39,7 +39,7 @@ export default class Calendar_app extends React.Component {
         return this.state.dateContext.format("Y"); //year like 2019 ,2020 .....
     }
     month = () => {
-        return this.state.dateContext.format("MMMM"); //month like septenber , october , ....
+        return this.state.dateContext.format("MMMM"); //month like september , october , ....
     }
     monthIndex = () => {
         return this.state.dateContext.format("M"); // month index like 9 , 10 , ....
@@ -192,7 +192,7 @@ export default class Calendar_app extends React.Component {
         );
     }
 
-    onDayClick = (e, day) => {
+    onDayClick = (e,day) => {
         this.setState({
             selectedDay: day,
             selectedMonth: this.month(),
@@ -240,7 +240,7 @@ export default class Calendar_app extends React.Component {
             );
         }
 
-        console.log("blanks: ", blanks);
+        // console.log("blanks: ", blanks);
 
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
@@ -280,7 +280,7 @@ export default class Calendar_app extends React.Component {
         }
 
 
-        console.log("days: ", daysInMonth);
+        // console.log("days: ", daysInMonth);
 
         var totalSlots = [...blanks, ...daysInMonth];
         let rows = [];
