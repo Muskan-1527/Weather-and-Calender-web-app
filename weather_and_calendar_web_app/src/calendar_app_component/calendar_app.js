@@ -1,6 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 import './calendar_app.css';
+// import {Button , ButtonToolbar} from 'reactstrap';
+// import FestivalModal from './FestivalShowModal';
 
 export default class Calendar_app extends React.Component {
     state = {
@@ -11,7 +13,8 @@ export default class Calendar_app extends React.Component {
         selectedDay: null,
         selectedMonth: null,
         selectedYear: null,
-        festivalData: []
+        festivalData: [],
+        // addFestivalModal: false
     }
 
     constructor(props) {
@@ -48,8 +51,7 @@ export default class Calendar_app extends React.Component {
         return this.state.dateContext.daysInMonth(); // 30 , 31 , ....
     }
     currentDate = () => {
-        
-        return this.state.dateContext.get("date"); //  date
+        return this.state.today.get("date"); //  date
     }
     currentDay = () => {
         return this.state.dateContext.format("D"); //  day
@@ -224,7 +226,16 @@ export default class Calendar_app extends React.Component {
         })
     }
 
+    
+
     render() {
+
+        // let addFestivalModalClose = () => this.setState(
+        //     {
+        //         addFestivalModal: false
+        //     }
+        // )
+        
         // Map the weekdays i.e Sun, Mon, Tue etc as <td>
         let weekdays = this.weekdaysShort.map((day) => {
             return (
@@ -261,6 +272,9 @@ export default class Calendar_app extends React.Component {
                         if(d == this.state.festivalData[a].date.datetime.day) {
                             this.festivalName = this.state.festivalData[a].name;
                             this.festivalClass = " festival";
+                            if(this.currentDate() == d) {
+                                alert(this.festivalName);
+                            }
                             break;
                         }
                         else{
@@ -319,6 +333,19 @@ export default class Calendar_app extends React.Component {
                                 <this.MonthNav />
                                 {" "}
                                 <this.YearNav />
+                                {/* <td>
+                                    <ButtonToolbar>
+                                        <Button
+                                            variant = 'primary'
+                                            onClick = {() => this.setState({addFestivalModal: true})}
+                                           > Today's Festival
+                                        </Button>
+                                        <FestivalModal
+                                        show = {this.state.addFestivalModal}
+                                        onHide = {addFestivalModalClose}
+                                        />
+                                    </ButtonToolbar>
+                                </td> */}
                             </td>
                             
                             <td colSpan="2" className="nav-month">

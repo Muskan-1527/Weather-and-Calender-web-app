@@ -51,6 +51,7 @@
         font-size:1.5em;
         margin-right:50px;
         color:whitesmoke;
+        text-align: center;
     }
     
      a {
@@ -65,8 +66,9 @@
      a:hover,
      a:active,
      a.active {
-        background-color:#cacfea;
-        border-bottom: 4px solid rgb(246, 10, 10);
+         color: white !important;
+        background-color:rgba(45, 190, 118, 0.568);
+        border-bottom: 4px solid yellowgreen;
         width:100%;
         animation: enable 0.3s linear;
     }

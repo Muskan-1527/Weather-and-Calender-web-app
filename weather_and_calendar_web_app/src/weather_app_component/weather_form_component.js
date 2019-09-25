@@ -8,6 +8,7 @@ const Form = props => {
 
     return(
 
+
         <div className="container" style={{background: 'rgba(0, 0, 0, 0.5)', backgroundImage: `url(${props.src})` }}>
           <form onSubmit={props.loadweather} className="pt-md-4">
             <div>{props.error ? errorShow() : (props.errorWrongEntry ? errorWrongShow() : "")}</div>
@@ -18,14 +19,14 @@ const Form = props => {
                     className="form-control" 
                     name="city" 
                     autoComplete="on"
-                    placeholder="city"/>
+                    placeholder="Enter City"/>
                 </div>
                 <div className="col-md-3">
                     <input type="text" 
                     className="form-control" 
                     name="country" 
                     autoComplete="on"
-                    placeholder = "country"/>
+                    placeholder = "Enter Country"/>
                 </div>
                 <div className="col-md-3 mt-xs-2 text-md-left">
                     <button className="btn btn-warning">Get Weather</button>
