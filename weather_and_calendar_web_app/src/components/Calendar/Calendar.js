@@ -32,6 +32,7 @@ constructor(props){
         selectedDay: null,
         selectedMonth: null,
         selectedYear: null,
+        btnClicked:false,
       };
 }
  logout(){
@@ -47,10 +48,12 @@ constructor(props){
     this.setState({
         selectedDay: day,
         selectedMonth:this.monthIndex(),
-        selectedYear: this.year()
+        selectedYear: this.year(),
+        btnClicked:false
     }
     );
     this.props.onDayClick && this.props.onDayClick(e, day);
+    this.resetData();
  }
 
  monthIndex = () => {
@@ -84,15 +87,23 @@ eventSendHandler = (e) =>{
     .catch(error => console.log(error));
 }
 
+eventEmptyCallHandler = () => {
+    this.setState({
+        btnClicked:true
+    })
+}
+
 addEventDataHandler = () =>{
         this.eventSendHandler();
         this.onDayClick();
         this.resetData();
+       
     }
 
 
-    render(){
-        const closeBtn = <button className="close" onClick={this.onDayClick}>&times;</button>;
+    render() {
+
+        const closeBtn = <button className="close" onClick={this.onDayClick}>&times;</button>
         
         return(
             <div>
@@ -125,10 +136,19 @@ addEventDataHandler = () =>{
         <input type="textarea" value={this.state.eventdesc} className="form-control" name="eventdesc" placeholder="Enter EventDescription" onChange={this.changeHandler}/>
         </div>
         </div>  
+        <div>
+         {this.state.btnClicked && this.state.eventname == '' && this.state.eventdesc == '' ?
+         <p style={{textAlign:'center',fontFamily:'Trebuchet MS',fontSize:'1.3em',color:'orangered'}}>
+             <strong>
+             Plz enter data to add...
+             </strong></p>
+         :null}
+       
 
+        </div>
         </ModalBody>
         <ModalFooter>
-        <Button color="danger" onClick={this.addEventDataHandler} >Add Event</Button>{' '}
+        <Button color="danger" onClick={this.state.eventname == '' && this.state.eventdesc == '' ? this.eventEmptyCallHandler :this.addEventDataHandler} >Add Event</Button>{' '}
         <Button color="warning" onClick={this.onDayClick}>Show Events</Button>{' '}
         <Button color="secondary" onClick={this.onDayClick}>Close</Button>
         </ModalFooter>
@@ -136,6 +156,6 @@ addEventDataHandler = () =>{
         </div>
         </div>
         )
-    }
+            }         
 }
 export default Calendar; 
