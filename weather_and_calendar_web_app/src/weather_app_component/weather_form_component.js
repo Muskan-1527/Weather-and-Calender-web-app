@@ -9,7 +9,7 @@ const Form = props => {
     return(
 
 
-        <div className="container" style={{background: 'rgba(0, 0, 0, 0.5)', backgroundImage: `url(${props.src})` }}>
+        <div className="container" style={{ backgroundImage: `url(${props.src})` }}>
           <form onSubmit={props.loadweather} className="pt-md-4">
             <div>{props.error ? errorShow() : (props.errorWrongEntry ? errorWrongShow() : "")}</div>
             <div className="row">

@@ -56,7 +56,7 @@ class WeatherApp extends React.Component {
       weatherDescription6: undefined,
       weatherDescription7: undefined,
       weatherDescription8: undefined,
-      src: '/all_weatherg.jpg',
+      src: '/all_weather.jpg',
       errorShown: false,
       errorWrongEntry: false
     };
@@ -71,12 +71,12 @@ class WeatherApp extends React.Component {
         break;
       case ID >= 300 && ID <= 321:
         this.setState({
-          src: '/drizzle.gif'
+          src: '/drizzle.jpg'
         });
         break;
       case ID >= 500 && ID <= 531:
         this.setState({
-          src: '/rain.gif'
+          src: '/rain.jpg'
         });
         break;
       case ID >= 600 && ID <= 622:
@@ -101,7 +101,7 @@ class WeatherApp extends React.Component {
         break;
       default:
         this.setState({
-          src: '/all_weatherg.jpg'
+          src: '/all_weather.jpg'
         });
     }
   }
@@ -215,7 +215,7 @@ class WeatherApp extends React.Component {
       }
     } else {
       this.setState({
-        src: "/all_weatherg.jpg",
+        src: "/all_weather.jpg",
         errorShown: true
       });
     }
@@ -252,7 +252,7 @@ class WeatherApp extends React.Component {
           sunriseTime={this.state.sunrise}
           sunsetTime={this.state.sunset}
           windspeed={this.state.windspeed}
-          src={!this.errorShown ? ((!this.state.errorWrongEntry) ? (this.state.src) : "/all_weatherg.jpg") : "/all_weatherg.jpg"}
+          src={!this.errorShown ? ((!this.state.errorWrongEntry) ? (this.state.src) : "/all_weather.jpg") : "/all_weather.jpg"}
           temp1={this.state.temp1}
           temp2={this.state.temp2}
           temp3={this.state.temp3}

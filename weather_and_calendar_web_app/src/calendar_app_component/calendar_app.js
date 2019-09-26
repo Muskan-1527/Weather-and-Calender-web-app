@@ -1,8 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import './calendar_app.css';
-// import {Button , ButtonToolbar} from 'reactstrap';
-// import FestivalModal from './FestivalShowModal';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export default class Calendar_app extends React.Component {
     state = {
@@ -14,18 +13,25 @@ export default class Calendar_app extends React.Component {
         selectedMonth: null,
         selectedYear: null,
         festivalData: [],
-        // addFestivalModal: false
+        addFestivalModal:  false
     }
 
     constructor(props) {
         super(props);
         this.width = props.width || "350px";
         this.style = props.style || {};
+        this.toggle = this.toggle.bind(this);
     }
 
-    // componentWillMount() {
-    //     this.getFestival();
-    // }
+    toggle () {
+        this.setState(prevState => ({
+            addFestivalModal: !prevState.addFestivalModal
+        }));
+    }
+
+    componentWillMount() {
+        this.getFestival();
+    }
 
     // componentDidUpdate() {
     //     this.getFestival();
@@ -36,7 +42,9 @@ export default class Calendar_app extends React.Component {
     weekdaysShort = moment.weekdaysShort(); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     months = moment.months();
     festivalClass = "";
-    festivalName = ""; 
+    festivalName = "";
+    TodayFestival = null; 
+    TodayFestivalDescription = "";
 
     year = () => {
         return this.state.dateContext.format("Y"); //year like 2019 ,2020 .....
@@ -229,12 +237,6 @@ export default class Calendar_app extends React.Component {
     
 
     render() {
-
-        // let addFestivalModalClose = () => this.setState(
-        //     {
-        //         addFestivalModal: false
-        //     }
-        // )
         
         // Map the weekdays i.e Sun, Mon, Tue etc as <td>
         let weekdays = this.weekdaysShort.map((day) => {
@@ -257,13 +259,13 @@ export default class Calendar_app extends React.Component {
         for (let d = 1; d <= this.daysInMonth(); d++) {
             let className = (d === this.currentDate() ? this.month() === this.currentMonth() ? this.year() === this.currentYear() ? "day current-day" : "day" : "day": "day");
             let selectedClass = (d === this.state.selectedDay ? this.month() === this.state.selectedMonth ? this.year() === this.state.selectedYear ? " selected-day " : "" : "" : "");
-            let SundayClass = (this.firstDayOfMonth() == 0 ? (d == 1 || d == 8 || d == 15 || d == 22 || d == 29) ? " sunday" : "" 
-            : this.firstDayOfMonth() == 1 ? (d == 7 || d == 14 || d == 21 || d == 28) ? " sunday" : ""
-            : this.firstDayOfMonth() == 2 ? (d == 6 || d == 13 || d == 20 || d == 27) ? " sunday" : ""
-            : this.firstDayOfMonth() == 3 ? (d == 5 || d == 12 || d == 19 || d == 26) ? " sunday" : ""
-            : this.firstDayOfMonth() == 4 ? (d == 4 || d == 11 || d == 18 || d == 25) ? " sunday" : ""
-            : this.firstDayOfMonth() == 5 ? (d == 3 || d == 10 || d == 17 || d == 24 || d == 31) ? " sunday" : "" 
-            : this.firstDayOfMonth() == 6 ? (d == 2 || d == 9 || d == 16 || d == 23 || d == 30) ? " sunday" : ""
+            let SundayClass = (this.firstDayOfMonth() === 0 ? (d === 1 || d === 8 || d === 15 || d === 22 || d === 29) ? " sunday" : "" 
+            : this.firstDayOfMonth() === 1 ? (d === 7 || d === 14 || d === 21 || d === 28) ? " sunday" : ""
+            : this.firstDayOfMonth() === 2 ? (d === 6 || d === 13 || d === 20 || d === 27) ? " sunday" : ""
+            : this.firstDayOfMonth() === 3 ? (d === 5 || d === 12 || d === 19 || d === 26) ? " sunday" : ""
+            : this.firstDayOfMonth() === 4 ? (d === 4 || d === 11 || d === 18 || d === 25) ? " sunday" : ""
+            : this.firstDayOfMonth() === 5 ? (d === 3 || d === 10 || d === 17 || d === 24 || d === 31) ? " sunday" : "" 
+            : this.firstDayOfMonth() === 6 ? (d === 2 || d === 9 || d === 16 || d === 23 || d === 30) ? " sunday" : ""
             : "" 
             ); 
             // console.log(this.state.festivalData.length);
@@ -272,8 +274,9 @@ export default class Calendar_app extends React.Component {
                         if(d == this.state.festivalData[a].date.datetime.day) {
                             this.festivalName = this.state.festivalData[a].name;
                             this.festivalClass = " festival";
-                            if(this.currentDate() == d) {
-                                alert(this.festivalName);
+                            if( this.currentDate == d ) {
+                                this.TodayFestival = this.state.festivalData[a].name;
+                                this.TodayFestivalDescription = this.state.festivalData[a].description;
                             }
                             break;
                         }
@@ -333,19 +336,23 @@ export default class Calendar_app extends React.Component {
                                 <this.MonthNav />
                                 {" "}
                                 <this.YearNav />
-                                {/* <td>
-                                    <ButtonToolbar>
-                                        <Button
-                                            variant = 'primary'
-                                            onClick = {() => this.setState({addFestivalModal: true})}
-                                           > Today's Festival
-                                        </Button>
-                                        <FestivalModal
-                                        show = {this.state.addFestivalModal}
-                                        onHide = {addFestivalModalClose}
-                                        />
-                                    </ButtonToolbar>
-                                </td> */}
+                            </td>
+                            <td>
+                            <Button color="btn btn-success mb-2" onClick={this.toggle}>Display Today's Festival</Button>
+        <Modal isOpen={this.state.addFestivalModal} toggle={this.toggle}  centered={true} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}><div className = "font-weight-bold" style = {{
+              marginLeft : "8rem" , 
+              fontSize : "1.5rem",
+          }}>
+              Today's Festival</div></ModalHeader>
+          <ModalBody className = "text-center">
+            {this.TodayFestival ? this.TodayFestival : "Today , there is no festival" }
+            <div>{this.TodayFestivalDescription}</div>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
                             </td>
                             
                             <td colSpan="2" className="nav-month">

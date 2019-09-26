@@ -59,11 +59,11 @@ const Weather = (props) => {
                    {props.country?("WindSpeed:"):null}
                    {props.windspeed}
                </h4> : ""}
-           </div>
-           {!props.error && !props.errorWrongEntry  ?
+           </div> 
+           {!props.error && !props.errorWrongEntry ?
           (props.city? <h1 className = "pt-2" style={{color:"white"}}>Next Three Days Weather</h1> : "")
           : ""}
-          {!props.error && !props.errorWrongEntry  ?
+          {!props.error && !props.errorWrongEntry && props.city ?
            <div className="row py-3">
               <div className="futureData col-md-3 offset-md-2">
                {monthday1(props.city)}
@@ -85,10 +85,10 @@ const Weather = (props) => {
               </div>
            </div> : ""}
            
-           {!props.error && !props.errorWrongEntry  ?
+           {!props.error && !props.errorWrongEntry ?
            (props.city? <h1 className = "pt-2" style={{color:"white"}}>Three Hour Format Report</h1> : "") : ""}
 
-           {!props.error && !props.errorWrongEntry  ?
+           {!props.error && !props.errorWrongEntry && props.city ?
 
            <div className="row py-3">
 
@@ -118,7 +118,7 @@ const Weather = (props) => {
             </div>
 
            </div> : ""}
-           {!props.error && !props.errorWrongEntry  ?
+           {!props.error && !props.errorWrongEntry && props.city ?
 
            <div className="row py-3">
 

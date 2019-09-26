@@ -1,6 +1,6 @@
 form input[name="city"],
 form input[name="country"] {
-    background-color: transparent;
+    background-color: #54bff5;
     color: white !important;
     border: 0;
     font-size:1.5em;

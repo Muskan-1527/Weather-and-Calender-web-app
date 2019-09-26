@@ -52,7 +52,7 @@ class Yearly extends Component {
       <div id="calendar">
       <CalendarControls
         year={year}
-        showTodayButton="true"
+        showTodayButton={true}
         onPrevYear={() => this.onPrevYear()}
         onNextYear={() => this.onNextYear()}
         goToToday={() => this.goToToday()}
