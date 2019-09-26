@@ -5,7 +5,6 @@ import Yearly from '../../calendar_app_component/yearly_calendar/calendar_yearly
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import axios from '../../axios_file';
 import moment from 'moment';
-import DatePicker from "react-datepicker";
 
 const style = {
     position: "relative",
@@ -20,9 +19,9 @@ constructor(props){
     this.eventSendHandler = this.eventSendHandler.bind(this);
     this.addEventDataHandler = this.addEventDataHandler.bind(this);
     this.resetData = this.resetData.bind(this);
-    // this.currentMonth = this.currentMonth.bind(this);
-    // this.currentYear = this.currentYear.bind(this);
-    // this.currentDate = this.currentDate.bind(this);
+    this.monthIndex = this.monthIndex.bind(this);
+    this.year = this.year.bind(this);
+   
 
     this.state = {
         dateContext: moment(),
@@ -30,47 +29,40 @@ constructor(props){
         modal: false,
         eventname:'',
         eventdesc:'',
-        dateRef:'',
-        startDate: new Date(),
-        eventDay:''
+        selectedDay: null,
+        selectedMonth: null,
+        selectedYear: null,
       };
 }
  logout(){
      fire.auth().signOut();
  }
 
- handleChange = date => {
-    this.setState({
-      startDate: date
-    });
-  }
-
-// currentDate = () => {
-//     this.currentMonth();
-//     this.currentYear();
-// }
 
  onDayClick = (e,day) => {
-    // alert(day);
     this.setState(prevState => ({
         modal: !prevState.modal
       }));
-    // this.state.dateRef=(day,"-",this.currentDate);
+    
+    this.setState({
+        selectedDay: day,
+        selectedMonth:this.monthIndex(),
+        selectedYear: this.year()
+    }
+    );
+    this.props.onDayClick && this.props.onDayClick(e, day);
  }
 
-//  currentMonth = () => {
-//     return this.state.today.format("MMMM"); // present month
-// }
-// currentYear = () => {
-//     return this.state.today.format("Y"); // present year
-// }
-//  currentDate = (e,date) => {
-// this.state.dateRef = date;
-// }
-// currentDate = () => {
-//     return this.state.dateContext.format("DD-MM-YYYY");
-// }
- 
+ monthIndex = () => {
+  return this.state.dateContext.format("M"); // month index like 9 , 10 , ....
+}
+
+
+ year = () => {
+    return this.state.dateContext.format("Y"); //year like 2019 ,2020 .....
+ }
+
+
 
 resetData = () => {
     this.state.eventname='';
@@ -85,7 +77,7 @@ eventSendHandler = (e) =>{
     const eventdata = {
         eventName:this.state.eventname,
         eventDescription:this.state.eventdesc,
-        eventDay:this.handleChange()
+        eventDay:this.state.selectedDay+"/"+this.state.selectedMonth+"/"+this.state.selectedYear
     }
     axios.post('/events.json',eventdata)
     .then(response => console.log(response))
@@ -109,16 +101,16 @@ addEventDataHandler = () =>{
                 }}>CALENDAR</div>
                 <Calendar_app style={style} 
                 onDayClick={(e,day) => this.onDayClick(e,day)}
+                monthIndex={() => this.monthIndex()}
+                year={() => this.year()}
                 />
+            
                 <div className = "text-center pb-3" style = {{
                     fontSize: "3em"
                 }}>YEARLY VIEW</div>
                 <Yearly />
                <div className = "text-center"> <button onClick={this.logout} className = " my-4 p-2 px-4 text-center btn btn-primary">Logout</button></div>
-              {/* let date_picker = <DatePicker
-        selected={this.state.startDate}
-        onChange={this.handleChange} */}
-      />
+            
             <div>
         <Modal isOpen={this.state.modal}>
         <ModalHeader close={closeBtn}>ADD EVENT DATA</ModalHeader>
