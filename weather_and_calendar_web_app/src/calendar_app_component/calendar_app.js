@@ -162,6 +162,7 @@ export default class Calendar_app extends React.Component {
     }
 
     setYear = (year) => {
+        this.getFestival();
         let dateContext = Object.assign({}, this.state.dateContext);
         dateContext = moment(dateContext).set("year", year);
         this.setState({
@@ -274,7 +275,7 @@ export default class Calendar_app extends React.Component {
                         if(d == this.state.festivalData[a].date.datetime.day) {
                             this.festivalName = this.state.festivalData[a].name;
                             this.festivalClass = " festival";
-                            if( this.currentDate == d ) {
+                            if(this.currentDate() === d) {
                                 this.TodayFestival = this.state.festivalData[a].name;
                                 this.TodayFestivalDescription = this.state.festivalData[a].description;
                             }
