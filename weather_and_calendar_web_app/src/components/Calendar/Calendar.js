@@ -97,7 +97,9 @@ addEventDataHandler = () =>{
         this.eventSendHandler();
         this.onDayClick();
         this.resetData();
-       
+    //    this.setState({
+    //        eventShow:true
+    //    })
     }
 
 

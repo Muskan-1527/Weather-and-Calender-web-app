@@ -1,10 +1,111 @@
-img  {
-    width : "100%";
-    height : "100%";
+.image1{
+    position:relative;
+    width :99%;
+    height :50%;
+    margin:0px;
+    padding: 0px;
+    opacity: 0.9;
+}
+
+.heading{
+    z-index: 1;
+    position: absolute;
+    text-align: center;
     
+}
+
+.tagline{
+    color:white;
+    /* font-size:2em; */
+    box-shadow: 2px 2px 4px orangered;
+    display:inline-block;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight:bold;
+    border-bottom:5px solid grey;
+    text-shadow: 2px 4px black;
+
+}
+
+@media (min-width:300px) {
+    .heading{
+        top:30vh;
+    }
+    .head1{
+        font-size: 2em;
+    }
+    .tagline{
+        font-size: 1em;
+    }
+}
+
+
+@media (min-width:300px) and  (max-width: 400px)  {
+    .heading{
+        top:35vh;
+    }
+    .head1{
+        font-size: 2em;
+    }
+    .tagline{
+        font-size: 1em;
+    }
+}
+
+@media (min-width:700px) {
+    .heading{
+        top:15vh;
+    }
+    .head1{
+        font-size: 4em;
+    }
+    .tagline{
+        font-size: 2em;
+    }
+}
+
+@media (min-width:1200px) {
+    .heading{
+        top:35vh;
+    }
+    .head1{
+        font-size: 5em;
+    }
+    .tagline{
+        font-size: 2em;
+    }
+}
+
+
+.weather_feature{
+    background-color:white;
+    height:20vh;
+    padding:5px;
+}
+
+.head1{
+    color:black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgba(255, 0, 0, 0.829);
+    text-shadow: 2px 4px black;
+    padding:5%;
+    text-decoration: none;
+}
+
+
+
+.begin{
+    background-color: peru;
+    margin:0px;
+    padding: 0px; 
 }
 
 .footer {
     background-color: #122070;
     color:white;
+}
+
+.middle{
+    background-color:coral;
+    color:maroon;
+    text-align:center;
 }

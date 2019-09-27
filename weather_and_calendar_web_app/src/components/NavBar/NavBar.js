@@ -7,7 +7,7 @@ import {NavLink} from 'react-router-dom';
 
 const navBar = () => (
 <div className="NavBar">
-    <nav>
+    <nav >
     <ul>
 
     <div><Logo/></div>
@@ -18,8 +18,9 @@ const navBar = () => (
                                 activeClassName="is-active link"
                                 activeStyle={{
                                     textDecoration: 'underline',
-                                    backgroundColor:'#cacfea',
-                                    borderBottom: '4px solid rgb(246, 10, 10)',
+                                    color: 'white',
+                                    backgroundColor:'#1f7d4f',
+                                    borderBottom: '4px solid #c9b624',
                                 }}>Home</NavLink></li>
 
                             <li><NavLink to={{
@@ -27,6 +28,12 @@ const navBar = () => (
                                 activeClassName:"link",
                                 hash: '#submit',
                                 search: '?quick-submit=true'
+                            }}
+                            activeStyle={{
+                                textDecoration: 'underline',
+                                color: 'white',
+                                backgroundColor:'#1f7d4f',
+                                borderBottom: '4px solid #c9b624',
                             }}>Weather</NavLink></li>
 
                             <li><NavLink to={{
@@ -34,6 +41,12 @@ const navBar = () => (
                                 activeClassName:"link",
                                 hash: '#submit',
                                 search: '?quick-submit=true'
+                            }}
+                            activeStyle={{
+                                textDecoration: 'underline',
+                                color: 'white',
+                                backgroundColor:'#1f7d4f',
+                                borderBottom: '4px solid #c9b624',
                             }}>Calendar</NavLink></li>
 
                     

@@ -16,34 +16,48 @@ import { Route,Link } from 'react-router-dom';
 class Background extends Component{
     render(){
         return(
-            
-            <div className="begin">
-       <div className="container">
+              <div style={{right:"0px",backgroundColor:"peru"}}>
 
-           <div className="row">
-               <div className="col-md-6">
+           <div className="row h-100">
                <img src={img1} alt="weather_image" className="image1"/>
+               <div className = "heading col-md-12 text-center my-auto">
+                    <h1 className="head1"><u>WEATHER APP</u></h1>
+                    <h3 className="tagline">Come for the weather,Stay for the experience...</h3>
+                    </div>
                 </div>
-                <div className = "col-md-6 text-center">
-                    <h1><u>WEATHER APP</u></h1>
-                    <h3>This app gives weather report of any place</h3>
-                    <h3 className = "font-weight-bold">Features:</h3>
-                        <h4>- Current Weather Report</h4>
-                        <h4>- Weather Report of Next Three Days</h4>
-                        <h4>- Three Hour Format Weather Report</h4>
-                </div>
-           </div>
+                
+                
            <div className = "row py-4">
                <div className = "col-md-12 text-center">
                <h3 className="px-3 font-weight-bold">Click on the link given below to get the latest WEATHER report</h3>
-               <Link to = "/weather" style = {{
-                  backgroundColor: "white" , 
+               <Link to = "/weather" style = {{ 
+                    display:"block",
                   borderBottom: "1px solid white" , 
                   fontSize: "2em"
                }}>Weather</Link>
                <Route path="/weather" component={Weather} />
            </div>
            </div>
+           <div className = "middle">
+<div>
+<div className = "row mt-4 py-4">
+    <div className = "col col-lg-2 text-center">
+        <div className="weather_feature">
+
+        <h1 className = "font-weight-bold" style={{top:"25%", margin: "0",
+  position: "relative"}}>Features</h1>
+        </div>
+        
+    </div>
+    <div className = "col-md-auto text-center">
+         
+         <h4>- Current Weather Report</h4>
+         <h4>- Weather Report of Next Three Days</h4>
+         <h4>- Three Hour Format Weather Report</h4>
+    </div>
+    </div>
+    </div>
+</div>
 
            <div className="row">
                 <div className = "col-md-6 text-center">
@@ -67,7 +81,7 @@ class Background extends Component{
            <div className = "col-md-12 text-center">
                <h3 className="px-3 font-weight-bold">Click on the link given below to get the CALENDAR</h3>
                <Link to = "/front_page" style = {{
-                  backgroundColor: "white" , 
+                   display:"block", 
                   borderBottom: "0px solid white" , 
                   fontSize: "2em",
                }}>Calendar</Link>
@@ -75,7 +89,7 @@ class Background extends Component{
            </div>
            </div>
 
-           </div>
+           
 
            <div className = "footer">
 
@@ -128,11 +142,8 @@ class Background extends Component{
 
                  </div>
              </div>
-           </div>
-
-
-           
-</div>
+           </div>   
+           </div>        
         );
     }
 }
