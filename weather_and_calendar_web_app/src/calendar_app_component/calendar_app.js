@@ -23,28 +23,28 @@ export default class Calendar_app extends React.Component {
         this.toggle = this.toggle.bind(this);
     }
 
+    
+//Modal shown condition changes
     toggle () {
         this.setState(prevState => ({
             addFestivalModal: !prevState.addFestivalModal
         }));
     }
 
-    componentWillMount() {
-        this.getFestival();
-    }
-
-    // componentDidUpdate() {
+    //calling of festival shown function on loading of page
+    // componentWillMount() {
     //     this.getFestival();
     // }
 
 
+
     weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
     weekdaysShort = moment.weekdaysShort(); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    months = moment.months();
-    festivalClass = "";
-    festivalName = "";
-    TodayFestival = null; 
-    TodayFestivalDescription = "";
+    months = moment.months(); // 
+    festivalClass = ""; // styling of days of festival
+    festivalName = ""; // show festival name
+    TodayFestival = null;  // present festival name
+    TodayFestivalDescription = ""; // present featival description
 
     year = () => {
         return this.state.dateContext.format("Y"); //year like 2019 ,2020 .....
@@ -71,12 +71,14 @@ export default class Calendar_app extends React.Component {
         return this.state.today.format("Y"); // present year
     }
 
+    //to get the index of first weekday of the month
     firstDayOfMonth = () => {
         let dateContext = this.state.dateContext;
         let firstDay = moment(dateContext).startOf('month').format('d'); // Day of week 0...1..5...6
         return firstDay;
     }
 
+    // function to set the month shown as selected
     setMonth = (month) => {
         let monthNo = this.months.indexOf(month);
         let dateContext = Object.assign({}, this.state.dateContext);
@@ -86,6 +88,7 @@ export default class Calendar_app extends React.Component {
         });
     }
 
+    // function to show the next month
     nextMonth = () => {
         let dateContext = Object.assign({}, this.state.dateContext);
         dateContext = moment(dateContext).add(1, "month");
@@ -95,6 +98,7 @@ export default class Calendar_app extends React.Component {
         this.props.onNextMonth && this.props.onNextMonth();
     }
 
+    // function to show the previous month
     prevMonth = () => {
         let dateContext = Object.assign({}, this.state.dateContext);
         dateContext = moment(dateContext).subtract(1, "month");
@@ -104,6 +108,7 @@ export default class Calendar_app extends React.Component {
         this.props.onPrevMonth && this.props.onPrevMonth();
     }
 
+    //function to get the present month
     presentMonth = () => {
         let dateContext = Object.assign({}, this.state.today);
         dateContext = moment(dateContext).set({'year':2019,'month':8});
@@ -113,12 +118,14 @@ export default class Calendar_app extends React.Component {
         this.props.onpresentMonth && this.props.onpresesentMonth();
     }
 
+
     onSelectChange = (e, data) => {
         this.setMonth(data);
         this.props.onMonthChange && this.props.onMonthChange();
 
     }
 
+    // function to show month list and change the month
     SelectList = (props) => {
         let popup = props.data.map((data) => {
             return (
@@ -143,6 +150,7 @@ export default class Calendar_app extends React.Component {
         });
     }
 
+    //month navbar
     MonthNav = () => {
         return (
             <span className="label-month"
@@ -161,14 +169,17 @@ export default class Calendar_app extends React.Component {
         });
     }
 
+    // function to change the year 
     setYear = (year) => {
-        this.getFestival();
+        // this.getFestival();
         let dateContext = Object.assign({}, this.state.dateContext);
         dateContext = moment(dateContext).set("year", year);
         this.setState({
             dateContext: dateContext
         });
     }
+
+
     onYearChange = (e) => {
         this.setYear(e.target.value);
         this.props.onYearChange && this.props.onYearChange(e, e.target.value);
@@ -183,6 +194,7 @@ export default class Calendar_app extends React.Component {
         }
     }
 
+    // year navbar
     YearNav = () => {
         return (
             this.state.showYearNav ?
@@ -203,6 +215,7 @@ export default class Calendar_app extends React.Component {
         );
     }
 
+    // function to make a selected day
     onDayClick = (e, day) => {
         this.setState({
             selectedDay: day,
@@ -217,6 +230,7 @@ export default class Calendar_app extends React.Component {
 
 
 
+    // function to fetch the api of festivals
     getFestival = async e => {
 
         const getyear = this.year();
@@ -246,6 +260,7 @@ export default class Calendar_app extends React.Component {
             )
         });
 
+        // to leave the empty space before the first day of the month
         let blanks = [];
         for (let i = 0; i < this.firstDayOfMonth(); i++) {
             blanks.push(<td key={i * 80} className="emptySlot">
@@ -256,17 +271,17 @@ export default class Calendar_app extends React.Component {
 
         console.log("blanks: ", blanks);
 
-        let daysInMonth = [];
+        let daysInMonth = []; // array of number of days in the opened month
         for (let d = 1; d <= this.daysInMonth(); d++) {
             let className = (d === this.currentDate() ? this.month() === this.currentMonth() ? this.year() === this.currentYear() ? "day current-day" : "day" : "day": "day");
             let selectedClass = (d === this.state.selectedDay ? this.month() === this.state.selectedMonth ? this.year() === this.state.selectedYear ? " selected-day " : "" : "" : "");
-            let SundayClass = (this.firstDayOfMonth() === 0 ? (d === 1 || d === 8 || d === 15 || d === 22 || d === 29) ? " sunday" : "" 
-            : this.firstDayOfMonth() === 1 ? (d === 7 || d === 14 || d === 21 || d === 28) ? " sunday" : ""
-            : this.firstDayOfMonth() === 2 ? (d === 6 || d === 13 || d === 20 || d === 27) ? " sunday" : ""
-            : this.firstDayOfMonth() === 3 ? (d === 5 || d === 12 || d === 19 || d === 26) ? " sunday" : ""
-            : this.firstDayOfMonth() === 4 ? (d === 4 || d === 11 || d === 18 || d === 25) ? " sunday" : ""
-            : this.firstDayOfMonth() === 5 ? (d === 3 || d === 10 || d === 17 || d === 24 || d === 31) ? " sunday" : "" 
-            : this.firstDayOfMonth() === 6 ? (d === 2 || d === 9 || d === 16 || d === 23 || d === 30) ? " sunday" : ""
+            let SundayClass = (this.firstDayOfMonth() == 0 ? (d === 1 || d === 8 || d === 15 || d === 22 || d === 29) ? " sunday" : "" 
+            : this.firstDayOfMonth() == 1 ? (d === 7 || d === 14 || d === 21 || d === 28) ? " sunday" : ""
+            : this.firstDayOfMonth() == 2 ? (d === 6 || d === 13 || d === 20 || d === 27) ? " sunday" : ""
+            : this.firstDayOfMonth() == 3 ? (d === 5 || d === 12 || d === 19 || d === 26) ? " sunday" : ""
+            : this.firstDayOfMonth() == 4 ? (d === 4 || d === 11 || d === 18 || d === 25) ? " sunday" : ""
+            : this.firstDayOfMonth() == 5 ? (d === 3 || d === 10 || d === 17 || d === 24 || d === 31) ? " sunday" : "" 
+            : this.firstDayOfMonth() == 6 ? (d === 2 || d === 9 || d === 16 || d === 23 || d === 30) ? " sunday" : ""
             : "" 
             ); 
             // console.log(this.state.festivalData.length);
@@ -289,7 +304,7 @@ export default class Calendar_app extends React.Component {
                     this.festivalClass = "";
                 }
             
-          
+           // to show all days with respective styling
             daysInMonth.push(
                 <td key={d} className={className + selectedClass + SundayClass + this.festivalClass} >
                     <span onClick={(e)=>{this.onDayClick(e, d)}}><div>{this.festivalName}</div>{d}</span>
@@ -339,7 +354,8 @@ export default class Calendar_app extends React.Component {
                                 <this.YearNav />
                             </td>
                             <td>
-                            <Button color="btn btn-success mb-2" onClick={this.toggle}>Display Today's Festival</Button>
+                            {/* button which opens a modal contaiing today's festival and description of the festival */}
+                            <Button color="btn btn-success mb-2 mr-5" onClick={this.toggle}>Display Today's Festival</Button>
         <Modal isOpen={this.state.addFestivalModal} toggle={this.toggle}  centered={true} className={this.props.className}>
           <ModalHeader toggle={this.toggle}><div className = "font-weight-bold" style = {{
               marginLeft : "8rem" , 
@@ -355,7 +371,7 @@ export default class Calendar_app extends React.Component {
           </ModalFooter>
         </Modal>
                             </td>
-                            
+                            {/* icons to go to the previous , next and present month */}
                             <td colSpan="2" className="nav-month">
                                 <i className="prev fa fa-fw fa-chevron-left px-1"
                                     onClick={(e)=> {this.prevMonth()}}>

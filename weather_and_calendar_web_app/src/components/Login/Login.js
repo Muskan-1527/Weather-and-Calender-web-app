@@ -2,9 +2,11 @@ import React,{Component} from 'react';
 import fire from '../../config/config';
 import './Login.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Swal from 'sweetalert2'
 
 
 class Login extends Component{
+
 constructor(props){
     super(props);
     this.login = this.login.bind(this);
@@ -16,21 +18,24 @@ constructor(props){
     }
 }
 
+errorMessage = "";
+
 login(e){
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u) =>{ 
     }).catch((error) =>{
-        alert(error);
+        this.errorMessage = error.message
+        Swal.fire(this.errorMessage);
         console.log(error);
     })
 }
-
 
 signup(e){
     e.preventDefault();
     fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
     .catch((error) =>{
-        alert(error);
+        this.errorMessage = error.message
+        Swal.fire(this.errorMessage);
         console.log(error);
     })
 }
@@ -39,9 +44,11 @@ signup(e){
      this.setState({[e.target.name] : e.target.value});
  }
     render(){
+        
         return(
 
             <div>
+
                 <main className="Form">
             <div className="col-md-6">
                 <form>
@@ -63,5 +70,6 @@ signup(e){
             </div>
         )
     }
-}
+};
+
 export default Login;

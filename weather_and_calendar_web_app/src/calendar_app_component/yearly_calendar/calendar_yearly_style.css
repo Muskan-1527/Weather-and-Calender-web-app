@@ -1,13 +1,16 @@
+/* styling of the body of the year view */
 body {
     background-color: white;
     font-family: sans-serif;
   }
   
+  /* making the border of the table */
   table.calendar {
     border-collapse: collapse;
     width:100%;
   }
   
+  /* styling of head of the calendar i.e. the section containig the weekdays name */
   table.calendar thead {
     background-color: #5A5A5A;
     color: white;
@@ -26,6 +29,7 @@ body {
     font-size: 0.8em;
   }
   
+  /* styling of all the data of the cells */
   table.calendar td {
     text-align: center;
     padding: 8px;
@@ -34,11 +38,8 @@ body {
     background-color: white;
     min-width: 15px;
   }
-  
-  table.calendar tr:last-child td {
-    border-bottom: none;
-  }
-  
+
+  /* styling of the cells containg the name of the months */
   table.calendar td.month-name {
     font-weight: bold;
     text-align: left;
@@ -51,6 +52,7 @@ body {
     cursor: default;  
   }
   
+  /* the cells separating two weeks */
   table.calendar td.week-separator {
     padding: 0;
     width: 2em;
@@ -58,6 +60,7 @@ body {
     cursor:default;
   }
   
+  /* border of the cells */
   table.calendar td.bolder {
     font-weight: bold;
   }
@@ -69,7 +72,7 @@ body {
     font-weight: bold;
   }
 
-
+  /* previous , next , and today controls */
   div.calendar-controls {
     margin: 5px auto;
     display: table;
@@ -99,8 +102,6 @@ body {
     font-size: 0.6em;
     text-transform: uppercase;
   }
-  
-  /* Demo */
   
   div#calendar {
     position: relative;
