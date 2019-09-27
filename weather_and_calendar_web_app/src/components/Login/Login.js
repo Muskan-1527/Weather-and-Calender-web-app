@@ -2,10 +2,13 @@ import React,{Component} from 'react';
 import fire from '../../config/config';
 import './Login.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Swal from 'sweetalert2'
+
 
 
 
 class Login extends Component{
+
 constructor(props){
     super(props);
     this.login = this.login.bind(this);
@@ -15,23 +18,97 @@ constructor(props){
         email:'',
         password:'',
         clicked:false
+
     }
 }
+
+errorMessage = "";
 
 login(e){
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u) =>{ 
     }).catch((error) =>{
-        alert(error);
+
+        this.errorMessage = error.message
+        if(this.errorMessage == "The email address is badly formatted.") {
+        Swal.fire({
+            type: 'error',
+            title:'ERROR',
+            text:'Please enter the email address correctly'
+        });
+        }
+        else if(this.errorMessage == "The password is invalid or the user does not have a password.") {
+            Swal.fire({
+                type: 'error',
+                title:'ERROR',
+                text:'Please enter the correct password'
+            });
+        }
+        else if(this.errorMessage == "There is no user record corresponding to this identifier. The user may have been deleted.") {
+            Swal.fire({
+                type: 'error',
+                title:'ERROR',
+                text:'User does not exist'
+            });
+        }
+        else {
+            Swal.fire({
+                type: 'error',
+                title:'ERROR',
+                text:'Enter the deatils correctly'
+            });
+        }
+        console.log(error);
+
     })
 }
-
 
 signup(e){
     e.preventDefault();
     fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
     .catch((error) =>{
-        alert(error);
+
+        this.errorMessage = error.message
+        if(this.errorMessage == "The email address is badly formatted.") {
+            Swal.fire({
+                type: 'error',
+                title:'ERROR',
+                text:'Please enter the email address correctly'
+            });
+        }
+        else if(this.errorMessage == "The password must be 6 characters long or more.") {
+            Swal.fire({
+                type: 'error',
+                title:'ERROR',
+                text:'Please enter a password of atleast 6 characters'
+            });
+         }
+
+         else if(this.errorMessage == "Password should be at least 6 characters") {
+             Swal.fire("The password should be of atleast 6 characters");
+             Swal.fire({
+                type: 'error',
+                title:'ERROR',
+                text:'The password should be of atleast 6 characters'
+            });
+         }
+
+        else if(this.errorMessage == "The email address is already in use by another account.") {
+            Swal.fire({
+                type: 'error',
+                title:'ERROR',
+                text:'User already exist'
+            });
+        }
+        else {
+            Swal.fire({
+                type: 'error',
+                title:'ERROR',
+                text:'Enter the deatils correctly'
+            });
+        }
+        console.log(error);
+
     })
 }
 
@@ -47,9 +124,11 @@ this.setState(prevState =>{
      this.setState({[e.target.name] : e.target.value});
  }
     render(){
+        
         return(
 
             <div>
+
                 <main className="Form">
             <div className="col-md-6">
                 <form>
@@ -68,7 +147,6 @@ this.setState(prevState =>{
                         {this.state.clicked ?
                         <button onClick={this.signup} style={{marginLeft:'25px'}} className="btn btn-success">Signup</button>
                         :null}
-                        
 
                 </form>
                 </div>
@@ -76,5 +154,6 @@ this.setState(prevState =>{
             </div>
         )
     }
-}
+};
+
 export default Login;

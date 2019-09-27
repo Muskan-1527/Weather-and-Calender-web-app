@@ -1,3 +1,4 @@
+	
 import React,{Component} from 'react';
 import fire from '../../config/config';
 import Calendar_app from '../../calendar_app_component/calendar_app';
@@ -5,6 +6,7 @@ import Yearly from '../../calendar_app_component/yearly_calendar/calendar_yearly
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import axios from '../../axios_file';
 import moment from 'moment';
+
 
 const style = {
     position: "relative",
@@ -38,6 +40,7 @@ constructor(props){
  logout(){
      fire.auth().signOut();
  }
+
 
 
  onDayClick = (e,day) => {
@@ -147,6 +150,7 @@ addEventDataHandler = () =>{
          :null}
        
 
+
         </div>
         </ModalBody>
         <ModalFooter>
@@ -160,4 +164,6 @@ addEventDataHandler = () =>{
         )
             }         
 }
+
 export default Calendar; 
+

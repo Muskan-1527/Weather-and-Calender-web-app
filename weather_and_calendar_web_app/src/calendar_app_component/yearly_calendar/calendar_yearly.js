@@ -22,18 +22,21 @@ class Yearly extends Component {
         return this.state.present.format("Y"); //year like 2019 ,2020 .....
     }
 
+    // function to ove to the previous year
     onPrevYear() {
       this.setState(prevState => ({
         year: prevState.year - 1
       }));
     }
   
+    // function to move to the next year
     onNextYear() {
       this.setState(prevState => ({
         year: prevState.year + 1
       }));
     }
-  
+
+    // function to move to today's date
     goToToday() {
       const today = moment();
   
@@ -51,10 +54,13 @@ class Yearly extends Component {
     return (
       <div id="calendar">
       <CalendarControls
-        year={year}
-        showTodayButton="true"
+        year={year} 
+        showTodayButton={true}
+        // move to previous year
         onPrevYear={() => this.onPrevYear()}
+         // move to next year
         onNextYear={() => this.onNextYear()}
+        // move to present date
         goToToday={() => this.goToToday()}
       />
       <Calendar
@@ -67,3 +73,4 @@ class Yearly extends Component {
 }
 
 export default Yearly;
+

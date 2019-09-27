@@ -24,6 +24,7 @@ class Background extends Component{
                     <h1 className="head1"><u>WEATHER APP</u></h1>
                     <h3 className="tagline">Come for the weather,Stay for the experience...</h3>
                     </div>
+
                 </div>
                 
                 
@@ -59,6 +60,7 @@ class Background extends Component{
     </div>
 </div>
 
+
            <div className="row">
                 <div className = "col-md-6 text-center">
                     <h1><u>CALENDAR APP</u></h1>
@@ -76,17 +78,19 @@ class Background extends Component{
                <img src={img2} alt="weather_image" className="image1"/>
                 </div>
 
+
            </div>
            <div className = "row py-4">
            <div className = "col-md-12 text-center">
                <h3 className="px-3 font-weight-bold">Click on the link given below to get the CALENDAR</h3>
                <Link to = "/front_page" style = {{
                    display:"block", 
-                  borderBottom: "0px solid white" , 
+                   borderBottom: "0px solid white" , 
                   fontSize: "2em",
                }}>Calendar</Link>
                <Route path="/front_page" component={Front_page} />
            </div>
+
            </div>
 
            
@@ -144,6 +148,7 @@ class Background extends Component{
              </div>
            </div>   
            </div>        
+
         );
     }
 }

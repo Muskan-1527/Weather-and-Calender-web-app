@@ -59,11 +59,13 @@ const Weather = (props) => {
                    {props.country?("WindSpeed:"):null}
                    {props.windspeed}
                </h4> : ""}
+
            </div>
            {!props.error && !props.errorWrongEntry  ?
           (props.city? <h1 className = "pt-2" style={{color:"white"}}>Next Three Days Weather</h1> : "")
           : ""}
-          {!props.error && !props.errorWrongEntry  ?
+          {!props.error && !props.errorWrongEntry && props.city ?
+
            <div className="row py-3">
               <div className="futureData col-md-3 offset-md-2">
                {monthday1(props.city)}
@@ -85,64 +87,72 @@ const Weather = (props) => {
               </div>
            </div> : ""}
            
-           {!props.error && !props.errorWrongEntry  ?
+
+           {!props.error && !props.errorWrongEntry ?
            (props.city? <h1 className = "pt-2" style={{color:"white"}}>Three Hour Format Report</h1> : "") : ""}
 
-           {!props.error && !props.errorWrongEntry  ?
+           {!props.error && !props.errorWrongEntry && props.city ?
 
            <div className="row py-3">
 
             <div className="futureData col-md-3">
                 {props.time1}
                 {props.temp1 ? <h1>{props.temp1}&deg;</h1>:null}
+                {props.weather1 ? <h4>{props.weather1}</h4> : null}
                 
             </div>
             <div className="futureData col-md-3">
             {props.time2}
             {props.temp2 ? <h1>{props.temp2}&deg;</h1>:null}
+            {props.weather2 ? <h4>{props.weather2}</h4> : null}
             
             </div>
             <div className="futureData col-md-3">
             {props.time3}
             {props.temp3 ? <h1>{props.temp3}&deg;</h1>:null}
+            {props.weather3 ? <h4>{props.weather3}</h4> : null}
             
             </div>
             <div className="futureData col-md-3">
             {props.time4}
             {props.temp4 ? <h1>{props.temp4}&deg;</h1>:null}
+            {props.weather4 ? <h4>{props.weather4}</h4> : null}
             
             </div>
 
            </div> : ""}
-           {!props.error && !props.errorWrongEntry  ?
+           {!props.error && !props.errorWrongEntry && props.city ?
+
 
            <div className="row py-3">
 
             <div className="futureData col-md-3">
             {props.time5}
             {props.temp5 ? <h1>{props.temp5}&deg;</h1>:null}
+            {props.weather5 ? <h4>{props.weather5}</h4> : null}
             
             </div>
             <div className="futureData col-md-3">
             {props.time6}
             {props.temp6 ? <h1>{props.temp6}&deg;</h1>:null}
+            {props.weather6 ? <h4>{props.weather6}</h4> : null}
             
             </div>
             <div className="futureData col-md-3">
             {props.time7}
             {props.temp7 ? <h1>{props.temp7}&deg;</h1>:null}
+            {props.weather7 ? <h4>{props.weather7}</h4> : null}
             
             </div>
             <div className="futureData col-md-3">
             {props.time8}
             {props.temp8 ? <h1>{props.temp8}&deg;</h1>:null}
+            {props.weather8 ? <h4>{props.weather8}</h4> : null}
             
             </div>
             
            </div>
            : ""}
-
-
 
 
         </div>
