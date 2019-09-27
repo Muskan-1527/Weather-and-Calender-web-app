@@ -1,11 +1,11 @@
-.container{
-    background-repeat:no-repeat;
-    background-size:cover;
-
-    /* background-size: contain; */
-
-    position: relative;
+.WeatherMain {
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+.container{
+     position: relative;
+}  
 
 .cards{
     background-color: rgba(20, 20, 20,0.4);

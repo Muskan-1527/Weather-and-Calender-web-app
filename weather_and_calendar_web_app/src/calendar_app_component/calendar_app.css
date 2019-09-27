@@ -10,7 +10,7 @@ tr {
 
 .calendar-container-Month {
     outline:2px solid black;
-    outline-offset: 15px;
+    outline-offset: 1.5rem;
 }
 
 .calendar-Month {
@@ -55,12 +55,12 @@ tr {
 }
 
 .sunday {
-    background-color: #e3dbda;
+    background-color: #eef6f7;
 }
 
 .festival {
-    background-color: #94ed5f;
-    color:red;
+    background-color: pink;
+    color:black;
 }
 
 .current-day {

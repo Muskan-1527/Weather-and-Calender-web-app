@@ -11,8 +11,6 @@ import Weather from '../../weather_app';
 import Front_page from '../../front_page';
 import { Route,Link } from 'react-router-dom';
 
-// import Content from '../Content/Content';
-
 class Background extends Component{
     render(){
         return(

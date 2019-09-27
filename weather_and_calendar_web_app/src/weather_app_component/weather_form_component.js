@@ -9,10 +9,11 @@ const Form = props => {
     return(
 
 
-        <div className="container" style={{ backgroundImage: `url(${props.src})` }}>
+        <div className="container">
           <form onSubmit={props.loadweather} className="pt-md-4">
             <div>{props.error ? errorShow() : (props.errorWrongEntry ? errorWrongShow() : "")}</div>
             <div className="row">
+                {/* input field to enter city */}
                 <div className="col-md-3 offset-md-2">
                     <input
                      type="text" 
@@ -21,6 +22,7 @@ const Form = props => {
                     autoComplete="on"
                     placeholder="Enter City"/>
                 </div>
+                {/* input field to enter country */}
                 <div className="col-md-3">
                     <input type="text" 
                     className="form-control" 
@@ -28,11 +30,13 @@ const Form = props => {
                     autoComplete="on"
                     placeholder = "Enter Country"/>
                 </div>
+                {/* submit button to get the weather report */}
                 <div className="col-md-3 mt-xs-2 text-md-left">
                     <button className="btn btn-warning">Get Weather</button>
                 </div>
             </div>
           </form>
+          {/* present date and day */}
           <div className="pt-md-5">
               <PresentDate/>
           </div>
@@ -40,6 +44,7 @@ const Form = props => {
     );
 };
 
+// function to show the error message if both city and country are not entered by the user
 function errorShow() {
     return (
         <div className="alert alert-danger mx-5" role="alert">
@@ -48,6 +53,7 @@ function errorShow() {
     );
 };
 
+// function to show the error if the data of the city is not available in the api
 function errorWrongShow() {
     return (
         <div className="alert alert-danger mx-5" role="alert">

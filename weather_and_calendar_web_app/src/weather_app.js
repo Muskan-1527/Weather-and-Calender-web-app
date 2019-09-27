@@ -6,7 +6,9 @@ class WeatherApp extends React.Component {
 
   constructor() {
     super();
+    // Declaration of all variables
     this.state = {
+      // present data variables
       city: undefined,
       country: undefined,
       main: undefined,
@@ -17,6 +19,10 @@ class WeatherApp extends React.Component {
       humidity: undefined,
       pressure: undefined,
       icon: undefined,
+      sunrise: undefined,
+      sunset: undefined,
+      windspeed: undefined,
+      // next three days data variables
       description1: undefined,
       description2: undefined,
       description3: undefined,
@@ -29,9 +35,7 @@ class WeatherApp extends React.Component {
       temp_min2: undefined,
       temp_max3: undefined,
       temp_min3: undefined,
-      sunrise: undefined,
-      sunset: undefined,
-      windspeed: undefined,
+      // three hour format data variables
       temp1: undefined,
       temp2: undefined,
       temp3: undefined,
@@ -56,12 +60,15 @@ class WeatherApp extends React.Component {
       weatherDescription6: undefined,
       weatherDescription7: undefined,
       weatherDescription8: undefined,
+      // image source
       src: '/all_weather.jpg',
+      // errors
       errorShown: false,
       errorWrongEntry: false
     };
   }
 
+  // function to set the image source according to the description of weather
   getWeatherImage(ID) {
     switch (true) {
       case ID >= 200 && ID <= 232:
@@ -106,7 +113,7 @@ class WeatherApp extends React.Component {
     }
   }
 
-
+  // function to convert the temperature from kelvin to celcius
   calCelsius(temp) {
     let cell = Math.floor(temp - 273.15);
     return cell;
@@ -122,6 +129,9 @@ class WeatherApp extends React.Component {
 
 
     if (country && city) {
+      // fetching api
+
+      // api for next three days data
       const api_call = await fetch(
         `http://api.openweathermap.org/data/2.5/forecast/daily?q=${city},${country}&APPID=c10e7100063f10864ba3ffb839aed7f3`
       ).catch((error) => {
@@ -129,6 +139,7 @@ class WeatherApp extends React.Component {
         console.log(error);
       });
 
+      //api for three hour weather updates
       const api_call2 = await fetch(
         `http://api.openweathermap.org/data/2.5/forecast?q=${city},${country}&APPID=c10e7100063f10864ba3ffb839aed7f3`
       ).catch((error) => {
@@ -136,6 +147,7 @@ class WeatherApp extends React.Component {
         console.log(error);
       });
 
+      // api for present weather condition
       const api_call3 = await fetch(
         `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=8f6e7eafbcaceee6b0fd1759888a64c7`
       ).catch((error) => {
@@ -143,11 +155,11 @@ class WeatherApp extends React.Component {
         console.log(error);
       });
 
-      const response = await api_call.json();
+      const response = await api_call.json(); // next three days
 
-      const response2 = await api_call2.json();
+      const response2 = await api_call2.json(); // three hour updates
 
-      const response3 = await api_call3.json();
+      const response3 = await api_call3.json(); // present weather
 
       console.log(response);
       console.log(response2);

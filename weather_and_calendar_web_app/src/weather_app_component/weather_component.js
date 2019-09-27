@@ -7,8 +7,11 @@ import Form from './weather_form_component';
 const Weather = (props) => {
 
     return (
-        <div className = "container" style={{ backgroundImage: `url(${props.src})` }}>
+        <div className = "WeatherMain" style={{ backgroundImage: `url(${props.src})` }}>
+        <div className = "container">
+            {/* to show the form */}
             <Form loadweather={props.loadweather} error={props.error} errorWrongEntry={props.errorWrongEntry}/>
+            {/* present weather data */}
            <div className = "cards pt-4" >
                {!props.error && !props.errorWrongEntry ? 
                <h1>
@@ -61,6 +64,7 @@ const Weather = (props) => {
                </h4> : ""}
 
            </div>
+           {/* weather data of next three days */}
            {!props.error && !props.errorWrongEntry  ?
           (props.city? <h1 className = "pt-2" style={{color:"white"}}>Next Three Days Weather</h1> : "")
           : ""}
@@ -93,6 +97,7 @@ const Weather = (props) => {
 
            {!props.error && !props.errorWrongEntry && props.city ?
 
+        //    weather report in three hour format
            <div className="row py-3">
 
             <div className="futureData col-md-3">
@@ -156,9 +161,11 @@ const Weather = (props) => {
 
 
         </div>
+        </div>
     );
 };
 
+// function to get the minimum and maximum temperature wuth degree symbol
 function minmaxTemperature(min,max) {
     if(min && max){
     return (
@@ -170,6 +177,7 @@ function minmaxTemperature(min,max) {
     }
 }
 
+// functio to get the minimum and maximum temperature of next three days with degree sign
 function minmaxfuturetemperature(min,max) {
     if(min && max) {
         return (
@@ -180,6 +188,7 @@ function minmaxfuturetemperature(min,max) {
     }
 }
 
+// function to convert the miliseconds of sunrise in hour and min
 function sunrise(sunriseTime) {
     if(sunriseTime){
     const date = new Date(sunriseTime);
@@ -189,6 +198,7 @@ function sunrise(sunriseTime) {
     }
 }
 
+// function to convert the miliseconds of sunset in hour and min
 function sunset(sunsetTime) {
     if(sunsetTime){
     const date = new Date(sunsetTime);
@@ -198,6 +208,7 @@ function sunset(sunsetTime) {
     }
 }
 
+// function to get the date of the next day to the present day
 function monthday1(Name) {
     if(Name){
         const date = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
@@ -207,6 +218,7 @@ function monthday1(Name) {
         } 
 }
 
+// function to get the date of the second next day to the present day
 function monthday2(Name) {
     if(Name) {
     const date = new Date(new Date().getTime() + 24 * 60 * 60 * 1000 + 24 * 60 * 60 * 1000);
@@ -216,6 +228,7 @@ function monthday2(Name) {
     }
 }
 
+// function to get the date of the third next day to the present day
 function monthday3(Name) {
     if(Name) {
     const date = new Date(new Date().getTime() + 24 * 60 * 60 * 1000 + 24 * 60 * 60 * 1000 + 24 * 60 * 60 * 1000);

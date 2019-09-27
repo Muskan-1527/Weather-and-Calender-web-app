@@ -12,6 +12,7 @@ const navBar = () => (
 
     <div><Logo/></div>
 
+                         {/* Home page link */}
                          <li><NavLink
                                 to="/"
                                 exact={true}
@@ -23,6 +24,7 @@ const navBar = () => (
                                     borderBottom: '4px solid #c9b624',
                                 }}>Home</NavLink></li>
 
+                            {/* Link to the weather page */}
                             <li><NavLink to={{
                                 pathname: '/weather',
                                 activeClassName:"link",
@@ -36,6 +38,7 @@ const navBar = () => (
                                 borderBottom: '4px solid #c9b624',
                             }}>Weather</NavLink></li>
 
+                            {/* link to the calendar page */}
                             <li><NavLink to={{
                                 pathname: '/front_page',
                                 activeClassName:"link",
@@ -49,10 +52,6 @@ const navBar = () => (
                                 borderBottom: '4px solid #c9b624',
                             }}>Calendar</NavLink></li>
 
-                    
-
-   {/* <NavItems link="/" active>Home</NavItems>
-   <NavItems link="/">Weather</NavItems> */}
     </ul>
     </nav>
     </div>

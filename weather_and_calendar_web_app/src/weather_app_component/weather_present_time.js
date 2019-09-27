@@ -11,8 +11,8 @@ class PresentDate extends React.Component {
     componentDidMount() {
         setInterval( () => {
             this.setState({
-                curTime : new Date().toLocaleString(),
-                day : new Date().getDay().toLocaleString()
+                curTime : new Date().toLocaleString(),//getting the current time
+                day : new Date().getDay().toLocaleString()//getting the current day
             })
         },1000)
     }
@@ -20,8 +20,10 @@ class PresentDate extends React.Component {
     render() {
         return (
             <div className="font-weight-bold font-italic " style={{color:"white"}}>
+                {/* Presenting the current time */}
                IST: {this.state.curTime}
                <h4 className="font-weight-bold font-italic py-1" style={{color:"white"}}>
+                   {/* presenting the present day */}
                    {WeekDay(this.state.day)}
                </h4>
             </div>
@@ -30,6 +32,7 @@ class PresentDate extends React.Component {
 
 }
 
+// function to get the day according to the index of the day 
 function WeekDay(dayIndex) {
     return ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][dayIndex];
   }

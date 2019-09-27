@@ -286,7 +286,7 @@ export default class Calendar_app extends React.Component {
                             this.festivalName = this.state.festivalData[a].name;
                             this.festivalClass = " festival";
 
-                            if(this.currentDate() === d) {
+                            if(d == this.currentDate()) {
                                 this.TodayFestival = this.state.festivalData[a].name;
                                 this.TodayFestivalDescription = this.state.festivalData[a].description;
                             }
@@ -355,14 +355,23 @@ export default class Calendar_app extends React.Component {
           <ModalHeader toggle={this.toggle}><div className = "font-weight-bold" style = {{
               marginLeft : "8rem" , 
               fontSize : "1.5rem",
+              color: "crimson"
           }}>
               Today's Festival</div></ModalHeader>
           <ModalBody className = "text-center">
-            {this.TodayFestival ? this.TodayFestival : "Today , there is no festival" }
-            <div>{this.TodayFestivalDescription}</div>
+              <div style = {{
+                  color: "#084b34",
+                  fontSize: "1.5rem"
+              }}>
+           <i> {this.TodayFestival ? this.TodayFestival : "Today , there is no festival" }</i>
+            </div>
+            <div style = {{
+                color: "#768015",
+                fontSize: "1.2rem"
+            }}>{this.TodayFestivalDescription}</div>
           </ModalBody>
           <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="secondary" onClick={this.toggle}>Close</Button>
           </ModalFooter>
         </Modal>
                             </td>
@@ -387,7 +396,78 @@ export default class Calendar_app extends React.Component {
                         {trElems}
                     </tbody>
                 </table>
-            </div>
+                <div style = {{
+                    marginLeft : "30rem"
+                }}>
+                <div>
+                    <div className = "currentDayInfo" style = {{
+                        width : "10px",
+                        height : "10px",
+                        backgroundColor : "blue",
+                        margin : "0.5rem",
+                        float : "left",
+                        border : "1px solid black"
+                    }}>
+                    </div>
+                    <div style = {{
+                        float : "left"
+                    }}>
+                        Present Day
+                    </div>
+                </div>
+                <div>
+                    <div className = "currentDayInfo" style = {{
+                        width : "10px",
+                        height : "10px",
+                        backgroundColor : "pink",
+                        margin : "0.5rem",
+                        marginLeft : "1rem",
+                        float : "left",
+                        border : "1px solid black"
+                    }}>
+                    </div>
+                    <div style = {{
+                        float : "left"
+                    }}>
+                        Festivals
+                    </div>
+                </div>
+                <div>
+                    <div className = "currentDayInfo" style = {{
+                        width : "10px",
+                        height : "10px",
+                        backgroundColor : "yellow",
+                        margin : "0.5rem",
+                        marginLeft : "1rem",
+                        float : "left",
+                        border : "1px solid black"
+                    }}>
+                    </div>
+                    <div style = {{
+                        float : "left"
+                    }}>
+                        Selected Day
+                    </div>
+                </div>
+                <div>
+                    <div className = "currentDayInfo" style = {{
+                        width : "10px",
+                        height : "10px",
+                        backgroundColor : "#eef6f7",
+                        margin : "0.5rem",
+                        marginLeft : "1rem",
+                        float : "left",
+                        border : "1px solid black"
+                    }}>
+                    </div>
+                    <div style = {{
+                        float : "left"
+                    }}>
+                        Sunday
+                    </div>
+                </div>
+              </div>
+                </div>
 
         );
     }
