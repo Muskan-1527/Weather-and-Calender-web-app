@@ -1,12 +1,12 @@
 import React from 'react';
 import Logo from '../Logo/Logo'
-import './NavBar.css';
+import classes from './NavBar.css';
 // import NavItems from './NavItems/NavItems';
 import {NavLink} from 'react-router-dom';
 
 
 const navBar = () => (
-<div className="NavBar">
+<div className={classes.NavBar}>
     <nav >
     <ul>
 
@@ -21,6 +21,8 @@ const navBar = () => (
                                     color: 'white',
                                     backgroundColor:'#1f7d4f',
                                     borderBottom: '4px solid #c9b624',
+                                    fontWeight:'bold',
+                                    fontSize:'1em'
                                 }}>Home</NavLink></li>
 
                             <li><NavLink to={{
@@ -34,6 +36,7 @@ const navBar = () => (
                                 color: 'white',
                                 backgroundColor:'#1f7d4f',
                                 borderBottom: '4px solid #c9b624',
+                                fontWeight:'bold'
                             }}>Weather</NavLink></li>
 
                             <li><NavLink to={{
@@ -47,6 +50,7 @@ const navBar = () => (
                                 color: 'white',
                                 backgroundColor:'#1f7d4f',
                                 borderBottom: '4px solid #c9b624',
+                                fontWeight:'bold',
                             }}>Calendar</NavLink></li>
 
                     

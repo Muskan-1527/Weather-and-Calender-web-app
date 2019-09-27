@@ -1,4 +1,3 @@
-	
 import React,{Component} from 'react';
 import fire from '../../config/config';
 import Calendar_app from '../../calendar_app_component/calendar_app';
@@ -38,20 +37,18 @@ constructor(props){
       };
 }
  logout(){
-     fire.auth().signOut();
+     fire.auth().signOut();   //user logs out...
  }
-
-
 
  onDayClick = (e,day) => {
     this.setState(prevState => ({
-        modal: !prevState.modal
+        modal: !prevState.modal    //modal state changes...
       }));
     
     this.setState({
-        selectedDay: day,
-        selectedMonth:this.monthIndex(),
-        selectedYear: this.year(),
+        selectedDay: day,                //current day is set...
+        selectedMonth:this.monthIndex(),  //current month index is set...
+        selectedYear: this.year(),       //current year is set...
         btnClicked:false
     }
     );
@@ -71,17 +68,18 @@ constructor(props){
 
 
 resetData = () => {
-    this.state.eventname='';
+    this.state.eventname='';   //data in fields is reset...
     this.state.eventdesc='';
 }
 
  changeHandler(e) {
-    this.setState({[e.target.name] : e.target.value});
+    this.setState({[e.target.name] : e.target.value});  //fields value changes to entered values...
 }
 
+//event data is sent to the database...
 eventSendHandler = (e) =>{
     const eventdata = {
-        eventName:this.state.eventname,
+        eventName:this.state.eventname,    
         eventDescription:this.state.eventdesc,
         eventDay:this.state.selectedDay+"/"+this.state.selectedMonth+"/"+this.state.selectedYear
     }
@@ -90,19 +88,18 @@ eventSendHandler = (e) =>{
     .catch(error => console.log(error));
 }
 
+//when add event is clicked without entering data...
 eventEmptyCallHandler = () => {
     this.setState({
         btnClicked:true
     })
 }
 
+//multiple functions are called
 addEventDataHandler = () =>{
         this.eventSendHandler();
         this.onDayClick();
         this.resetData();
-    //    this.setState({
-    //        eventShow:true
-    //    })
     }
 
 
@@ -115,7 +112,7 @@ addEventDataHandler = () =>{
                  <div className = "text-center pb-1 pt-2 " style = {{
                     fontSize: "3em"
                 }}>CALENDAR</div>
-                <Calendar_app style={style} 
+                <Calendar_app style={style}                          //monthly view is rendered...
                 onDayClick={(e,day) => this.onDayClick(e,day)}
                 monthIndex={() => this.monthIndex()}
                 year={() => this.year()}
@@ -123,11 +120,14 @@ addEventDataHandler = () =>{
             
                 <div className = "text-center pb-3" style = {{
                     fontSize: "3em"
-                }}>YEARLY VIEW</div>
-                <Yearly />
+                                                                 //yearly view is rendered...
+                }}>YEARLY VIEW               
+                </div>         
+                <Yearly />                                           
                <div className = "text-center"> <button onClick={this.logout} className = " my-4 p-2 px-4 text-center btn btn-primary">Logout</button></div>
-            
-            <div>
+           
+           
+            <div>                
         <Modal isOpen={this.state.modal}>
         <ModalHeader close={closeBtn}>ADD EVENT DATA</ModalHeader>
         <ModalBody>
@@ -162,7 +162,7 @@ addEventDataHandler = () =>{
         </div>
         </div>
         )
-            }         
+            }       //modal is rendered...  
 }
 
 export default Calendar; 
