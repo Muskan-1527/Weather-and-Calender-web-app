@@ -403,7 +403,7 @@ export default class Calendar_app extends React.Component {
                     <div className = "currentDayInfo" style = {{
                         width : "10px",
                         height : "10px",
-                        backgroundColor : "blue",
+                        backgroundColor : "#4285f4",
                         margin : "0.5rem",
                         float : "left",
                         border : "1px solid black"

@@ -4,9 +4,6 @@ import './Login.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2'
 
-
-
-
 class Login extends Component{
 
 constructor(props){

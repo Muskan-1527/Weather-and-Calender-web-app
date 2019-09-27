@@ -127,7 +127,6 @@ class WeatherApp extends React.Component {
 
     e.preventDefault();
 
-
     if (country && city) {
       // fetching api
 
