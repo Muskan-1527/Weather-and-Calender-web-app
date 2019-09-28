@@ -33,6 +33,9 @@ constructor(props){
         modal: false,
         eventname:'',
         eventdesc:'',
+        eventdetail:'',
+        eName:'',
+        eDesc:'',
         selectedDay: null,
         selectedMonth: null,
         selectedYear: null,
@@ -119,6 +122,23 @@ addEventDataHandler = () =>{
 
 
     render() {
+      const database = fire.database();
+        var ref = database.ref('events');
+         ref.on('value',gotData);
+        
+         function gotData(data) {
+             var events = data.val();
+             var keys = Object.keys(events);
+             console.log(keys);
+             for(var i=0;i<keys.length;i++){
+                 var k = keys[i];
+                 var eventName = events[k].eventName;
+                 var eventDescription = events[k].eventDescription;
+                //  this.state.eDesc = eventName;
+                //  this.state.eName = eventDescription;
+                 console.log(eventName,eventDescription);
+             }
+         }
 
         const closeBtn = <button className="close" onClick={this.onDayClick}>&times;</button>
         
