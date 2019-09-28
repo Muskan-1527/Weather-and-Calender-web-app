@@ -32,6 +32,8 @@ constructor(props){
         eventname:'',
         eventdesc:'',
         eventdetail:'',
+        eName:'',
+        eDesc:'',
         selectedDay: null,
         selectedMonth: null,
         selectedYear: null,
@@ -134,6 +136,8 @@ showEventHandler = () =>{
                  var k = keys[i];
                  var eventName = events[k].eventName;
                  var eventDescription = events[k].eventDescription;
+                 this.state.eDesc = eventName;
+                 this.state.eName = eventDescription;
                  console.log(eventName,eventDescription);
              }
          }
