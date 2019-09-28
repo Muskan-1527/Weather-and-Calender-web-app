@@ -7,12 +7,11 @@ import {NavLink} from 'react-router-dom';
 
 const navBar = () => (
 <div className={classes.NavBar}>
-    <nav >
+    <nav>
     <ul>
 
     <div><Logo/></div>
 
-                         {/* Home page link */}
                          <li><NavLink
                                 to="/"
                                 exact={true}
@@ -26,7 +25,6 @@ const navBar = () => (
                                     fontSize:'1em'
                                 }}>Home</NavLink></li>
 
-                            {/* Link to the weather page */}
                             <li><NavLink to={{
                                 pathname: '/weather',
                                 activeClassName:"link",
@@ -41,7 +39,6 @@ const navBar = () => (
                                 fontWeight:'bold'
                             }}>Weather</NavLink></li>
 
-                            {/* link to the calendar page */}
                             <li><NavLink to={{
                                 pathname: '/front_page',
                                 activeClassName:"link",

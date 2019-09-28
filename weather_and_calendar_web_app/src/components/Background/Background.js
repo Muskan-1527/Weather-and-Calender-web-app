@@ -10,11 +10,11 @@ import Front_page from '../../front_page';
 import { Route,Link } from 'react-router-dom';
 
 
-
 const Background = () => {
-
         return(
-              <div style={{backgroundColor:"wheat"}} className="start">
+              <div style={{backgroundColor:"wheat",
+              marginTop: "5rem"
+              }}>
 
 
            <div className="row">
@@ -28,8 +28,9 @@ const Background = () => {
                     <h5 className="py-3 font-weight-bold link">Click on the link given below to get the latest WEATHER report</h5>
                     <Link to = "/weather" style = {{ 
                     display:"block",
+                    fontSize: "2rem",
                   borderBottom: "6px solid yellow"
-               }} className="weather_link">Weather</Link>
+               }} className="weather_link font-weight-bold"><u>Weather</u></Link>
                <Route path="/weather" component={Weather} />
                     </div>
                     </div>
@@ -41,7 +42,7 @@ const Background = () => {
      <div className = "col-md-6 text-center">
     <div className="card">
   <div className="card-body">
-  <h1 className = "card-title font-weight-bold" style={{top:".2rem", margin: "0",
+  <h1 className = "card-title font-weight-bold" style={{top:"0.2rem", margin: "0",
   position: "relative"}}>Weather Conditions</h1>
     
     <p className="card-text"> 
@@ -58,7 +59,7 @@ const Background = () => {
 <div className = "col-md-6 text-center">
     <div className="card">
   <div className="card-body">
-  <h1 className = "card-title font-weight-bold" style={{top:".2rem", margin: "0",
+  <h1 className = "card-title font-weight-bold" style={{top:"0.2rem", margin: "0",
   position: "relative"}}>Advanced Data</h1>
     
     <p className="card-text"> 
@@ -90,7 +91,7 @@ const Background = () => {
            </div>
 
           
-<div style={{backgroundColor:"#FFFED3"}}>
+<div style={{backgroundColor:"#fffed3"}}>
 <hr
              style={{
             backgroundColor: "black",
@@ -106,14 +107,13 @@ const Background = () => {
                    borderBottom: "0px solid white" , 
                   fontSize: "2em",
                }}
-               className="weather_link">Calendar</Link>
+               className="weather_link font-weight-bold"><u>Calendar</u></Link>
                <Route path="/front_page" component={Front_page} />
            </div>
            </div>
            </div>
            <div className="row py-4">
-               <div className="calendar_feature">
-           <div className = "col-md-12 text-center">   
+           <div className = "col-md-12 text-center calendar_feature">   
            <h3 className = "font-weight-bold">Features:</h3>
                         <h4>- Monthly Calendar View</h4>
                         <h4>- Sundays and festivals are marked with different colors</h4>
@@ -121,7 +121,6 @@ const Background = () => {
                         <h4>- Move to present date from any date</h4>
                         <h4>- Months and Year picker</h4>
                         <h4>- Selected day is marked with different color </h4>
-           </div>
            </div>
            </div>
           
@@ -132,27 +131,27 @@ const Background = () => {
 
            <div className = "row mt-4 py-4">
                <div className = "col-md-3 text-center">
-                   <h2 className = "font-weight-bold">Shopify Community</h2>
-                   <h6>Feedback On My Store</h6>
-                   <h6>Payments, Shipping and Fulfillment</h6>
-                   <h6>Shopify Themes</h6>
-                   <h6>API and SDK</h6>
-                   <h6>Marketing</h6>
+                   <h2 className = "font-weight-bold">Elements of website</h2>
+                   <h6>The Events Calendar</h6>
+                   <h6>Events Calendar PRO</h6>
+                   <h6>Download</h6>
+                   <h6>License</h6>
+                   <h6>Demo</h6>
                </div>
                <div className = "col-md-3 text-center">
                     <h2 className = "font-weight-bold">Support</h2>  
-                    <h6>24/7 Support</h6>
-                    <h6>Shopify Help Center</h6>            
-                    <h6>API documentation</h6>
-                    <h6>Free Tools</h6>
+                    <h6>Support Overview</h6>
+                    <h6>Technical Docs</h6>            
+                    <h6>Help Desk</h6>
+                    <h6>Knoeledgebaxe</h6>
                </div>
                <div className = "col-md-3 text-center">
-                     <h2 className = "font-weight-bold">Shopify</h2>  
+                     <h2 className = "font-weight-bold">About Website</h2>  
                      <h6>Contact</h6>
                      <h6>Partner Program</h6>
-                     <h6>Affiliate Program</h6>
-                     <h6>App Developers</h6>
-                     <h6>Investors</h6>
+                     <h6>Privacy Policy</h6>
+                     <h6>Web Developers</h6>
+                     <h6>Terms of use</h6>
                </div>
            </div>
            <hr
@@ -166,7 +165,7 @@ const Background = () => {
 
                  <div className = "col-md-5">
                  
-                 <h4 className = "font-weight-bold">Terms of Service , Privacy , Policy</h4>
+                 <h4 className = "font-weight-bold"> &copy; 2019 A Modern Tribe Hootenanny  ,  Terms of Service , Privacy , Policy</h4>
 
                  </div>
 
@@ -178,6 +177,12 @@ const Background = () => {
                    <img src={img6} alt="twitter" width="30px" className = "mx-1"/> 
 
                  </div>
+             </div>
+             <div className = "row text-center">
+               <div className = "col-md-12">
+                 <h3><u>Contact Us:-</u></h3><h6>Email id - agrawalgupta@gmail.com</h6>
+                 <h6>Address - 1 Lane ,ABC Company Ghaziabad , India , 201009</h6>
+               </div>
              </div>
            </div>   
            </div>        

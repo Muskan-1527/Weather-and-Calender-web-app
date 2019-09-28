@@ -26,8 +26,8 @@ tr {
 }
 
 .displayfest{
-    margin-right:7rem;
-    float:left;
+    margin-right: 7rem;
+    /* float:left; */
 }
 
 .calendar-header-Month td {
@@ -51,11 +51,11 @@ tr {
 }
 
 .YearNav {
-        float: left;
-        color: #520352;
-        font-weight: bold;
-        text-decoration: underline;
-        margin-bottom:1rem;
+    float: left;
+    color: #520352;
+    font-weight:bold;
+    text-decoration: underline;
+    margin-bottom: 1rem;
 }
 
 .day {
@@ -69,6 +69,11 @@ tr {
 
 .sunday {
     background-color: #eef6f7;
+    color:red;
+}
+
+.SundayHeadColor {
+    color:red;
 }
 
 .festival {
@@ -110,7 +115,8 @@ tr {
     top: 0.6em;
     font-size: 0.6em;
     right:1.5rem;
-    margin-left:4rem;
+    margin-left: 4rem;
+    cursor:pointer;
 }
 .editor-year {
     max-width: 3.6em;

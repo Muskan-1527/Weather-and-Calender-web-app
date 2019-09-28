@@ -1,7 +1,8 @@
-.start{
+body {
     width:100%;
+    margin:0;
+    padding:0;
 }
-
 .image1{
     position:relative;
     width :99%;
@@ -168,6 +169,9 @@
 }
 
 .calendar_feature{
-    background-color:#F8F66A;
-    width:99%;
+    background-color: #f8f66a;
 }
+/* 
+.foot{
+    align-self: center;
+} */

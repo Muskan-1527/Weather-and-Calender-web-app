@@ -63,6 +63,7 @@ body {
   /* border of the cells */
   table.calendar td.bolder {
     font-weight: bold;
+    color:red;
   }
   
   /* Single selected day */

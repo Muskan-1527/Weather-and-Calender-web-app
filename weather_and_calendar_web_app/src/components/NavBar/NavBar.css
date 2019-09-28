@@ -1,3 +1,9 @@
+nav {
+    position:fixed;
+    z-index:5;
+    top:0;
+}
+
 ul {
     margin: 0;
     padding: 0;
@@ -9,10 +15,7 @@ ul {
     justify-content:flex-end;
     background-color:#6ad9b2;
     width:100%;
-   
-
 }
-
 
 @media (min-width: 500px) {
      ul{

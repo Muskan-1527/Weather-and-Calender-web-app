@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import fire from '../../config/config';
 import './Login.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 class Login extends Component{
 
@@ -24,6 +24,10 @@ errorMessage = "";
 login(e){
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u) =>{ 
+        Swal.fire({
+            type: 'success',
+            text:'Successfully logged in'
+        });
     }).catch((error) =>{
 
         this.errorMessage = error.message
@@ -31,14 +35,14 @@ login(e){
         Swal.fire({
             type: 'error',
             title:'ERROR',
-            text:'Please enter the email address correctly'
+            text:'Invalid Credentials'
         });
         }
         else if(this.errorMessage == "The password is invalid or the user does not have a password.") {
             Swal.fire({
                 type: 'error',
                 title:'ERROR',
-                text:'Please enter the correct password'
+                text:'Invalid Credentials'
             });
         }
         else if(this.errorMessage == "There is no user record corresponding to this identifier. The user may have been deleted.") {
@@ -52,7 +56,7 @@ login(e){
             Swal.fire({
                 type: 'error',
                 title:'ERROR',
-                text:'Enter the deatils correctly'
+                text:'Invalid Credentials'
             });
         }
         console.log(error);
@@ -62,7 +66,12 @@ login(e){
 
 signup(e){
     e.preventDefault();
-    fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
+    fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u) =>{ 
+        Swal.fire({
+            type: 'success',
+            text:'New account created'
+        });
+    })
     .catch((error) =>{
 
         this.errorMessage = error.message
@@ -70,14 +79,14 @@ signup(e){
             Swal.fire({
                 type: 'error',
                 title:'ERROR',
-                text:'Please enter the email address correctly'
+                text:'Invalid Credentials'
             });
         }
         else if(this.errorMessage == "The password must be 6 characters long or more.") {
             Swal.fire({
                 type: 'error',
                 title:'ERROR',
-                text:'Please enter a password of atleast 6 characters'
+                text:'The password should be of atleast 6 characters'
             });
          }
 
@@ -101,7 +110,7 @@ signup(e){
             Swal.fire({
                 type: 'error',
                 title:'ERROR',
-                text:'Enter the deatils correctly'
+                text:'Invalid Credentials'
             });
         }
         console.log(error);

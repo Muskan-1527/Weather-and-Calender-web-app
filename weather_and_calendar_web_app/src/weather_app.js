@@ -235,7 +235,9 @@ class WeatherApp extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" style = {{
+        marginTop: "5rem"
+      }} >
 
         <Weather
           loadweather={this.getWeather} error={this.state.errorShown} errorWrongEntry={this.state.errorWrongEntry}
