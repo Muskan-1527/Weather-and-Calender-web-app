@@ -22,7 +22,12 @@ tr {
 
 .calendar-header-Month {
     border-bottom: 1px dashed skyblue;
-    font-size: 1.6em;
+    font-size: 2.5em;
+}
+
+.displayfest{
+    margin-right:7rem;
+    float:left;
 }
 
 .calendar-header-Month td {
@@ -43,6 +48,14 @@ tr {
     text-decoration-line: underline;
     font-weight:bold;
     padding:2%;
+}
+
+.YearNav {
+        float: left;
+        color: #520352;
+        font-weight: bold;
+        text-decoration: underline;
+        margin-bottom:1rem;
 }
 
 .day {
@@ -82,7 +95,8 @@ tr {
 
 .month-popup {
     position: absolute;
-    padding: 5px;
+    z-index: 1;
+    padding: 1rem;
     background: white;
     border: 2px solid skyblue;
 }
@@ -95,7 +109,8 @@ tr {
     position: absolute;
     top: 0.6em;
     font-size: 0.6em;
-    right:3px;
+    right:1.5rem;
+    margin-left:4rem;
 }
 .editor-year {
     max-width: 3.6em;

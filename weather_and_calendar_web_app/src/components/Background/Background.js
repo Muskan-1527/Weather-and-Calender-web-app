@@ -12,7 +12,7 @@ import { Route,Link } from 'react-router-dom';
 
 const Background = () => {
         return(
-              <div style={{backgroundColor:"wheat"}}>
+              <div style={{backgroundColor:"wheat"}} className="start">
 
 
            <div className="row">
@@ -39,7 +39,7 @@ const Background = () => {
      <div className = "col-md-6 text-center">
     <div className="card">
   <div className="card-body">
-  <h1 className = "card-title font-weight-bold" style={{top:"25%", margin: "0",
+  <h1 className = "card-title font-weight-bold" style={{top:".2rem", margin: "0",
   position: "relative"}}>Weather Conditions</h1>
     
     <p className="card-text"> 
@@ -56,7 +56,7 @@ const Background = () => {
 <div className = "col-md-6 text-center">
     <div className="card">
   <div className="card-body">
-  <h1 className = "card-title font-weight-bold" style={{top:"25%", margin: "0",
+  <h1 className = "card-title font-weight-bold" style={{top:".2rem", margin: "0",
   position: "relative"}}>Advanced Data</h1>
     
     <p className="card-text"> 
@@ -87,13 +87,14 @@ const Background = () => {
                 
            </div>
 
-           <hr
+          
+<div style={{backgroundColor:"#FFFED3"}}>
+<hr
              style={{
             backgroundColor: "black",
             height: 2
             }}
              />
-
            <div className="link1">
            <div className = "row py-4">
            <div className = "col-md-12 text-center">
@@ -109,7 +110,8 @@ const Background = () => {
            </div>
            </div>
            <div className="row py-4">
-           <div className = "col-md-12 text-center calendar_feature">   
+               <div className="calendar_feature">
+           <div className = "col-md-12 text-center">   
            <h3 className = "font-weight-bold">Features:</h3>
                         <h4>- Monthly Calendar View</h4>
                         <h4>- Sundays and festivals are marked with different colors</h4>
@@ -119,8 +121,9 @@ const Background = () => {
                         <h4>- Selected day is marked with different color </h4>
            </div>
            </div>
+           </div>
           
-
+          
            
 
            <div className = "footer">
@@ -176,7 +179,7 @@ const Background = () => {
              </div>
            </div>   
            </div>        
-
+           </div>
         );
     }
 

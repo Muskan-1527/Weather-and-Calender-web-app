@@ -5,6 +5,7 @@ import Yearly from '../../calendar_app_component/yearly_calendar/calendar_yearly
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import axios from '../../axios_file';
 import moment from 'moment';
+import Swal from 'sweetalert2';
 
 
 const style = {
@@ -30,12 +31,15 @@ constructor(props){
         modal: false,
         eventname:'',
         eventdesc:'',
+        eventdetail:'',
         selectedDay: null,
         selectedMonth: null,
         selectedYear: null,
         btnClicked:false,
+        showEvent:false
       };
 }
+
  logout(){
      fire.auth().signOut();   //user logs out...
  }
@@ -44,12 +48,14 @@ constructor(props){
     this.setState(prevState => ({
         modal: !prevState.modal    //modal state changes...
       }));
+
     
     this.setState({
         selectedDay: day,                //current day is set...
         selectedMonth:this.monthIndex(),  //current month index is set...
         selectedYear: this.year(),       //current year is set...
-        btnClicked:false
+        btnClicked:false,
+        showEvent:false
     }
     );
     this.props.onDayClick && this.props.onDayClick(e, day);
@@ -103,8 +109,34 @@ addEventDataHandler = () =>{
     }
 
 
-    render() {
+showEventHandler = () =>{
+      this.setState({
+          showEvent:true
+      })   
+    axios.get('https://my-react-project-eabd0.firebaseio.com/events.json')
+    .then(response => {
+       this.setState({eventdetail:response.data.key});
+       console.log(response.data);
+    });
+}
 
+    render() {
+        const database = fire.database();
+
+        var ref = database.ref('events');
+         ref.on('value',gotData);
+        
+         function gotData(data) {
+             var events = data.val();
+             var keys = Object.keys(events);
+             console.log(keys);
+             for(var i=0;i<keys.length;i++){
+                 var k = keys[i];
+                 var eventName = events[k].eventName;
+                 var eventDescription = events[k].eventDescription;
+                 console.log(eventName,eventDescription);
+             }
+         }
         const closeBtn = <button className="close" onClick={this.onDayClick}>&times;</button>
         
         return(
@@ -129,8 +161,18 @@ addEventDataHandler = () =>{
            
             <div>                
         <Modal isOpen={this.state.modal}>
-        <ModalHeader close={closeBtn}>ADD EVENT DATA</ModalHeader>
+        <ModalHeader close={closeBtn}>{this.state.showEvent ? "THE EVENT DATA IS...":"ADD EVENT DATA"}</ModalHeader>
         <ModalBody>
+           
+        {this.state.showEvent ? 
+        <div className="modal-body">
+        <div className="form-group">
+        <label for="exampleEvent">Event details</label>
+        <input type="text" value={this.state.eventdetail} className="form-control" name="eventdetail" placeholder="Enter EventName"/> 
+        </div>
+        </div>
+        :
+        <div>
         <div className="modal-body">
         <div className="form-group">
         <label for="exampleEvent">Enter Name of Event</label>
@@ -148,14 +190,13 @@ addEventDataHandler = () =>{
              Plz enter data to add...
              </strong></p>
          :null}
-       
-
-
+       </div>
         </div>
+        }
         </ModalBody>
         <ModalFooter>
         <Button color="danger" onClick={this.state.eventname == '' && this.state.eventdesc == '' ? this.eventEmptyCallHandler :this.addEventDataHandler} >Add Event</Button>{' '}
-        <Button color="warning" onClick={this.onDayClick}>Show Events</Button>{' '}
+        <Button color="warning" onClick={this.showEventHandler}>Show Events</Button>{' '}
         <Button color="secondary" onClick={this.onDayClick}>Close</Button>
         </ModalFooter>
         </Modal>
