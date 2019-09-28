@@ -8,7 +8,7 @@ class Front_page extends Component {
 constructor(props){
   super(props);
     this.state = {
-      user:{},
+      user:{},       //initially user is null
     }
   }
   
@@ -19,20 +19,20 @@ componentDidMount = () =>{
 authEventHandler = () => {
   fire.auth().onAuthStateChanged((user) => {
     if(user){
-      this.setState({user});
+      this.setState({user});  //user is authenticated
     }
     else{
-      this.setState({user:null});
+      this.setState({user:null}); //user not-authenticated
     }
   });
 }
   render = () => {
     return (
      <div>
-       {this.state.user ? (<Calendar/>) :(<Login/>) }
+       {this.state.user ? (<Calendar/>) :(<Login/>) }  
      </div>
     );
   }
-}
+}  //if user is authenticated,calendar opens,otherwise login is called...
 
 export default Front_page;
