@@ -16,20 +16,23 @@ componentDidMount = () =>{
   this.authEventHandler();
 }
 
+//whether user is authenticated or not...
 authEventHandler = () => {
   fire.auth().onAuthStateChanged((user) => {
     if(user){
-      this.setState({user});
+      this.setState({user});             
     }
     else{
       this.setState({user:null});
     }
   });
 }
+
+//if user is authenticated,open calendar,else render login
   render = () => {
     return (
      <div>
-       {this.state.user ? (<Calendar/>) :(<Login/>) }
+       {this.state.user ? (<Calendar/>) :(<Login/>) }  
      </div>
     );
   }

@@ -12,6 +12,8 @@ import { Route,Link } from 'react-router-dom';
 
 const Background = () => {
         return(
+
+          //weather data is displayed...
               <div style={{backgroundColor:"wheat",
               marginTop: "5rem"
               }}>
@@ -35,10 +37,11 @@ const Background = () => {
                     </div>
                     </div>
                 </div>
-            
+
+
            <div className = "middle">
 
-<div className = "row mt-4 py-4">
+<div className = "row mt-4 py-4">     
      <div className = "col-md-6 text-center">
     <div className="card">
   <div className="card-body">
@@ -73,11 +76,14 @@ const Background = () => {
 </div>
 </div>
     </div>
+
 </div>
+              {/* calendar data is rendered */}
+    
            <div className="row">
                 <div className = "col-md-6 text-center">
                     <div style={{position:"relative",top:'30%'}}>
-                    <h1>CALENDAR APP</h1>
+                    <h1>CALENDAR APP</h1>                
                     <h3><small>See your past,present and future...</small> </h3>
                     </div>
                 </div>
@@ -125,7 +131,7 @@ const Background = () => {
            </div>
           
           
-           
+           {/* footer is rendered */}
 
            <div className = "footer">
 

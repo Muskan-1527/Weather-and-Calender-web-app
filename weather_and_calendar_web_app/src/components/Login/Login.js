@@ -21,6 +21,7 @@ constructor(props){
 
 errorMessage = "";
 
+//checking the login details and error messages... 
 login(e){
     e.preventDefault();
     fire.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u) =>{ 
@@ -64,6 +65,7 @@ login(e){
     })
 }
 
+//signing up of user and error messages...
 signup(e){
     e.preventDefault();
     fire.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u) =>{ 
@@ -118,6 +120,7 @@ signup(e){
     })
 }
 
+
 authChange = (e) => {
     e.preventDefault();
 this.setState(prevState =>{
@@ -125,7 +128,7 @@ this.setState(prevState =>{
 });
 }
 
-
+//value entered by user changes the value in the fields...
  handleChange(e) {
      this.setState({[e.target.name] : e.target.value});
  }
