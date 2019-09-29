@@ -232,7 +232,7 @@ export default class Calendar_app extends React.Component {
             selectedMonth: this.month(),
             selectedYear: this.year()
         }, () => {
-            console.log("SELECTED DAY: ", this.state.selectedDay);
+            // console.log("SELECTED DAY: ", this.state.selectedDay);
         });
 
         this.props.onDayClick && this.props.onDayClick(e, day);
@@ -250,12 +250,12 @@ export default class Calendar_app extends React.Component {
         const response_calendar = await api_call_calendar.json();
 
         const api_call_calendar_present = await fetch(
-            `https://calendarific.com/api/v2/holidays?&api_key=4e3bc51629da335ee1481852eec041ee43a2345c&country=IN&year=2019`
+            `https://calendarific.com/api/v2/holidays?&api_key=4e3bc51629da335ee1481852eec041ee43a2345c&country=IN&year=${this.currentYear()}`
             );
     
         const response_calendar_present = await api_call_calendar_present.json();
           
-        console.log(response_calendar);
+        // console.log(response_calendar);
 
         this.setState({
             festivalData: response_calendar.response.holidays,
@@ -283,7 +283,7 @@ export default class Calendar_app extends React.Component {
             );
         }
 
-        console.log("blanks: ", blanks);
+        // console.log("blanks: ", blanks);
 
         let daysInMonth = []; // array of number of days in the opened month
         for (let d = 1; d <= this.daysInMonth(); d++) {
@@ -336,7 +336,7 @@ export default class Calendar_app extends React.Component {
                 }
         }
 
-        console.log("days: ", daysInMonth);
+        // console.log("days: ", daysInMonth);
         var totalSlots = [...blanks, ...daysInMonth];
         let rows = [];
         let cells = [];

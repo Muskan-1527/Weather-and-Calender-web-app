@@ -125,7 +125,8 @@ addEventDataHandler = () =>{
       const database = fire.database();
         var ref = database.ref('events');
          ref.on('value',gotData);
-        
+        //  var allevents = [];
+        //  var allaboutEvent;        
          function gotData(data) {
              var events = data.val();
              var keys = Object.keys(events);
@@ -134,10 +135,14 @@ addEventDataHandler = () =>{
                  var k = keys[i];
                  var eventName = events[k].eventName;
                  var eventDescription = events[k].eventDescription;
+                //  allaboutEvent = eventName + eventDescription;
+                //  allevents.push(allaboutEvent);
                 //  this.state.eDesc = eventName;
                 //  this.state.eName = eventDescription;
-                 console.log(eventName,eventDescription);
+                 console.log(eventName,eventDescription)
              }
+            //  allevents.toString();
+            //  alert(allevents);
          }
 
         const closeBtn = <button className="close" onClick={this.onDayClick}>&times;</button>
