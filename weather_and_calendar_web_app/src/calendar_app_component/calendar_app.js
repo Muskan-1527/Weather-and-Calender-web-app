@@ -3,7 +3,7 @@ import moment from 'moment';
 import './calendar_app.css';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-export default class Calendar_app extends React.Component {
+ class Calendar_app extends React.Component {
     state = {
         dateContext: moment(),
         today: moment(),
@@ -42,11 +42,11 @@ export default class Calendar_app extends React.Component {
 
     weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
     weekdaysShort = moment.weekdaysShort(); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-    months = moment.months(); // 
+    months = moment.months(); // ["January" , "February" , ....]
     festivalClass = ""; // styling of days of festival
     festivalName = ""; // show festival name
     TodayFestival = null;  // present festival name
-    TodayFestivalDescription = ""; // present featival description
+    TodayFestivalDescription = ""; // present festival description
 
     year = () => {
         return this.state.dateContext.format("Y"); //year like 2019 ,2020 .....
@@ -244,13 +244,13 @@ export default class Calendar_app extends React.Component {
         const getyear = this.year();
 
         const api_call_calendar = await fetch(
-            `https://calendarific.com/api/v2/holidays?&api_key=4e3bc51629da335ee1481852eec041ee43a2345c&country=IN&year=${getyear}`
+            `https://calendarific.com/api/v2/holidays?&api_key=84aea4a65ebbc7ba34365854e583bcfbbcfd8d1b&country=IN&year=${getyear}`
             );
     
         const response_calendar = await api_call_calendar.json();
 
         const api_call_calendar_present = await fetch(
-            `https://calendarific.com/api/v2/holidays?&api_key=4e3bc51629da335ee1481852eec041ee43a2345c&country=IN&year=${this.currentYear()}`
+            `https://calendarific.com/api/v2/holidays?&api_key=84aea4a65ebbc7ba34365854e583bcfbbcfd8d1b&country=IN&year=${this.currentYear()}`
             );
     
         const response_calendar_present = await api_call_calendar_present.json();
@@ -509,4 +509,6 @@ export default class Calendar_app extends React.Component {
     }
 
 }
+
+export default Calendar_app;
 

@@ -39,7 +39,7 @@ body {
 }
 
 .tagline{
-    color:#A30000;
+    color:blue;
     /* font-size:2em; */
     box-shadow: 2px 2px 4px orangered;
     display:inline-block;
@@ -55,7 +55,7 @@ body {
 }
 
 .weather_link:hover{
-    background-color: orangered;
+    background-color:blue;
 }
 
 .link1{
@@ -163,13 +163,13 @@ body {
 }
 
 .middle{
-    background-color:peru;
+    background-color:lightblue;
     color:maroon;
     text-align:center;
 }
 
 .calendar_feature{
-    background-color: #f8f66a;
+    background-color: lightsteelblue;
 }
 /* 
 .foot{

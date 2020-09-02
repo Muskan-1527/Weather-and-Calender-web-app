@@ -1,8 +1,8 @@
-nav {
+/* nav {
     position:fixed;
     z-index:5;
     top:0;
-}
+} */
 
 ul {
     margin: 0;
@@ -13,7 +13,8 @@ ul {
     align-items: center;
     height: 100%;
     justify-content:flex-end;
-    background-color:#6ad9b2;
+    /* background-color:#6ad9b2; */
+    background-color:#003542;
     width:100%;
 }
 
@@ -66,8 +67,8 @@ ul {
      a:active,
      a.active {
          color: white !important;
-        background-color:rgba(45, 190, 118, 0.568);
-        border-bottom: 4px solid yellowgreen;
+        /* background-color:rgba(45, 190, 118, 0.568); */
+        /* border-top: 4px solid yellowgreen; */
         width:100%;
         animation: enable 0.3s linear;
     }

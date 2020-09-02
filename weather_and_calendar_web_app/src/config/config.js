@@ -1,13 +1,13 @@
 import firebase from 'firebase';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDX9ksGGSPpONjmaC5z5EPs55XsXYgMXl4",
-    authDomain: "my-react-project-eabd0.firebaseapp.com",
-    databaseURL: "https://my-react-project-eabd0.firebaseio.com",
-    projectId: "my-react-project-eabd0",
-    storageBucket: "",
-    messagingSenderId: "449538795913",
-    appId: "1:449538795913:web:4e7c430b7c1278412c9958"
+  apiKey: "AIzaSyBDMwGHbc3FBMEYkL_UZPRc0vkuVTvsR9g",
+  authDomain: "weather-and-calendar-web-app.firebaseapp.com",
+  databaseURL: "https://weather-and-calendar-web-app.firebaseio.com",
+  projectId: "weather-and-calendar-web-app",
+  storageBucket: "weather-and-calendar-web-app.appspot.com",
+  messagingSenderId: "497127573191",
+  appId: "1:497127573191:web:0ff23ef845862f92dc20e2",
   };
   // Initialize Firebase
 

@@ -15,7 +15,7 @@ const Background = () => {
 
           //weather data is displayed...
               <div style={{backgroundColor:"wheat",
-              marginTop: "5rem"
+              marginTop: "-1rem"
               }}>
 
 
@@ -31,7 +31,7 @@ const Background = () => {
                     <Link to = "/weather" style = {{ 
                     display:"block",
                     fontSize: "2rem",
-                  borderBottom: "6px solid yellow"
+                  borderBottom: "6px solid blue"
                }} className="weather_link font-weight-bold"><u>Weather</u></Link>
                <Route path="/weather" component={Weather} />
                     </div>
@@ -80,7 +80,7 @@ const Background = () => {
 </div>
               {/* calendar data is rendered */}
     
-           <div className="row">
+           <div className="row" style = {{backgroundColor:"white"}}>
                 <div className = "col-md-6 text-center">
                     <div style={{position:"relative",top:'30%'}}>
                     <h1>CALENDAR APP</h1>                
@@ -169,7 +169,7 @@ const Background = () => {
 
              <div className = "row">
 
-                 <div className = "col-md-5">
+                 <div className = "col-md-4">
                  
                  <h4 className = "font-weight-bold"> &copy; 2019 A Modern Tribe Hootenanny  ,  Terms of Service , Privacy , Policy</h4>
 

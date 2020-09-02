@@ -17,10 +17,10 @@ const navBar = () => (
                                 exact={true}
                                 activeClassName="is-active link"
                                 activeStyle={{
-                                    textDecoration: 'underline',
+                                    // textDecoration: 'underline',
                                     color: 'white',
-                                    backgroundColor:'#1f7d4f',
-                                    borderBottom: '4px solid #c9b624',
+                                    // backgroundColor:'#1f7d4f',
+                                    borderTop: '4px solid white',
                                     fontWeight:'bold',
                                     fontSize:'1em'
                                 }}>Home</NavLink></li>
@@ -32,10 +32,10 @@ const navBar = () => (
                                 search: '?quick-submit=true'
                             }}
                             activeStyle={{
-                                textDecoration: 'underline',
+                                // textDecoration: 'underline',
                                 color: 'white',
-                                backgroundColor:'#1f7d4f',
-                                borderBottom: '4px solid #c9b624',
+                                // backgroundColor:'#1f7d4f',
+                                borderTop: '4px solid white',
                                 fontWeight:'bold'
                             }}>Weather</NavLink></li>
 
@@ -46,10 +46,10 @@ const navBar = () => (
                                 search: '?quick-submit=true'
                             }}
                             activeStyle={{
-                                textDecoration: 'underline',
+                                // textDecoration: 'underline',
                                 color: 'white',
-                                backgroundColor:'#1f7d4f',
-                                borderBottom: '4px solid #c9b624',
+                                // backgroundColor:'#1f7d4f',
+                                borderTop: '4px solid white',
                                 fontWeight:'bold',
                             }}>Calendar</NavLink></li>
 

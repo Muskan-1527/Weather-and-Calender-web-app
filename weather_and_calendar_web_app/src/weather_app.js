@@ -160,10 +160,6 @@ class WeatherApp extends React.Component {
 
       const response3 = await api_call3.json(); // present weather
 
-      console.log(response);
-      console.log(response2);
-      console.log(response3);
-
       if (response.cod !== "404") {
         this.setState({
           city: response3.name,
@@ -236,7 +232,7 @@ class WeatherApp extends React.Component {
   render() {
     return (
       <div className="App" style = {{
-        marginTop: "5rem"
+        marginTop: "-1rem"
       }} >
 
         <Weather

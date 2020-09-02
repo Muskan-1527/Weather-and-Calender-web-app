@@ -44,7 +44,7 @@ constructor(props){
      fire.auth().signOut().then((u) => {
          Swal.fire({
              type:"success",
-             text: "Successly lgged out"
+             text: "Successfully logged out"
          })
      }
      );   //user logs out...
